@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Project Showcase</title>
     <style>
         *{
            margin: 0;
            padding: 0; 
+           box-sizing: border-box;
         }
         body{
             font-family: Arial, Helvetica, sans-serif;
@@ -64,8 +66,8 @@
             margin-right: 50px;
         }
         .search img{
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             cursor: pointer;
             border-radius: 50%;
         }
@@ -79,12 +81,12 @@
             border-radius: 6px;
             text-decoration: none;
             font-size: 14px;
-            height: 23px;
+            height: 40px;
             width: auto;
         }
         .upload-btn img{
-            width: 16px;
-            height: 16px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
         }
         .profile{
@@ -100,52 +102,78 @@
             text-decoration: none;
         }
         .home-body{
-            background-image: url(lap);
-            background-size: cover;
-            background-position: center;
+            background-color: rgb(72, 154, 192);
             height: 100vh;
-            color: rgb(236, 233, 233);
             justify-content: center;
             align-items: center;
-            position: relative;
             display: flex;
             text-align: center;
+            padding: 40px 20px;
         }
-        .home-content h1{     
+        .home-content h1{ 
+            font-weight: bolder;    
              font-size: 3em;  
-            padding: 10px;         
+            padding: 20px;         
             font-weight: bold;
             font-family: 'Times New Roman', Times, serif;
-            margin-bottom: 20px; 
-            margin-top: 30px; 
+            margin: 15px;
         }   
         .home-content{
-            border: 5px solid rgb(226, 214, 214);
-            padding: 10px;
-            margin: 50px 100px;
-            max-width: 800px; 
+            border: 5px solid rgb(15, 14, 14);
+            margin: 6px;
+            max-width: 1000px; 
             z-index: 3;
             backdrop-filter: blur(1px);     
-            width: 80%;  
+            width: 80%; 
         }  
         .home-content h2{
-            color: rgb(115, 115, 241);
+            color: rgb(3, 3, 70);
             font-weight: bold;
-            font-size: 2em;
+            font-size: 2.5em;
             margin-top: 50px;
             margin-bottom: 20px;
         }
         .home-content p{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             color: white;
-            padding: 100px;
-            font-size: 1.2em;
+            padding: 30px;
+            font-size: 1.5em;
             line-height: 1.6;
         }
-        .explore{
-            display: inline-flex;
+        .buttons{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .explore, .upload{
             align-items: center;
             justify-content: center;
-            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            background-color: #1c3152;
+            color: rgb(240, 236, 236);
+            border-radius: 8px;
+            padding: 12px 20px;
+            height: 50px;
+            transition: background 0.3s, border 0.3s;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+        .explore a, .upload a {
+            color: rgb(241, 239, 239);
+            font-weight: bold;
+            font-size: 1em;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .explore:hover, .upload:hover{
+            background-color: #04080a;
+            transform: scale(1.05);
+        }
+        .nav-bar a.active {
+            background-color: #333;
+            color: white;
         }
 
     </style>
@@ -154,10 +182,10 @@
     <header>
         <!----left-logo and titile----->
         <div class="head">
-        <img src="projectShowcaselogo" alt="project-showcaseLogo" style="width: 35px; height: 35px; margin-right: 10px; border-radius: 50%;">
+        <img src="Images/projectShowcaselogo" alt="project-showcaseLogo" style="width: 35px; height: 35px; margin-right: 10px; border-radius: 50%;">
             <div class="site-info">
             <h2>USJ Projects</h2>
-            <p style="font-size: 20px;">University of Sri Jayawardenepura</p>
+            <p style="font-size: 16px;">University of Sri Jayawardenepura</p>
             </div>
         </div>
 
@@ -171,9 +199,9 @@
 
             <!----Right search,upload button,profile---->
             <div class="search">
-                <img src="searchlogo" alt="searchIcon">
+                <img src="Images/searchlogo" alt="searchIcon">
                 <a href="upload.html" class="upload-btn">
-                    <img src="uploadLogo" alt="uploadIcon">
+                    <img src="Images/uploadLogo" alt="uploadIcon">
                     <span>Upload</span>
                 </a>
                 <div class="profile">
@@ -188,13 +216,15 @@
         <h2>Student Project Showcase</h2>
         <br>
         <p>Discover innovative academic projects, share your work, and connect with fellow students. Building tomorrow's solution today.</p>
-        <div class="explore">
-            <img src="searchlogo" alt="searchIcon" style="width: 30px; height: 30px; margin-right: 10px;">
-            <a href="gallery.html" target="_blank">Explore Projects</a>
-        </div>
-        <div class="upload">
-            <img src="uploadLogo" alt="uploadIcon" style="width: 30px; height: 30px; margin-right: 10px;">
-            <a href="upload.html" target="_blank">Upload Your Project</a>
+        <div class="buttons">
+            <a href="gallery.html" class="explore" target="_blank">
+            <img src="Images/searchlogo" alt="searchIcon" style="width: 30px; height: 30px; margin-right: 10px; border-radius: 50%;">
+            <span>Explore Projects</span>
+            </a>
+        <a href="upload.html" class="upload" target="_blank">
+            <img src="Images/uploadLogo" alt="uploadIcon" style="width: 30px; height: 30px; margin-right: 10px;border-radius: 50%;">
+            <span>Upload Your Project</span>
+        </a>
         </div>
         </div>
     </div>
