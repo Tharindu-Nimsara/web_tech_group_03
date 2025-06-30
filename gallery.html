@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="gallery.css">
+<!--Roboto-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class=" left-section">
+        <img class="school-icon" src="Images/school-icon.png" alt="uni-icon">
+        <div class="uni-details">
+            <p class="project-name">USJ Projects</p>
+            <p class="uni-name">University of Sri Jayawardenepura</p>
+        </div>
+    </div>
+    <div class="middle-section">
+        <a href="">Home</a>
+        <a href="">Projects</a>
+        <a href="">Upload</a>
+        <a href="">About</a>
+        <span></span>
+    </div>
+    <div class="right-section">
+        <img class="search-icon" src="Images/search-icon.png" alt="search-icon">
+        <div class="upload-section">
+            <img class="upload-icon" src="Images/upload-icon.png" alt="">
+            <a class="upload-button" href="#">Upload</a>
+        </div>
+        <div class="user-section">
+            <a class="user-initials" href="">JD</a>
+        </div>
+    </div>
+</header>
+<hr>
+<div class="content-wrapper">
+    <div class="gallery-headings">
+    <h1>Project Gallery</h1>
+    <p>Explore innovative academic projects from our students</p>
+    </div>
+
+    <div class="gallery-inputs">
+    <div class="search-container">
+        <input type="text" placeholder="Search projects,authors or keywords..." id="search-project">
+        <span class="search-box-icon">&#128269;</span>
+    </div>
+    <select name="departments" id="departments">
+        <option value="All-Departments" selected="selected">All Departments</option>
+    </select>
+    <select name="years" id="years">
+        <option value="All-Years" selected="selected">All Years</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+    </select>
+    <select name="tags" id="tags">
+        <option value="All-tags" selected="selected">All Tags</option>
+    </select>
+    </div>
+
+    <div class="sum-of-projects">
+    <p>Showing 6 of 6 projects</p>
+    <a href="">Upload Project</a>
+    </div>
+    <hr>
+    <div class="gallery-grid">
+        <div class="gallery-sub-element">
+            <div class="sub-element-top">
+                <img class="sub-element-bg" src="Images/Unilogo.jpg" alt="">
+                <div class="tooltip">
+                    2024
+                </div>
+            </div>
+            <div class="sub-element-bottom">
+                <h2>AI-Powered Student Performance Analytics</h2>
+                <p class="bottom-para-one">Machine learning system to predict and improve student academic outcomes using historical data...</p>
+                <h5>By Kasun Perera</h5>
+                <p class="bottom-para-two">Computer Science</p>
+                <div class="key-areas">
+                    <p>AI</p>
+                    <p>Machine Learning</p>
+                    <p>Education</p>
+                </div>
+                <div class="favor-elements">
+                    <img src="Images/heart-icon.png" alt="heart-icon">
+                    <p id="hearts">45</p>
+                    <img src="Images/eye-icon.png" alt="eye-icon">
+                    <p id="views">234</p>
+                    <img src="Images/download-icon.png" alt="download-icon">
+                    <p id="downloads">12</p>
+                </div>
+                <div class="sub-element-final">
+                    <a href="#">View Details</a>
+                    <a href="#">&#8594;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-sub-element">
+            <div class="sub-element-top">
+                <img class="sub-element-bg" src="Images/Unilogo.jpg" alt="">
+                <div class="tooltip">
+                    2024
+                </div>
+            </div>
+            <div class="sub-element-bottom">
+                <h2>Sustainable Water Management System</h2>
+                <p class="bottom-para-one">IoT based solution for monitoring and optimizing water usage in urban areas wirg real-time analytics</p>
+                <h5>By Nimali Silva</h5>
+                <p class="bottom-para-two">Environmental Science</p>
+                <div class="key-areas">
+                    <p id="hearts">IoT</p>
+                    <p id="views">Sustainability</p>
+                    <p id="downloads">Water Management</p>
+                </div>
+                <div class="favor-elements">
+                    <img src="Images/heart-icon.png" alt="heart-icon">
+                    <p>38</p>
+                    <img src="Images/eye-icon.png" alt="eye-icon">
+                    <p>189</p>
+                    <img src="Images/download-icon.png" alt="download-icon">
+                    <p>8</p>
+                </div>
+                <div class="sub-element-final">
+                    <a href="#">View Details</a>
+                    <a href="#">&#8594;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-sub-element">
+            <div class="sub-element-top">
+                <img class="sub-element-bg" src="Images/Unilogo.jpg" alt="">
+                <div class="tooltip">
+                    2023
+                </div>
+            </div>
+            <div class="sub-element-bottom">
+                <h2>Digital Heritage Preservation Platform</h2>
+                <p class="bottom-para-one">Virtual reality application for preserving and experiencing Sri Lankan cultural heritage sites</p>
+                <h5>By Ravindu Fernando</h5>
+                <p class="bottom-para-two">Digital Arts</p>
+                <div class="key-areas">
+                    <p>VR/AR</p>
+                    <p>Cultural Heritage</p>
+                    <p>Digital Preservation</p>
+                </div>
+                <div class="favor-elements">
+                    <img src="Images/heart-icon.png" alt="heart-icon">
+                    <p id="hearts">52</p>
+                    <img src="Images/eye-icon.png" alt="eye-icon">
+                    <p id="views">312</p>
+                    <img src="Images/download-icon.png" alt="download-icon">
+                    <p id="downloads" >15</p>
+                </div>
+                <div class="sub-element-final">
+                    <a href="#">View Details</a>
+                    <a href="#">&#8594;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-sub-element">
+            <div class="sub-element-top">
+                <img class="sub-element-bg" src="Images/Unilogo.jpg" alt="">
+                <div class="tooltip">
+                    2024
+                </div>
+            </div>
+            <div class="sub-element-bottom">
+                <h2>Smart Agriculture Monitoring</h2>
+                <p class="bottom-para-one">Automated crop monitoring system using drone technology and computer vision for precision farming</p>
+                <h5>By Thilini Rajapakse</h5>
+                <p class="bottom-para-two">Agricultural Technology</p>
+                <div class="key-areas">
+                    <p id="hearts">Agriculture</p>
+                    <p id="views">Computer Vision</p>
+                    <p id="downloads">Drones</p>
+                </div>
+                <div class="favor-elements">
+                    <img src="Images/heart-icon.png" alt="heart-icon">
+                    <p>41</p>
+                    <img src="Images/eye-icon.png" alt="eye-icon">
+                    <p>267</p>
+                    <img src="Images/download-icon.png" alt="download-icon">
+                    <p>9</p>
+                </div>
+                <div class="sub-element-final">
+                    <a href="#">View Details</a>
+                    <a href="#">&#8594;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-sub-element">
+            <div class="sub-element-top">
+                <img class="sub-element-bg" src="Images/Unilogo.jpg" alt="">
+                <div class="tooltip">
+                    2023
+                </div>
+            </div>
+            <div class="sub-element-bottom">
+                <h2>Blockchain-Based Voting System</h2>
+                <p class="bottom-para-one">Secure and transparent electronic voting platform utilizing blockchain technology for elections</p>
+                <h5>By Chaminda Wickramasinghe</h5>
+                <p class="bottom-para-two">Information Systems</p>
+                <div class="key-areas">
+                    <p>Blockchain</p>
+                    <p>Security</p>
+                    <p>E-Governance</p>
+                </div>
+                <div class="favor-elements">
+                    <img src="Images/heart-icon.png" alt="heart-icon">
+                    <p id="hearts">67</p>
+                    <img src="Images/eye-icon.png" alt="eye-icon">
+                    <p id="views">445</p>
+                    <img src="Images/download-icon.png" alt="download-icon">
+                    <p id="downloads">23</p>
+                </div>
+                <div class="sub-element-final">
+                    <a href="#">View Details</a>
+                    <a href="#">&#8594;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-sub-element">
+            <div class="sub-element-top">
+                <img class="sub-element-bg" src="Images/Unilogo.jpg" alt="">
+                <div class="tooltip">
+                    2024
+                </div>
+            </div>
+            <div class="sub-element-bottom">
+                <h2>Mental Health Support Chatbot</h2>
+                <p class="bottom-para-one">AI-powered conversational agent providing mental health support and resources for university students</p>
+                <h5>By Sanduni Perera</h5>
+                <p class="bottom-para-two">Psychology & IT</p>
+                <div class="key-areas">
+                    <p>AI</p>
+                    <p>Mental Health</p>
+                    <p>Chatbot</p>
+                </div>
+                <div class="favor-elements">
+                    <img src="Images/heart-icon.png" alt="heart-icon">
+                    <p id="hearts">73</p>
+                    <img src="Images/eye-icon.png" alt="eye-icon">
+                    <p id="views">398</p>
+                    <img src="Images/download-icon.png" alt="download-icon">
+                    <p id="downloads">18</p>
+                </div>
+                <div class="sub-element-final">
+                    <a href="#">View Details</a>
+                    <a href="#">&#8594;</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+<footer>
+    <div class="footer-outer">
+        <div class="footer-one">
+            <div class="footer-two">
+                <p>USJ</p>
+                <div class="footer-three">
+                    <h4>USJ Student Projects</h4>
+                    <p>University of Sri Jayawardenepura</p>
+                </div>
+            </div>
+            <p>A platform for students to showcase their academic projects and connect with the university community.</p>
+        </div>
+        <div class="footer-four">
+            <a href="#">Quick links</a>
+            <a href="#">Browse Projects</a>
+            <a href="#">Upload Project</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-four">
+            <a href="#">Support</a>
+            <a href="#">Help Center</a>
+            <a href="#">Guidelines</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+    <hr>
+    <div class="footer-outer">
+        <p>&#169;2024 University of Sri Jayawardenepura.All rights reserved</p>
+    </div>
+</footer>
+
+</body>
+</html>
