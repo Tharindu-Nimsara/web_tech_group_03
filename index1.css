@@ -9,6 +9,7 @@
             color: #333;
             background-color: #ffffff;
         }
+        /* Header start */
         header{
             display: flex;
             justify-content: space-between;
@@ -109,6 +110,8 @@
             transition: transform 0.3s;
             border: 2px solid #1976d2;
         }
+        /* Header End */
+
         .home-body{
             background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 50%, #f3e5f5 100%);
             height: 100vh;
@@ -519,6 +522,9 @@
     align-items: center;
     color: white;
 }
+
+/* Footer Start*/
+
 footer {
     background-color: #1a1a2e;
     padding: 60px 40px 40px;
@@ -573,6 +579,7 @@ footer {
 
 .footer-section ul {
     list-style: none;
+    
 }
 
 .footer-section ul li {
@@ -626,3 +633,4 @@ footer {
             }
         }
 
+/* Footer End*/
