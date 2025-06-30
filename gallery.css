@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+p,h1,h2,h3,h4,h5 {
+    font-family: Roboto;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-family: Roboto;
+}
+hr {
+    color: rgba(236, 236, 236, 0.427);
+    width: 100%;
+    border: 1px solid;
+}
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;     /* Centers the content */
+  padding: 2rem 1rem;  /* Padding for spacing */
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 15px;
+    min-width: 450px;
+}
+.left-section {
+    display: flex;
+}
+.project-name {
+    font-weight: bold;
+}
+.school-icon {
+    margin: 5px 10px 0 0;
+    width: 35px;
+    height: 30px;
+}
+.middle-section {
+    display: flex;
+    position: relative;
+}
+.middle-section a {
+    padding: 15px 25px;
+    position: relative;
+    display: inline-block;
+}
+.middle-section span {
+    position: absolute;
+    top: 44px;
+    left: 96px;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(rgb(0, 106, 255));
+    transition: 0.75s;
+}
+.middle-section a:nth-child(1):hover~span {
+    left: 8px;
+    width: 90px;
+}
+.middle-section a:nth-child(3):hover~span{
+    left: 215px;
+    width: 80px;
+}
+.middle-section a:nth-child(4):hover~span{
+    left: 310px;
+    width: 80px;
+}
+.right-section {
+    display: flex;
+    align-items: center;
+}
+.search-icon {
+    width: 35px;
+    border-radius: 50%;
+    padding: 4px;
+    margin-right: 10px;
+}
+.upload-section {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px 25px 5px 15px;
+    margin-right: 30px;
+}
+.upload-icon{
+    width: 25px;
+    margin-right: 10px;
+}
+.upload-button {
+    color: white;
+}
+.user-section {
+    padding: 10px;
+    border-radius: 50%;
+    margin: 0 10px 0 -20px;
+    background-color: rgb(235, 235, 235);
+}
+.gallery-headings h1 {
+    font-family: Roboto;
+    font-weight: 900px;
+}
+.gallery-headings p{
+    padding: 15px 0;
+    color: rgb(57, 57, 57);
+}
+.search-container {
+  position: relative;
+  min-width: 400px;
+  flex: 5;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 8px 10px 8px 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0.5px rgba(120, 120, 120, 0.1) ;
+}
+
+.search-container .search-box-icon {
+  position: absolute;
+  left: 1px;
+  top: 45%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.search-container input::placeholder {
+    font-size: 16px;
+}
+select {
+    padding: 8px 0;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 0 0.5px rgba(120, 120, 120, 0.1) ;
+    border-radius: 5px;
+    flex: 1;
+}
+.gallery-inputs {
+    margin-bottom: 30px;
+    display: flex;
+}
+.sum-of-projects {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.sum-of-projects p{
+    color: rgb(119, 117, 117);
+}
+.sum-of-projects a {
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500px;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 30px;
+    gap: 15px 25px;
+}
+.gallery-sub-element {
+    border: 2px solid rgb(211, 211, 211);
+    box-shadow: 0 0 8px rgb(200, 200, 200);
+    padding: 10px 20px;
+}
+.sub-element-top {
+    position: relative;
+    background-color: rgb(201, 201, 201);
+    height: auto;
+}
+.sub-element-bg {
+    display: block;
+    margin: auto;
+}
+.tooltip {
+    position: absolute;
+    top: 10px;
+    z-index: 10;
+    left: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(158, 158, 158);
+    border-radius: 20px;
+    padding: 4px 10px;
+}
+.sub-element-bottom h2{
+    margin-bottom: 15px;
+}
+.sub-element-bottom h5 {
+    margin-top: 15px;
+}
+.favor-elements {
+    display: flex;
+    column-gap: 3px;
+    margin: 15px 0;
+}
+.favor-elements p {
+    color: rgb(125, 125, 125);
+}
+.key-areas {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+.key-areas p {
+    border: 2px solid rgb(223, 223, 223);
+    border-radius: 10px;
+    padding: 0 8px;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+.sub-element-final {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.bottom-para-one,.bottom-para-two {
+    color: rgb(77, 77, 77);
+    font-size: 13px;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(5, 5, 38);
+    color: white;
+}
+.footer-outer {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0 20px;
+    padding: 10px 0;
+}
+.footer-outer p {
+        color: rgb(133, 133, 133);
+}
+.footer-one {
+    display: flex;
+    flex-direction: column;
+}
+.footer-two {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.footer-three {
+    display: flex;
+    flex-direction: column;
+}
+.footer-three h4 {
+    color: rgb(255, 255, 255);
+}
+.footer-three p {
+    color: rgb(169, 169, 169);
+}
+.footer-two > p {
+    background-color: rgb(0, 110, 255);
+    padding: 8px 5px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    margin:0 10px;
+}
+.footer-two + p{
+    font-size: 15px;
+        color: rgb(169, 169, 169);
+}
+.footer-four {
+    display: flex;
+    flex-direction: column;
+}
+.footer-four a:not(:first-child) {
+    color: white;
+    font-size: 13px;
+    margin: 6px 0;
+        color: rgb(169, 169, 169);
+}
+.footer-four a:first-child {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 28px;
+    font-size: 20px;
+}
+@media (max-width: 900px) { /*responsive design*/
+  .content-wrapper {
+    margin: auto;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+  }
+  .gallery-inputs {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 700px) {
+    header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    }
+    .gallery-grid {
+    grid-template-columns: 1fr;
+    margin: auto;
+    }
+    body {
+        min-width: 450px;
+    }
+
+}
