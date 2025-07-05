@@ -166,12 +166,65 @@ section {
 }
 
 .detail-about-publicity img{
-    padding-top: 0px;
+    padding-top: px;
     padding-left: 20px;
+    margin-top: 0px;
 }
 
-.bttn_2{
+.buttonsss{
+    align-items: flex-start;
+}
+
+.bttn_21{
     background-color: white;
+    margin-top: 10px;
+    min-width: 50px;
+    min-height: 30px;
+    margin-right: 20px;
+    align-items:flex-start;
+}
+.bttn_21 img{
+    padding-top: 6px;
+}
+
+.bttn_22{
+    background-color: white;
+    margin-top: 20px;
+    min-width: 50px;
+    min-height: 30px;
+    margin-right: 20px;
+    align-items:center;
+}
+.bttn_22 img{
+    padding-top: 6px;
+}
+
+
+.bttn_23{
+    background-color: white;
+    margin-top: -10px;
+    min-width: 50px;
+    min-height: 30px;
+    margin-right: 20px;
+    align-items:center;
+}
+.bttn_23 img{
+    padding-top: 6px;
+}
+
+.bttn_24{
+    background-color: white;
+    margin-top: 20px;
+    min-width: 50px;
+    min-height: 49px;
+    margin-right: 20px;
+    align-items:center;
+}
+
+.sharer{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0px;
 }
 
 .share{
@@ -184,6 +237,9 @@ section {
     height: 20px;
 }
 
+button p{
+    font-size: 10px;
+}
 
 
 footer {
