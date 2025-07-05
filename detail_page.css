@@ -126,9 +126,65 @@ header {
 }
 
 section {
+    height: 1000px;
     padding: 50px 20px;
-    text-align: center;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    padding-left: 100px;
+
 }
+
+.bttn{
+    color: black;
+    font-weight: bolder;
+    background-color: gray;
+    color: #111;
+    border: 0px;
+    padding: 5px;
+    border-radius: 15px;
+    min-width: 50px;
+    transition: all 0.3s ease;
+}
+.bttn:hover {
+    background-color: #1976d2;
+    color: white;
+}
+
+.box{
+    margin-top: 50px;
+    margin-left: 30px;
+    background-color: rgb(197, 195, 195);
+    width: 400px;
+    height: 300px;
+}
+
+.detail-about-publicity{
+    display: flex;
+    gap: 0px;
+}
+
+.detail-about-publicity img{
+    padding-top: 0px;
+    padding-left: 20px;
+}
+
+.bttn_2{
+    background-color: white;
+}
+
+.share{
+    width: 20px;
+    height: 20px;
+}
+
+.github{
+    width: 20px;
+    height: 20px;
+}
+
+
 
 footer {
     background-color: #1a1a2e;
@@ -145,6 +201,8 @@ footer {
     gap: 60px;
     margin-bottom: 40px;
 }
+
+
 
 .footer-section {
     display: flex;
@@ -189,6 +247,7 @@ footer {
     font-weight: 600;
     margin-bottom: 20px;
     color: #ffffff;
+    width: 100%;
 }
 
 .footer-section ul {
