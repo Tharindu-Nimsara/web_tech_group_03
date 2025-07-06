@@ -264,6 +264,30 @@ section {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
+.author{
+    margin-left: 80px;
+}
+
+.author-info{
+    display: flex;
+    gap: 20px;
+}
+
+.author-info img{
+    margin-top: 15px;
+}
+
+
+hr{
+    margin-right: 40%;
+    background-color: #e0eaf4;
+}
+
+.author-details{
+    padding-left: 20px;;
+    line-height: 12px;
+}
+
 /* .file-list{
     padding-left: 20px;
 } */
