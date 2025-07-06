@@ -149,12 +149,36 @@
                 </div>
             </div>
 
-            <div class="Project-Statictics">
+            <div class="Project-Statistics">
                 <h2>Project Statistics</h2>
+                <p><strong>Upload Date:</strong> <span id="upload-date">-</span></p>
+                <p><strong>Total Views:</strong> <span id="total-views">0</span></p>
+                <p><strong>Downloads:</strong> <span id="downloads">0</span></p>
+                <p><strong>Likes:</strong> <span id="likes">0</span></p>
+            </div>
+            <script>
+                function uploadProject() {
+                    // Show the card
+                    document.getElementById('project-stats').style.display = 'block';
+
+                    // Set today's date
+                    const today = new Date();
+                    const formattedDate = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+                    document.getElementById('upload-date').textContent = formattedDate;
+
+                    // Simulate random stats
+                    document.getElementById('total-views').textContent = Math.floor(Math.random() * 500) + 1;
+                    document.getElementById('downloads').textContent = Math.floor(Math.random() * 50) + 1;
+                    document.getElementById('likes').textContent = Math.floor(Math.random() * 100) + 1;
+                }
+            </script>
+
+            <div class="related-projects">
                 
             </div>
         </div>
     </section>
+
 
     <footer>
         <div class="footer-content">
@@ -199,6 +223,7 @@
             <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
         </div>
     </footer>
+
 </body>
 
 </html>
