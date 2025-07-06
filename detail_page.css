@@ -126,7 +126,7 @@ header {
 }
 
 section {
-    height: 1280px;
+    height: 1450px;
     padding: 50px 20px;
     text-align: left;
     display: grid;
@@ -302,6 +302,29 @@ hr{
 
 .Project-Statistics p{
     padding-left: 10px;
+}
+
+.related-projects-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;;
+}
+
+.related-projects{
+    margin-top: 50px;
+    border: 1px solid rgb(232, 223, 223);
+    border-radius: 30px;
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.1)  ;
+    padding: 20px;
+}
+
+.related-projects h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.related-project img{
+    background-color: rgb(183, 180, 180);
+    min-height: 110px;
 }
 
 /* .file-list{
