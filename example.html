@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Student Performance Analytics | USJ Projects</title>
+    <title>John Doe - USJ Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -18,24 +27,33 @@
             line-height: 1.6;
         }
         
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
         header {
-            background-color: #003366;
+            background-color: var(--primary-color);
             color: white;
-            padding: 1rem 2rem;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
+            font-size: 24px;
             font-weight: bold;
-            font-size: 1.5rem;
         }
         
         .logo span {
-            font-weight: normal;
-            font-size: 1rem;
-            display: block;
+            color: var(--secondary-color);
         }
         
         nav ul {
@@ -44,404 +62,596 @@
         }
         
         nav ul li {
-            margin-left: 1.5rem;
+            margin-left: 20px;
         }
         
         nav ul li a {
             color: white;
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+        nav ul li a:hover {
+            color: var(--secondary-color);
         }
         
-        .main-content {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-        }
-        
-        .sidebar {
+        /* Profile Section */
+        .profile-section {
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .sidebar-section {
-            background-color: white;
+            margin: 30px 0;
+            background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         
-        h1 {
-            color: #003366;
-            margin-bottom: 1rem;
+        .profile-left {
+            flex: 1;
+            padding: 30px;
+            border-right: 1px solid #eee;
         }
         
-        h2 {
-            color: #003366;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.5rem;
+        .profile-right {
+            flex: 2;
+            padding: 30px;
         }
         
-        .project-description {
-            margin-bottom: 2rem;
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .profile-info h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .profile-info h2 {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .location i {
+            margin-right: 5px;
+        }
+        
+        .bio {
+            margin-bottom: 20px;
+            color: #555;
         }
         
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
+            gap: 10px;
+            margin-bottom: 25px;
         }
         
         .tag {
-            background-color: #e0e0e0;
-            padding: 0.3rem 0.8rem;
+            background-color: var(--light-color);
+            padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 14px;
+            color: var(--dark-color);
         }
         
-        .project-stats {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .project-actions {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .btn-like {
-            background-color: #f0f0f0;
-            color: #333;
-        }
-        
-        .btn-share {
-            background-color: #003366;
-            color: white;
-        }
-        
-        .btn-github {
-            background-color: #333;
-            color: white;
-        }
-        
-        .btn-demo {
-            background-color: #4CAF50;
-            color: white;
-        }
-        
-        .file-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .file-list li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
+        .stats {
             display: flex;
             justify-content: space-between;
-        }
-        
-        .file-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .download-btn {
-            color: #003366;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .keyword {
-            background-color: #e0e0e0;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-        
-        .author-info {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #003366;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        
-        .author-details h3 {
-            margin-bottom: 0.3rem;
-        }
-        
-        .author-details p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
         
         .stat-item {
             text-align: center;
         }
         
-        .stat-value {
-            font-size: 1.5rem;
+        .stat-number {
+            font-size: 24px;
             font-weight: bold;
-            color: #003366;
+            color: var(--secondary-color);
         }
         
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 12px;
             color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .related-project {
+        .profile-tabs {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
+            margin-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
         
-        .related-project:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s;
         }
         
-        .related-project-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #003366;
-            color: white;
+        .tab.active {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .tab:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .project-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .project-tag {
+            background-color: var(--light-color);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--dark-color);
+        }
+        
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .project-stat {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1rem;
         }
         
-        .related-project-details h4 {
-            margin-bottom: 0.2rem;
+        .project-stat i {
+            margin-right: 5px;
         }
         
-        .related-project-details p {
-            color: #666;
-            font-size: 0.8rem;
-        }
-        
-        .upload-btn {
-            background-color: #003366;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+        .view-project {
+            color: var(--secondary-color);
             text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Contact & Academic Info */
+        .info-section {
+            margin-bottom: 30px;
+        }
+        
+        .info-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
             display: inline-block;
-            margin-bottom: 2rem;
         }
         
-        .breadcrumbs {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+        .info-content {
+            color: #555;
         }
         
-        .breadcrumbs a {
-            color: #003366;
+        .info-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-item i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background-color: var(--light-color);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--dark-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+            }
+            
+            .profile-left {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .stat-item {
+                flex: 1 1 100px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            USJ Projects<br>
-            <span>University of Sri Jayewardenepura</span>
+        <div class="container header-content">
+            <div class="logo">USJ <span>Projects</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Upload</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Upload</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
     </header>
-    
+
     <div class="container">
-        <main class="main-content">
-            <div class="breadcrumbs">
-                <a href="#">Projects</a> / <a href="#">AI-Powered Student Performance Analytics</a>
-            </div>
-            
-            <h1>AI-Powered Student Performance Analytics</h1>
-            
-            <div class="project-description">
-                <p>A comprehensive machine learning system designed to predict and improve student academic outcomes using historical data and behavioral patterns. This project implements various ML algorithms to analyze student performance trends and provide actionable insights for educators.</p>
-            </div>
-            
-            <div class="tags">
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Education</span>
-                <span class="tag">Python</span>
-                <span class="tag">Data science</span>
-            </div>
-            
-            <div class="project-stats">
-                <span>Uses: 23</span>
-                <span>Views: 234</span>
-                <span>Downloads: 12</span>
-            </div>
-            
-            <div class="project-actions">
-                <a href="#" class="btn btn-like">Like Project</a>
-                <a href="#" class="btn btn-share">Share</a>
-                <a href="#" class="btn btn-github">GitHub</a>
-                <a href="#" class="btn btn-demo">Live Demo</a>
-            </div>
-            
-            <h2>Abstract</h2>
-            <p>This project addresses the growing need for data-driven insights in education by developing an AI-powered analytics platform. Using machine learning algorithms including Random Forest, SVM, and Neural Networks, the system analyzes multiple data points including attendance, assignment scores, participation, and demographic factors to predict student performance and identify at-risk students early in the academic cycle.</p>
-            
-            <h2>Project Files</h2>
-            <p>Download project documentation and resources</p>
-            <ul class="file-list">
-                <li>
-                    <span>Project_Report.pdf</span>
-                    <a href="#" class="download-btn">Download</a>
-                </li>
-                <li>
-                    <span>Source_Code.zip</span>
-                    <a href="#" class="download-btn">Download</a>
-                </li>
-                <li>
-                    <span>Presentation.pptx</span>
-                    <a href="#" class="download-btn">Download</a>
-                </li>
-                <li>
-                    <span>Demo_Video.mp4</span>
-                    <a href="#" class="download-btn">Download</a>
-                </li>
-                <li>
-                    <span>Dataset_Sample.csv</span>
-                    <a href="#" class="download-btn">Download</a>
-                </li>
-            </ul>
-            
-            <h2>Key Words</h2>
-            <div class="keywords">
-                <span class="keyword">machine learning</span>
-                <span class="keyword">education technology</span>
-                <span class="keyword">student performance</span>
-                <span class="keyword">predictive analytics</span>
-            </div>
-        </main>
-        
-        <aside class="sidebar">
-            <div class="sidebar-section">
-                <h2>Author Information</h2>
-                <div class="author-info">
-                    <div class="author-avatar">KP</div>
-                    <div class="author-details">
-                        <h3>Kasun Perera</h3>
-                        <p>kasun.perera@sjp.ac.lk</p>
-                        <p>Computer Science</p>
-                        <p>2024</p>
-                        <p>Supervisor: Dr. Amara Wickzamasinghe</p>
-                        <p>Final Year Project - CS4999</p>
+        <section class="profile-section">
+            <div class="profile-left">
+                <div class="info-section">
+                    <h3 class="info-title">Contact Information</h3>
+                    <div class="info-content">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>john.doe@sip.ac.lk</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+94 77 123 4567</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/johndoe</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-globe"></i>
+                            <span>johndoe.dev</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3 class="info-title">Academic Information</h3>
+                    <div class="info-content">
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>BSc (Hons) Computer Science</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>3rd Year</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-university"></i>
+                            <span>Computing & Information Systems</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-star"></i>
+                            <span>GPA: 3.75/4.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3 class="info-title">Skills & Technologies</h3>
+                    <div class="skills">
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">React</span>
+                        <span class="skill">Node.js</span>
+                        <span class="skill">TensorFlow</span>
+                        <span class="skill">MongoDB</span>
+                        <span class="skill">Docker</span>
+                        <span class="skill">AWS</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="sidebar-section">
-                <h2>Project Statistics</h2>
-                <div class="stats-grid">
+
+            <div class="profile-right">
+                <div class="profile-header">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe" class="profile-pic">
+                    <div class="profile-info">
+                        <h1>John Doe</h1>
+                        <h2>Computer Science Student</h2>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Colombo, Sri Lanka</span>
+                            <span>• Joined March 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bio">
+                    <p>Passionate computer science student focused on AI, machine learning, and sustainable technology solutions. Always eager to collaborate on innovative projects that can make a positive impact on society.</p>
+                </div>
+
+                <div class="tags">
+                    <span class="tag">Artificial Intelligence</span>
+                    <span class="tag">Web Development</span>
+                    <span class="tag">Mobile Apps</span>
+                    <span class="tag">IoT</span>
+                </div>
+
+                <div class="stats">
                     <div class="stat-item">
-                        <div class="stat-value">3/15/2024</div>
-                        <div class="stat-label">Upload Date</div>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Projects</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">234</div>
-                        <div class="stat-label">Total Views</div>
+                        <div class="stat-number">105</div>
+                        <div class="stat-label">Total Likes</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">12</div>
-                        <div class="stat-label">Downloads</div>
+                        <div class="stat-number">579</div>
+                        <div class="stat-label">Profile Views</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">45</div>
-                        <div class="stat-label">Likes</div>
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Followers</div>
+                    </div>
+                </div>
+
+                <div class="profile-tabs">
+                    <div class="tab active">Projects</div>
+                    <div class="tab">Activity</div>
+                    <div class="tab">Achievements</div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Smart Campus Navigation System</h3>
+                            <p class="project-description">An AI-powered mobile application that helps students navigate the university campus efficiently using AR technology.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">React Native</span>
+                                <span class="project-tag">TensorFlow</span>
+                                <span class="project-tag">ARCore</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <i class="fas fa-heart"></i> 45
+                                </div>
+                                <div class="project-stat">
+                                    <i class="fas fa-eye"></i> 234 views
+                                </div>
+                                <div class="project-stat">
+                                    2024
+                                </div>
+                                <a href="#" class="view-project">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Sustainable Energy Management</h3>
+                            <p class="project-description">IoT-based system for monitoring and optimizing energy consumption in university buildings.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Arduino</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">MongoDB</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <i class="fas fa-heart"></i> 32
+                                </div>
+                                <div class="project-stat">
+                                    <i class="fas fa-eye"></i> 189 views
+                                </div>
+                                <div class="project-stat">
+                                    2024
+                                </div>
+                                <a href="#" class="view-project">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Digital Library Assistant</h3>
+                            <p class="project-description">A chatbot system to help students find academic resources and manage library services.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Node.js</span>
+                                <span class="project-tag">NLP</span>
+                                <span class="project-tag">MySQL</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="project-stat">
+                                    <i class="fas fa-heart"></i> 28
+                                </div>
+                                <div class="project-stat">
+                                    <i class="fas fa-eye"></i> 156 views
+                                </div>
+                                <div class="project-stat">
+                                    2023
+                                </div>
+                                <a href="#" class="view-project">View Project</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="sidebar-section">
-                <h2>Related Projects</h2>
-                <div class="related-project">
-                    <div class="related-project-avatar">SF</div>
-                    <div class="related-project-details">
-                        <h4>Educational Data Mining Platform</h4>
-                        <p>Sanduni Fernando</p>
-                        <p>Computer Science</p>
-                    </div>
-                </div>
-                <div class="related-project">
-                    <div class="related-project-avatar">RS</div>
-                    <div class="related-project-details">
-                        <h4>Student Engagement Tracker</h4>
-                        <p>Ravindu Silva</p>
-                        <p>Computer Science</p>
-                    </div>
-                </div>
-            </div>
-        </aside>
+        </section>
     </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>USJ Student Projects</h3>
+                    <p>University of Sri Jayewardenepura</p>
+                    <p>A platform for students to showcase their academic projects and connect with the university community.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Browse Projects</a></li>
+                        <li><a href="#">Upload Project</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Guidelines</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Here you would typically load different content based on the tab
+                // For this example, we're just changing the active tab style
+            });
+        });
+    </script>
 </body>
 </html>
