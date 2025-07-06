@@ -126,7 +126,7 @@ header {
 }
 
 section {
-    height: 1000px;
+    height: 1280px;
     padding: 50px 20px;
     text-align: left;
     display: grid;
@@ -136,7 +136,7 @@ section {
 
 }
 
-.bttn{
+.bttn {
     color: black;
     font-weight: bolder;
     background-color: gray;
@@ -147,12 +147,13 @@ section {
     min-width: 50px;
     transition: all 0.3s ease;
 }
+
 .bttn:hover {
     background-color: #1976d2;
     color: white;
 }
 
-.box{
+.box {
     margin-top: 50px;
     margin-left: 30px;
     background-color: rgb(197, 195, 195);
@@ -160,86 +161,113 @@ section {
     height: 300px;
 }
 
-.detail-about-publicity{
+.detail-about-publicity {
     display: flex;
     gap: 0px;
 }
 
-.detail-about-publicity img{
+.detail-about-publicity img {
     padding-top: px;
     padding-left: 20px;
     margin-top: 0px;
 }
 
-.buttonsss{
-    align-items: flex-start;
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.bttn_21{
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    opacity: 0.8;
+}
+
+.btn-like {
+    background-color: black;
+    color: white;
+}
+
+.btn-share {
     background-color: white;
-    margin-top: 10px;
-    min-width: 50px;
-    min-height: 30px;
-    margin-right: 20px;
-    align-items:flex-start;
-}
-.bttn_21 img{
-    padding-top: 6px;
+    color: black;
 }
 
-.bttn_22{
+.btn-github {
+    background-color: black;
+    color: white;
+}
+
+.btn-demo {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+
+.abstract {
+    border: 0.1px solid rgb(217, 204, 204);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-files{
+     border: 2px solid rgb(226, 222, 222);
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.file-list{
+    padding: 10px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    /* background-color: rgb(224, 222, 222); */
+    
+}
+
+.label-style{
+    height: 50px;
+    background-color: #d4d6d9;
+}
+
+.file-list button{
+    margin: 10px;
+    float: right;
     background-color: white;
-    margin-top: 20px;
-    min-width: 50px;
-    min-height: 30px;
-    margin-right: 20px;
-    align-items:center;
-}
-.bttn_22 img{
-    padding-top: 6px;
+    color: black;
+    border: none;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
-.bttn_23{
-    background-color: white;
-    margin-top: -10px;
-    min-width: 50px;
-    min-height: 30px;
-    margin-right: 20px;
-    align-items:center;
-}
-.bttn_23 img{
-    padding-top: 6px;
+.key-words {
+    border: 1px solid rgb(208, 205, 205);
+    padding: 10px;
+    margin-top: 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-.bttn_24{
-    background-color: white;
-    margin-top: 20px;
-    min-width: 50px;
-    min-height: 49px;
-    margin-right: 20px;
-    align-items:center;
-}
+/* .file-list{
+    padding-left: 20px;
+} */
 
-.sharer{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 0px;
-}
-
-.share{
-    width: 20px;
-    height: 20px;
-}
-
-.github{
-    width: 20px;
-    height: 20px;
-}
-
-button p{
-    font-size: 10px;
-}
 
 
 footer {
@@ -353,10 +381,12 @@ footer {
     .stat-container {
         gap: 30px;
     }
+
     .stat {
         width: 100%;
         max-width: 300px;
     }
+
     .parts {
         flex-direction: column;
         align-items: center;

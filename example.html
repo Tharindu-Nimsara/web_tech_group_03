@@ -1,141 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI-Powered Student Performance Analytics</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .tags span {
-      display: inline-block;
-      background: #eee;
-      padding: 5px 10px;
-      border-radius: 15px;
-      margin: 5px 5px 5px 0;
-    }
-    .section {
-      background: #fff;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .buttons button, .buttons a {
-      padding: 10px 15px;
-      margin-right: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .buttons .like { background-color: #eee; }
-    .buttons .share { background-color: #ddd; }
-    .buttons .github { background-color: #24292e; color: #fff; }
-    .buttons .demo { background-color: #0b74de; color: #fff; }
-    .project-files a {
-      display: block;
-      margin: 10px 0;
-      text-decoration: none;
-      color: #0b74de;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 5px;
-      background: #fff;
-    }
-    .side-box {
-      background: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-top: 20px;
-    }
-    .two-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .column {
-      flex: 1;
-      min-width: 280px;
-    }
-    .keywords span {
-      background: #ddd;
-      padding: 6px 12px;
-      margin: 5px;
-      display: inline-block;
-      border-radius: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Student Performance Analytics | USJ Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            font-weight: normal;
+            font-size: 1rem;
+            display: block;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .sidebar-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        
+        h1 {
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: #003366;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        .project-description {
+            margin-bottom: 2rem;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tag {
+            background-color: #e0e0e0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .project-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .project-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-like {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-share {
+            background-color: #003366;
+            color: white;
+        }
+        
+        .btn-github {
+            background-color: #333;
+            color: white;
+        }
+        
+        .btn-demo {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .file-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .file-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .download-btn {
+            color: #003366;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .keyword {
+            background-color: #e0e0e0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .author-info {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .author-details h3 {
+            margin-bottom: 0.3rem;
+        }
+        
+        .author-details p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #003366;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .related-project {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .related-project:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .related-project-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .related-project-details h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .related-project-details p {
+            color: #666;
+            font-size: 0.8rem;
+        }
+        
+        .upload-btn {
+            background-color: #003366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumbs {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumbs a {
+            color: #003366;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>AI - Powered Student Performance Analytics</h1>
-    <p>A comprehensive machine learning system designed to predict and improve student academic outcomes using historical data and behavioral patterns...</p>
-
-    <div class="tags">
-      <span>AI</span><span>Machine Learning</span><span>Education</span><span>Python</span><span>Data science</span>
+    <header>
+        <div class="logo">
+            USJ Projects<br>
+            <span>University of Sri Jayewardenepura</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <a href="#">Projects</a> / <a href="#">AI-Powered Student Performance Analytics</a>
+            </div>
+            
+            <h1>AI-Powered Student Performance Analytics</h1>
+            
+            <div class="project-description">
+                <p>A comprehensive machine learning system designed to predict and improve student academic outcomes using historical data and behavioral patterns. This project implements various ML algorithms to analyze student performance trends and provide actionable insights for educators.</p>
+            </div>
+            
+            <div class="tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Education</span>
+                <span class="tag">Python</span>
+                <span class="tag">Data science</span>
+            </div>
+            
+            <div class="project-stats">
+                <span>Uses: 23</span>
+                <span>Views: 234</span>
+                <span>Downloads: 12</span>
+            </div>
+            
+            <div class="project-actions">
+                <a href="#" class="btn btn-like">Like Project</a>
+                <a href="#" class="btn btn-share">Share</a>
+                <a href="#" class="btn btn-github">GitHub</a>
+                <a href="#" class="btn btn-demo">Live Demo</a>
+            </div>
+            
+            <h2>Abstract</h2>
+            <p>This project addresses the growing need for data-driven insights in education by developing an AI-powered analytics platform. Using machine learning algorithms including Random Forest, SVM, and Neural Networks, the system analyzes multiple data points including attendance, assignment scores, participation, and demographic factors to predict student performance and identify at-risk students early in the academic cycle.</p>
+            
+            <h2>Project Files</h2>
+            <p>Download project documentation and resources</p>
+            <ul class="file-list">
+                <li>
+                    <span>Project_Report.pdf</span>
+                    <a href="#" class="download-btn">Download</a>
+                </li>
+                <li>
+                    <span>Source_Code.zip</span>
+                    <a href="#" class="download-btn">Download</a>
+                </li>
+                <li>
+                    <span>Presentation.pptx</span>
+                    <a href="#" class="download-btn">Download</a>
+                </li>
+                <li>
+                    <span>Demo_Video.mp4</span>
+                    <a href="#" class="download-btn">Download</a>
+                </li>
+                <li>
+                    <span>Dataset_Sample.csv</span>
+                    <a href="#" class="download-btn">Download</a>
+                </li>
+            </ul>
+            
+            <h2>Key Words</h2>
+            <div class="keywords">
+                <span class="keyword">machine learning</span>
+                <span class="keyword">education technology</span>
+                <span class="keyword">student performance</span>
+                <span class="keyword">predictive analytics</span>
+            </div>
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h2>Author Information</h2>
+                <div class="author-info">
+                    <div class="author-avatar">KP</div>
+                    <div class="author-details">
+                        <h3>Kasun Perera</h3>
+                        <p>kasun.perera@sjp.ac.lk</p>
+                        <p>Computer Science</p>
+                        <p>2024</p>
+                        <p>Supervisor: Dr. Amara Wickzamasinghe</p>
+                        <p>Final Year Project - CS4999</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Project Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">3/15/2024</div>
+                        <div class="stat-label">Upload Date</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">234</div>
+                        <div class="stat-label">Total Views</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Downloads</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">45</div>
+                        <div class="stat-label">Likes</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Related Projects</h2>
+                <div class="related-project">
+                    <div class="related-project-avatar">SF</div>
+                    <div class="related-project-details">
+                        <h4>Educational Data Mining Platform</h4>
+                        <p>Sanduni Fernando</p>
+                        <p>Computer Science</p>
+                    </div>
+                </div>
+                <div class="related-project">
+                    <div class="related-project-avatar">RS</div>
+                    <div class="related-project-details">
+                        <h4>Student Engagement Tracker</h4>
+                        <p>Ravindu Silva</p>
+                        <p>Computer Science</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
-
-    <p>👍 45 Likes | 👁️ 234 views | 📥 12 Downloads</p>
-
-    <div class="buttons">
-      <button class="like">Like Project</button>
-      <button class="share">Share</button>
-      <a href="#" class="github">GitHub</a>
-      <a href="#" class="demo">Live Demo</a>
-    </div>
-
-    <div class="section">
-      <h3>Abstract</h3>
-      <p>This project addresses the growing need for data-driven insights in education by developing an AI-powered analytics platform...</p>
-    </div>
-
-    <div class="section">
-      <h3>Project Files</h3>
-      <div class="project-files">
-        <a href="#">📄 Project_Report.pdf</a>
-        <a href="#">🗜️ Source_Code.zip</a>
-        <a href="#">📊 Presentation.pptx</a>
-        <a href="#">🎞️ Demo_Video.mp4</a>
-        <a href="#">📁 Dataset_Sample.csv</a>
-      </div>
-    </div>
-
-    <div class="two-columns">
-      <div class="column side-box">
-        <h3>Author Information</h3>
-        <p><strong>Kasun Perera</strong><br>kasun.perera@sjp.ac.lk<br>Computer Science - 2024<br>Supervisor: Dr. Amara Wickramasinghe<br>Final Year Project - CS4999</p>
-      </div>
-      <div class="column side-box">
-        <h3>Project Statistics</h3>
-        <p>📅 Upload Date: 3/15/2024<br>👁️ Views: 234<br>📥 Downloads: 12<br>❤️ Likes: 45</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3>Related Projects</h3>
-      <ul>
-        <li><strong>Educational Data Mining Platform</strong><br>Sanduni Fernando - Computer Science</li>
-        <li><strong>Student Engagement Tracker</strong><br>Ravindu Silva - Computer Science</li>
-      </ul>
-    </div>
-
-    <div class="section keywords">
-      <h3>Key Words</h3>
-      <span>machine learning</span>
-      <span>education technology</span>
-      <span>student performance</span>
-      <span>predictive analytics</span>
-    </div>
-  </div>
 </body>
 </html>
