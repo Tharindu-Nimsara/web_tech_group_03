@@ -1,11 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Student Project Showcase</title>
-    <link rel="stylesheet" href="./assets/css/pages/profile.css" />
-  </head>
-  <body>
-    <!--Make profilepage here-->
-  </body>
+<html>
+
+<head>
+  <title>Detail Page</title>
+  <link rel="stylesheet" type="text/css" href="profile.css">
+  <script src="detail_page.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <!----left-logo and titile----->
+    <div class="head">
+      <img src="Images/projectShowcaselogo" alt="project-showcaseLogo" style="
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+            border-radius: 50%;
+          " />
+      <div class="site-info">
+        <h2>USJ Projects</h2>
+        <p style="font-size: 16px">University of Sri Jayawardenepura</p>
+      </div>
+    </div>
+
+    <!---centere: Navigation--->
+    <nav class="nav-bar">
+      <a href="index1.html">Home</a>
+      <a href="gallery.html">Projects</a>
+      <a href="upload.html">Upload</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <!----Right search,upload button,profile---->
+    <div class="search">
+      <img src="Images/searchlogo" alt="searchIcon" />
+      <a href="upload.html" class="upload-btn">
+        <img src="Images/uploadLogo" alt="uploadIcon" />
+        <span>Upload</span>
+      </a>
+
+      <div class="profile">
+        <a href="profile.html">
+          <img src="Images/profile.PNG" class="profileIcon" alt="profileIcon" style="height: 40px; width: 40px" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="personal">
+    <div class="personal-information">
+      <div class="sec-2"> <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe" class="profile-pic">
+      </div>
+
+      <div class="sec-1">
+        <h2>John Doe</h2>
+        <h3>Computer Science Student</h3>
+        <div class="location">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Colombo, Sri Lanka</span>
+          <span>• Joined March 2022</span>
+        </div>
+        <p>Passionate computer science student focused on AI, machine learning, and sustainable technology solutions.
+          Always eager to collaborate on innovative projects that can make a positive impact on society.</p>
+        <div class="tags">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Web Development</span>
+          <span class="tag">Mobile Apps</span>
+          <span class="tag">IoT</span>
+        </div>
+      </div>
+
+      <div class="sec-3">
+        <div><button class="follow">Follow</button></div>
+        <div><button class="edit-profile">Edit Profile</button></div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat-item">
+      <div style="color: blue;" class="stat-number">3</div>
+      <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat-item">
+      <div style="color: purple;" class="stat-number">105</div>
+      <div class="stat-label">Total Likes</div>
+    </div>
+    <div class="stat-item">
+      <div style="color: green;" class="stat-number">579</div>
+      <div class="stat-label">Profile Views</div>
+    </div>
+    <div class="stat-item">
+      <div style="color: red;" class="stat-number">24</div>
+      <div class="stat-label">Followers</div>
+    </div>
+  </section>
+
+  <section class="profile-section">
+    <div class="profile-left">
+      <div class="info-section">
+        <h3 class="info-title">Contact Information</h3>
+        <hr>
+        <div class="info-content">
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span>john.doe@sip.ac.lk</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span>+94 77 123 4567</span>
+          </div>
+          <div class="info-item">
+            <i class="fab fa-github"></i>
+            <span>github.com/johndoe</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-globe"></i>
+            <span>johndoe.dev</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3 class="info-title">Academic Information</h3>
+        <hr>
+        <div class="info-content">
+          <div class="info-item">
+            <i class="fas fa-graduation-cap"></i>
+            <span>BSc (Hons) Computer Science</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>3rd Year</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-university"></i>
+            <span>Computing & Information Systems</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-star"></i>
+            <span>GPA: 3.75/4.0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3 class="info-title">Skills & Technologies</h3>
+        <hr>
+        <div class="skills">
+          <span class="skill">JavaScript</span>
+          <span class="skill">Python</span>
+          <span class="skill">React</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">TensorFlow</span>
+          <span class="skill">MongoDB</span>
+          <span class="skill">Docker</span>
+          <span class="skill">AWS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-right">
+      <div class="profile-header">
+        <div class="profile-tabs">
+          <div class="tab active">Projects</div>
+          <div class="tab">Activity</div>
+          <div class="tab">Achievements</div>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="Images/project1.jpg" alt="Project Image" class="project-image">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Smart Campus Navigation System</h3>
+              <p class="project-description">An AI-powered mobile application that helps students navigate the
+                university
+                campus efficiently using AR technology.</p>
+              <div class="project-tags">
+                <span class="project-tag">React Native</span>
+                <span class="project-tag">TensorFlow</span>
+                <span class="project-tag">ARCore</span>
+              </div>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <i class="fas fa-heart"></i> 45
+                </div>
+                <div class="project-stat">
+                  <i class="fas fa-eye"></i> 234 views
+                </div>
+                <div class="project-stat">
+                  2024
+                </div>
+                <a href="#" class="view-project">View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="Images/project1.jpg" alt="Project Image" class="project-image">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Sustainable Energy Management</h3>
+              <p class="project-description">IoT-based system for monitoring and optimizing energy consumption in
+                university buildings.</p>
+              <div class="project-tags">
+                <span class="project-tag">Arduino</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">MongoDB</span>
+              </div>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <i class="fas fa-heart"></i> 32
+                </div>
+                <div class="project-stat">
+                  <i class="fas fa-eye"></i> 189 views
+                </div>
+                <div class="project-stat">
+                  2024
+                </div>
+                <a href="#" class="view-project">View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="Images/project1.jpg" alt="Project Image" class="project-image">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Digital Library Assistant</h3>
+              <p class="project-description">A chatbot system to help students find academic resources and manage
+                library
+                services.</p>
+              <div class="project-tags">
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">NLP</span>
+                <span class="project-tag">MySQL</span>
+              </div>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <i class="fas fa-heart"></i> 28
+                </div>
+                <div class="project-stat">
+                  <i class="fas fa-eye"></i> 156 views
+                </div>
+                <div class="project-stat">
+                  2023
+                </div>
+                <a href="#" class="view-project">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="logo-section">
+          <img src="Images/Unilogo.jpg" alt="University Logo" class="university-logo" />
+          <div class="uni">
+            <div class="uni-name">
+              <h3>USJ Student Projects</h3>
+              <p>University of Sri Jayewardenepura</p>
+            </div>
+            <div class="description">
+              A platform for students to showcase their academic projects and
+              connect with the university community.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="gallery.html">Browse Projects</a></li>
+          <li><a href="upload.html">Upload Project</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="about.html">Help Center</a></li>
+          <li><a href="about.html">Guidelines</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // Simple tab functionality
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Here you would typically load different content based on the tab
+        // For this example, we're just changing the active tab style
+      });
+    });
+  </script>
+</body>
+
 </html>
