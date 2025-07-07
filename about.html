@@ -1,309 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>USJ Projects - About</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background: #f9f9f9;
-      color: #111;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
-    header, footer {
-      background: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #ddd;
-    }
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+        color: #111;
+      }
 
-    header nav a, footer a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #333;
-    }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+        border-bottom: 1px solid #e0e0e0;
+        padding: 15px 40px;
+        height: 85px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 5px;
+        box-sizing: border-box;
+        
+      }
+      .head {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+      }
+      .site-info h2 {
+        font-size: 28px;
+        margin-bottom: 2px;
+        margin-top: 12px;
+        color: #1976d2;
+        font-weight: 700;
+      }
+      .site-info p {
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+        margin-top: 0;
+      }
+      .nav-bar {
+        display: flex;
+        gap: 30px;
+        padding: 8px;
+      }
+      .nav-bar a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 12px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .nav-bar a:hover {
+        background: linear-gradient(135deg, #1976d2, #42a5f5);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-right: 50px;
+      }
+      .search img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 50%;
+        padding: 4px;
+        transition: all 0.3s ease;
+      }
+      .search img:hover {
+        background-color: #755fee;
+        transform: scale(1.1);
+      }
+      .upload-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #1976d2, #42a5f5);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 14px;
+        height: 30px;
+        width: 130px;
+        box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+        transition: all 0.3s ease;
+      }
+      .upload-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+      }
+      .upload-btn img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      .profile {
+        margin: 10px;
+      }
+      .profileIcon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: transform 0.3s;
+        border: 2px solid #1976d2;
+      }
 
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
+      section {
+        padding: 50px 20px;
+        text-align: center;
+      }
 
-    .intro h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .intro p {
-      max-width: 600px;
-      margin: auto;
-      margin-bottom: 30px;
-      color: #555;
-    }
+      .intro h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      .intro p {
+        max-width: 600px;
+        margin: auto;
+        margin-bottom: 30px;
+        color: #555;
+      }
 
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
+      .stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
 
-    .stats div {
-      min-width: 120px;
-    }
+      .stats div {
+        min-width: 120px;
+      }
 
-    .stats h3 {
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
+      .stats h3 {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
 
-    .university {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      text-align: left;
-      background: #f4f6f8;
-    }
+      .university {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        background: #f4f6f8;
+      }
 
-    .university .text {
-      flex: 1;
-      padding: 20px 40px;
-      max-width: 500px;
-    }
+      .university .text {
+        flex: 1;
+        padding: 20px 40px;
+        max-width: 500px;
+      }
 
-    .stats1 {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
+      .stats1 {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+      }
 
-    .stats1 div {
-      min-width: 120px;
-    }
+      .stats1 div {
+        min-width: 120px;
+      }
 
-    .stats1 h3 {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
+      .stats1 h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
 
-    .university .image-placeholder {
-  flex: 1;
-  min-width: 150px;
-  max-width: 300px;
-  height: 330px;
-  background: #ddd;
-  margin: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+      .university .image-placeholder {
+        flex: 1;
+        min-width: 150px;
+        max-width: 300px;
+        height: 330px;
+        background: #ddd;
+        margin: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-.university .image-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-     .mission-vision {
-      background: #f9fbff;
-    }
+      .university .image-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .mission-vision {
+        background: #f9fbff;
+      }
 
-    .mission-vision h2 {
-      margin-bottom: 10px;
-    }
+      .mission-vision h2 {
+        margin-bottom: 10px;
+      }
 
-    .boxes {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 30px;
-      gap: 30px;
-    }
+      .boxes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 30px;
+      }
 
-    .box {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 300px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-    }
+      .box {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 300px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      }
 
-    .project-showcase .icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
+      .project-showcase .icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+      }
 
-    .icons div {
-      max-width: 220px;
-    }
+      .icons div {
+        max-width: 220px;
+        background: white;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 300px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      }
 
-    .community {
-      background:#3b6efb;
-      color: white;
-      padding: 2rem;
-      border-radius: 8px;
-      text-align: center;
-    }
+      .community {
+        background: #3b6efb;
+        color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        text-align: center;
+      }
 
-    .community a {
-      display: inline-block;
-      background: white;
-      color: #2563eb;
-      margin: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      font-weight: 600;
-      text-decoration: none;
-    }
+      .community a {
+        display: inline-block;
+        background: white;
+        color: #2563eb;
+        margin: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        text-decoration: none;
+      }
 
-    .contact .contact-boxes {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
+      .contact .contact-boxes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+      }
 
-    .contact-boxes div {
-      background: #f1f1f1;
-      padding: 20px;
-      border-radius: 10px;
-      min-width: 200px;
-      max-width: 250px;
-    }
+      .contact-boxes div {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        min-width: 200px;
+        max-width: 250px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      }
 
-    footer {
-      margin-top: 4rem;
-      font-size: 0.875rem;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-  </style>
-</head>
-<body>
+      footer {
+        background-color: #1a1a2e;
+        padding: 60px 40px 40px;
+        border-top: 3px solid #4285f4;
+        color: white;
+      }
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 40px;
+      }
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+      }
+      .logo-section {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .university-logo {
+        margin-top: 27px;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+      }
+      .uni-name h3 {
+        font-size: 1.4rem;
+        color: white;
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+      .uni-name p {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 20px;
+      }
+      .description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 400px;
+      }
+      .footer-section h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding-inline-start: 0px;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-section ul li a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+      }
+      .footer-section ul li a:hover {
+        color: #ffffff;
+      }
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid #374151;
+        color: #9ca3af;
+        font-size: 0.9rem;
+      }
+      @media (max-width: 768px) {
+        .home-content h1 {
+          font-size: 2.5em;
+        }
+
+        .home-content h2 {
+          font-size: 2em;
+        }
+
+        .buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .stat-container {
+          gap: 30px;
+        }
+
+        .parts {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <header>
-    <div><strong>USJ Projects</strong> <br /><small>University of Sri Jayewardenepura</small></div>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="project.html">Projects</a>
-      <a href="settings.html">Settings</a>
-      <a href="about.html">About</a>
-      <a href="signin.html">Sign In</a>
-      <a href="signup.html" style="background:#3b82f6; color:white; padding:0.5rem 1rem; border-radius:4px;">Sign Up</a>
-    </nav>
-  </header>
-
-  <section class="intro">
-    <h2>About Our <br><strong>Student Project Showcase</strong></h2>
-    <p>Empowering innovation and academic excellence through a platform that celebrates student creativity, research, and technological advancement.</p>
-    <div class="stats">
-      <div><h3>1,247</h3><p>Total Projects</p></div>
-      <div><h3>892</h3><p>Active Students</p></div>
-      <div><h3>15</h3><p>Departments</p></div>
-      <div><h3>67</h3><p>This Month</p></div>
-    </div>
-  </section>
-
-  <section class="university">
-    <div class="text">
-      <h3>University of Sri Jayewardenepura</h3>
-      <p>Established in 1958, the University of Sri Jayewardenepura stands as one of Sri Lanka's premier institutions of higher education.
-        Located in Nugegoda, our university has been at the forefront of academic excellence, research innovation, and student development for over five decades.</p>
-        <p>With a diverse community of students and dedicated faculty members, we offer comprehensive programs across multiple 
-            faculties including Applied Sciences, Management Studies, Medical Sciences, Humanities and Graduate Studies.</p>
-      <div class="stats1">
-      <div><h3>15,000+</h3><p>Students</p></div>
-      <div><h3>1,200+</h3><p>Faculty Members</p></div></div>
-      <div class="stats1">
-      <div><h3>65+</h3><p>Years of Excellence</p></div>
-      <div><h3>11</h3><p>Faculties</p></div>
-    </div>  
-    </div>
-    <div class="image-placeholder">
-      <img src="Images/name.jpg"  alt="logo">
-    </div>
-  </section>
-
-  <section class="mission-vision">
-    <h2>Our Mission & Vision</h2>
-    <p>Driving innovation and excellence in education, research, and community service.</p>
-    <div class="boxes">
-      <div class="box">
-        <h4>Our Mission</h4>
-        <p>Develop globally competent citizens through our education for a sustainable future, drawing inspirations from our cultural heritage and wisdom</p>
+      <!----left-logo and titile----->
+      <div class="head">
+        <img
+          src="Images/projectShowcaselogo"
+          alt="project-showcaseLogo"
+          style="
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+            border-radius: 50%;
+          "
+        />
+        <div class="site-info">
+          <h2>USJ Projects</h2>
+          <p style="font-size: 16px">University of Sri Jayawardenepura</p>
+        </div>
       </div>
-      <div class="box">
-        <h4>Our Vision</h4>
-        <p>Prosper lives through Education.</p>
+
+      <!---centere: Navigation--->
+      <nav class="nav-bar">
+        <a href="index1.html">Home</a>
+        <a href="gallery.html">Projects</a>
+        <a href="upload.html">Upload</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <!----Right search,upload button,profile---->
+      <div class="search">
+        <img src="Images/searchlogo" alt="searchIcon" />
+        <a href="upload.html" class="upload-btn">
+          <img src="Images/uploadLogo" alt="uploadIcon" />
+          <span>Upload</span>
+        </a>
+
+        <div class="profile">
+          <a href="profile.html">
+            <img
+              src="Images/profile.PNG"
+              class="profileIcon"
+              alt="profileIcon"
+              style="height: 40px; width: 40px"
+            />
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-  
-  <section class="project-showcase">
-    <h2>About the Project Showcase</h2>
-    <p>Our Student Project Showcase is a comprehensive platform that highlights the exceptional work of<br>
-         our students across all faculties, demonstrating their ability to tackle real-world challenges through<br>
-    research, technology and innovative thinking.</p>
-    <div class="icons">
-      <div><strong>Innovation Hub</strong><p> Showcasing cutting-edge projects that push the boundaries of technology and research.</p></div>
-      <div><strong>Collaboration</strong><p>Fostering partnerships between students, faculty, industry, and research institutions.</p></div>
-      <div><strong>Global Impact</strong><p>Creating solutions that addresses social challenges and contribute to sustainable development.</p></div>
-    </div>
-  </section>
-  
+    </header>
+
+    <section class="intro">
+      <h2>About Our <br /><strong>Student Project Showcase</strong></h2>
+      <p>
+        Empowering innovation and academic excellence through a platform that
+        celebrates student creativity, research, and technological advancement.
+      </p>
+      <div class="stats">
+        <div>
+          <h3>1,247</h3>
+          <p>Total Projects</p>
+        </div>
+        <div>
+          <h3>892</h3>
+          <p>Active Students</p>
+        </div>
+        <div>
+          <h3>3</h3>
+          <p>Departments</p>
+        </div>
+        <div>
+          <h3>67</h3>
+          <p>This Month</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="university">
+      <div class="text">
+        <h3>University of Sri Jayewardenepura</h3>
+        <p>
+          Established in 1958, the University of Sri Jayewardenepura stands as
+          one of Sri Lanka's premier institutions of higher education. Located
+          in Nugegoda, our university has been at the forefront of academic
+          excellence, research innovation, and student development for over five
+          decades.
+        </p>
+        <p>
+          With a diverse community of students and dedicated faculty members, we
+          offer comprehensive programs across multiple faculties including
+          Applied Sciences, Management Studies, Medical Sciences, Humanities and
+          Graduate Studies.
+        </p>
+        <div class="stats1">
+          <div>
+            <h3>15,000+</h3>
+            <p>Students</p>
+          </div>
+          <div>
+            <h3>1,200+</h3>
+            <p>Faculty Members</p>
+          </div>
+        </div>
+        <div class="stats1">
+          <div>
+            <h3>65+</h3>
+            <p>Years of Excellence</p>
+          </div>
+          <div>
+            <h3>11</h3>
+            <p>Faculties</p>
+          </div>
+        </div>
+      </div>
+      <div class="image-placeholder">
+        <img src="Images/name.jpg" alt="logo" />
+      </div>
+    </section>
+
+    <section class="mission-vision">
+      <h2>Our Mission & Vision</h2>
+      <p>
+        Driving innovation and excellence in education, research, and community
+        service.
+      </p>
+      <div class="boxes">
+        <div class="box">
+          <h4>Our Mission</h4>
+          <p>
+            Develop globally competent citizens through our education for a
+            sustainable future, drawing inspirations from our cultural heritage
+            and wisdom
+          </p>
+        </div>
+        <div class="box">
+          <h4>Our Vision</h4>
+          <p>Prosper lives through Education.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-showcase">
+      <h2>About the Project Showcase</h2>
+      <p>
+        Our Student Project Showcase is a comprehensive platform that highlights
+        the exceptional work of<br />
+        our students across all faculties, demonstrating their ability to tackle
+        real-world challenges through<br />
+        research, technology and innovative thinking.
+      </p>
+      <div class="icons">
+        <div>
+          <strong>Innovation Hub</strong>
+          <p>
+            Showcasing cutting-edge projects that push the boundaries of
+            technology and research.
+          </p>
+        </div>
+        <div>
+          <strong>Collaboration</strong>
+          <p>
+            Fostering partnerships between students, faculty, industry, and
+            research institutions.
+          </p>
+        </div>
+        <div>
+          <strong>Global Impact</strong>
+          <p>
+            Creating solutions that addresses social challenges and contribute
+            to sustainable development.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <div class="community">
       <h3>Join Our Innovation Community</h3>
-      <p>Whether you're a student, faculty member, or industry partner, we welcome you to be part of our ecosystem.</p>
+      <p>
+        Whether you're a student, faculty member, or industry partner, we
+        welcome you to be part of our ecosystem.
+      </p>
       <a href="upload.html">Upload Your Project</a>
       <a href="gallery.html">Explore Projects</a>
     </div>
 
-     <section class="contact">
-    <h2>Get in Touch</h2>
-    <p>Have questions about the showcase or want to get involved? Reac Out!</p>
-    <div class="contact-boxes">
-      <div><strong>Visit Us</strong><p>University of Sri Jayewardenepura, Gangodawila, Nugegoda, Sri Lanka</p></div>
-      <div><strong>Call Us</strong><p>+94 11 2802026<br>+94 11 2802027</p></div>
-      <div><strong>Email Us</strong><p>showcase@sjp.ac.lk<br>info@sjp.ac.lk</p></div>
-    </div>
-  </section>
+    <section class="contact">
+      <h2>Get in Touch</h2>
+      <p>
+        Have questions about the showcase or want to get involved? Reac Out!
+      </p>
+      <div class="contact-boxes">
+        <div>
+          <strong>Visit Us</strong>
+          <p>
+            University of Sri Jayewardenepura, Gangodawila, Nugegoda, Sri Lanka
+          </p>
+        </div>
+        <div>
+          <strong>Call Us</strong>
+          <p>+94 11 2802026<br />+94 11 2802027</p>
+        </div>
+        <div>
+          <strong>Email Us</strong>
+          <p>showcase@sjp.ac.lk<br />info@sjp.ac.lk</p>
+        </div>
+      </div>
+    </section>
 
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo-section">
+            <img
+              src="Images/Unilogo.jpg"
+              alt="University Logo"
+              class="university-logo"
+            />
+            <div class="uni">
+              <div class="uni-name">
+                <h3>USJ Student Projects</h3>
+                <p>University of Sri Jayewardenepura</p>
+              </div>
+              <div class="description">
+                A platform for students to showcase their academic projects and
+                connect with the university community.
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <footer>
-    <div>
-      <strong>USJ Student Projects</strong><br />University of Sri Jayewardenepura
-      <p style="max-width: 300px;">A platform for students to showcase their academic projects and connect with the university community.</p>
-    </div>
-    <div>
-      <strong>Quick Links</strong><br />
-      <a href="gallery.html">Browse Projects</a><br />
-      <a href="upload.html">Upload Project</a><br />
-      <a href="about.html">About</a><br />
-      <a href="details.html">Contact</a>
-    </div>
-    <div>
-      <strong>Support</strong><br />
-      <a href="#">Help Center</a><br />
-      <a href="#">Guidelines</a><br />
-      <a href="#">Privacy Policy</a><br />
-      <a href="#">Terms of Service</a>
-    </div>
-    <div style="width:100%; text-align:center; margin-top:2rem;">
-      &copy; 2024 University of Sri Jayewardenepura. All rights reserved.
-    </div>
-  </footer>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="gallery.html">Browse Projects</a></li>
+            <li><a href="upload.html">Upload Project</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+          </ul>
+        </div>
 
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="about.html">Help Center</a></li>
+            <li><a href="about.html">Guidelines</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
