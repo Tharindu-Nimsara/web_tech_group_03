@@ -324,14 +324,14 @@
   display: block;
   align-self: stretch;
 }
-    .AI {
-      background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+    .AI  {
+      background: linear-gradient(135deg, #1b4be8 0%, #3388eab1 100%);
     }
     .Iot {
-      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      background: linear-gradient(135deg, #1b4be8 0%, #3388eab1 100%);
     }
     .e-comm {
-      background: linear-gradient(135deg, #ea580c 0%, #f59e42 100%);
+      background: linear-gradient(135deg, #1b4be8 0%, #3388eab1 100%);
     }
     .card-header h2 {
         margin: 0 0 8px 0;

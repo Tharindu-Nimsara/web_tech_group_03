@@ -165,7 +165,37 @@ select {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 30px;
-    gap: 15px 25px;
+    gap: 30px 25px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 0 0;
+}
+.pagination .page {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #f3f4f6;
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid #e0e0e0;
+}
+.pagination .page.active,
+.pagination .page:hover {
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  color: #fff;
+  border-color: #1976d2;
+}
+.pagination .dots {
+  color: #888;
+  font-size: 1.2rem;
+  padding: 0 6px;
 }
 .gallery-sub-element {
     border: 2px solid rgb(211, 211, 211);
