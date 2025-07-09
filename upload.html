@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upload Project</title>
 
     <!--Roboto-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="upload.css">
-</head>
-<body>
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="upload.css" />
+  </head>
+  <body>
     <header>
       <!----left-logo and titile----->
       <div class="head">
@@ -49,148 +51,273 @@
         </a>
 
         <div class="profile">
-          <a href="profile.html">
-            <img src="Images/profile.PNG"class="profileIcon"alt="profileIcon" style="height: 40px; width: 40px"/>
-          </a>
+          <img
+            src="Images/profile.PNG"
+            class="profileIcon"
+            alt="profileIcon"
+            id="profileDropdownBtn"
+            style="height: 40px; width: 40px; cursor: pointer"
+          />
+          <div
+            id="profileDropdown"
+            style="
+              display: none;
+              position: absolute;
+              right: 0;
+              top: 50px;
+              background: #fff;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+              min-width: 150px;
+              z-index: 1000;
+            "
+          >
+            <a
+              href="profile.html"
+              style="
+                display: block;
+                padding: 12px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #eee;
+              "
+              >Profile</a
+            >
+            <a
+              href="signin.html"
+              style="
+                display: block;
+                padding: 12px 20px;
+                color: #e53935;
+                text-decoration: none;
+              "
+              >Logout</a
+            >
+          </div>
         </div>
-    </div>
+      </div>
     </header>
+
+    <script>
+      // Profile dropdown logic
+      document.addEventListener("DOMContentLoaded", function () {
+        var btn = document.getElementById("profileDropdownBtn");
+        var dropdown = document.getElementById("profileDropdown");
+        if (btn && dropdown) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            dropdown.style.display =
+              dropdown.style.display === "block" ? "none" : "block";
+          });
+          document.addEventListener("click", function (e) {
+            if (!dropdown.contains(e.target) && e.target !== btn) {
+              dropdown.style.display = "none";
+            }
+          });
+        }
+      });
+    </script>
 
     <div class="content-wrapper">
       <div class="gallery-headings">
-      <h1>Upload Your Project</h1>
-      <p>Share your academic work with the university community</p>
-      </div>
-      
-      <hr>
-
-        <div class="partitions">
-          <h2>Project Information</h2>
-          <p>Provide basic details about your project</p>
-          <form action="#">
-              <table class="form-table">
-                  <tr>
-                      <td>
-                          <label for="project-title">Project Title*</label> <br>
-                          <input type="text" name="project-title" class="project-title" id="project-title" placeholder="Enter your project title" required="required">   
-                      </td>
-                      <td>
-                          <label for="author-name">Author Name*</label> <br>
-                          <input type="text" name="author-name" id="author-name" class="author-name" placeholder="Your full name" required="required">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td colspan="2">
-                          <label for="project-desc">Project Description*</label> <br>
-                          <textarea name="project-desc" id="project-desc" placeholder="Describe your project,its objectives,methodology and key findings..." ></textarea>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <label for="department">Department*</label> <br>
-                          <select name="department" id="department">
-                              <option value="Select-your-department" selected="selected">Select your department</option>
-                              <option value="computer-science">Computer Science</option>
-                              <option value="software-engineering">Software Engineering</option>
-                              <option value="information-systems">Information Systems</option>
-                          </select>
-                      </td>
-                      <td>
-                          <label for="academic-year">Academic Year*</label> <br>
-                          <select name="academic-year" id="academic-year">
-                                  <option value="Select-year" selected="selected">Select year</option>
-                                  <option value="2023">2023</option>
-                                  <option value="2024">2024</option>
-                                  <option value="2025">2025</option>
-                          </select>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <label for="supervisor">Project Supervisor</label> <br>
-                          <input type="text" name="supervisor" id="supervisor" class="supervisor" placeholder="Supervisor's name(optional) ">
-                      </td>
-                      <td>
-                          <label for="course-module">Course/Module</label> <br>
-                          <input type="text" name="course-module" id="course-module" class="course-module" placeholder="Related course or module ">
-                      </td>
-                  </tr>
-              </table>
-          </form>
-        </div>
-      <div class="partitions">
-          <h2>Tags</h2>
-          <p>Add relevent tags to help others discover your project</p>
-
-          <h4>Available tags</h4>
-          <div class="tags-choosen">
-              <a href=""><span>AI</span></a>
-              <a href=""><span>Machine Learning</span></a>
-              <a href=""><span>IoT</span></a>
-              <a href=""><span>Web Development</span></a>
-              <a href=""><span>Mobile App</span></a>
-              <a href=""><span>Data Science</span></a>
-              <a href=""><span>Blockchain</span></a>
-              <a href=""><span>VR/AR</span></a>
-              <a href=""><span>Sustainability</span></a>
-              <a href=""><span>Healthcare</span></a>
-              <a href=""><span>Education</span></a>
-              <a href=""><span>Research</span></a>
-              <a href=""><span>Innovation</span></a>
-              <a href=""><span>Technology</span></a>
-              <a href=""><span>Design</span></a>
-          </div>
+        <h1>Upload Your Project</h1>
+        <p>Share your academic work with the university community</p>
       </div>
 
+      <hr />
+
       <div class="partitions">
-          <h2>Project Files</h2>
-          <p>Upload your project documentation,source code,presentations etc...</p>
+        <h2>Project Information</h2>
+        <p>Provide basic details about your project</p>
+        <form action="#">
+          <table class="form-table">
+            <tr>
+              <td>
+                <label for="project-title">Project Title*</label> <br />
+                <input
+                  type="text"
+                  name="project-title"
+                  class="project-title"
+                  id="project-title"
+                  placeholder="Enter your project title"
+                  required="required"
+                />
+              </td>
+              <td>
+                <label for="author-name">Author Name*</label> <br />
+                <input
+                  type="text"
+                  name="author-name"
+                  id="author-name"
+                  class="author-name"
+                  placeholder="Your full name"
+                  required="required"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <label for="project-desc">Project Description*</label> <br />
+                <textarea
+                  name="project-desc"
+                  id="project-desc"
+                  placeholder="Describe your project,its objectives,methodology and key findings..."
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="department">Department*</label> <br />
+                <select name="department" id="department">
+                  <option value="Select-your-department" selected="selected">
+                    Select your department
+                  </option>
+                  <option value="computer-science">Computer Science</option>
+                  <option value="software-engineering">
+                    Software Engineering
+                  </option>
+                  <option value="information-systems">
+                    Information Systems
+                  </option>
+                </select>
+              </td>
+              <td>
+                <label for="academic-year">Academic Year*</label> <br />
+                <select name="academic-year" id="academic-year">
+                  <option value="Select-year" selected="selected">
+                    Select year
+                  </option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="supervisor">Project Supervisor</label> <br />
+                <input
+                  type="text"
+                  name="supervisor"
+                  id="supervisor"
+                  class="supervisor"
+                  placeholder="Supervisor's name(optional) "
+                />
+              </td>
+              <td>
+                <label for="course-module">Course/Module</label> <br />
+                <input
+                  type="text"
+                  name="course-module"
+                  id="course-module"
+                  class="course-module"
+                  placeholder="Related course or module "
+                />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div class="partitions">
+        <h2>Tags</h2>
+        <p>Add relevent tags to help others discover your project</p>
 
-          <div class="upload-partition">
-              <img src="Images/uploadLogo" alt="upload-logo">
-              <h3>Upload your files</h3>
-              <p>Drag and drop files here,or click or browse</p>
-              <p>Supported formats: PDF,DOC,DOCX,PPT,PPTX,ZIP,RAR,JPG,PMG,MP4(Max 50MB per file)</p>
-              <a href="">Choose Files</a>
-          </div>
+        <h4>Available tags</h4>
+        <div class="tags-choosen">
+          <a href=""><span>AI</span></a>
+          <a href=""><span>Machine Learning</span></a>
+          <a href=""><span>IoT</span></a>
+          <a href=""><span>Web Development</span></a>
+          <a href=""><span>Mobile App</span></a>
+          <a href=""><span>Data Science</span></a>
+          <a href=""><span>Blockchain</span></a>
+          <a href=""><span>VR/AR</span></a>
+          <a href=""><span>Sustainability</span></a>
+          <a href=""><span>Healthcare</span></a>
+          <a href=""><span>Education</span></a>
+          <a href=""><span>Research</span></a>
+          <a href=""><span>Innovation</span></a>
+          <a href=""><span>Technology</span></a>
+          <a href=""><span>Design</span></a>
         </div>
+      </div>
 
+      <div class="partitions">
+        <h2>Project Files</h2>
+        <p>
+          Upload your project documentation,source code,presentations etc...
+        </p>
 
-        <div class="partitions">
-          <h2>Additional Information</h2>
-          <p>Optionanl details about your project</p>
-          <form action="#">
-              <table class="form-table">
-                  <tr>
-                      <td colspan="2">
-                          <label for="project-abstract">Project Abstract</label> <br>
-                          <textarea name="project-abstract" id="project-abstract" placeholder="Brief summary of your project (optional)" ></textarea>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <label for="git-repo-name">GitHub Repository</label> <br>
-                          <input type="text" name="git-repo-name" id="git-repo-name" class="git-repo-name" placeholder="https://github.com/username/repo">
-                      </td>
-                      <td>
-                          <label for="demo-url">Live Demo URL</label> <br>
-                          <input type="text" name="demo-url" id="demo-url" class="demo-url" placeholder="https://your-project-demo.com">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td colspan="2">
-                          <label for="keywords">Keywords</label> <br>
-                          <input type="text" name="keywords" id="keywords" class="keywords" placeholder="Seperate keywords with commas">
-                      </td>
-                  </tr>
-              </table>
-          </form>
+        <div class="upload-partition">
+          <img src="Images/uploadLogo" alt="upload-logo" />
+          <h3>Upload your files</h3>
+          <p>Drag and drop files here,or click or browse</p>
+          <p>
+            Supported formats: PDF,DOC,DOCX,PPT,PPTX,ZIP,RAR,JPG,PMG,MP4(Max
+            50MB per file)
+          </p>
+          <a href="">Choose Files</a>
         </div>
+      </div>
+
+      <div class="partitions">
+        <h2>Additional Information</h2>
+        <p>Optionanl details about your project</p>
+        <form action="#">
+          <table class="form-table">
+            <tr>
+              <td colspan="2">
+                <label for="project-abstract">Project Abstract</label> <br />
+                <textarea
+                  name="project-abstract"
+                  id="project-abstract"
+                  placeholder="Brief summary of your project (optional)"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="git-repo-name">GitHub Repository</label> <br />
+                <input
+                  type="text"
+                  name="git-repo-name"
+                  id="git-repo-name"
+                  class="git-repo-name"
+                  placeholder="https://github.com/username/repo"
+                />
+              </td>
+              <td>
+                <label for="demo-url">Live Demo URL</label> <br />
+                <input
+                  type="text"
+                  name="demo-url"
+                  id="demo-url"
+                  class="demo-url"
+                  placeholder="https://your-project-demo.com"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <label for="keywords">Keywords</label> <br />
+                <input
+                  type="text"
+                  name="keywords"
+                  id="keywords"
+                  class="keywords"
+                  placeholder="Seperate keywords with commas"
+                />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
 
       <div class="buttons">
-          <a class="upload-project-button" href="upload.html">Upload Project</a>
-          <a class="save-as-draft-button" href="">Save as Draft</a>
-      </div>    
+        <a class="upload-project-button" href="upload.html">Upload Project</a>
+        <a class="save-as-draft-button" href="">Save as Draft</a>
+      </div>
     </div>
 
     <footer>
@@ -239,6 +366,6 @@
       <div class="footer-bottom">
         <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
       </div>
-    </footer> 
-</body>
+    </footer>
+  </body>
 </html>

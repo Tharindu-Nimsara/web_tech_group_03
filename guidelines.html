@@ -1,229 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="PGT.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="PGT.css" />
     <title>Guidelines</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <!----left-logo and titile----->
-        <div class="head">
-            a<img src="Imges/projectShowcaselogo" alt="project-showcaseLogo" style="
+      <!----left-logo and titile----->
+      <div class="head">
+        a<img
+          src="Imges/projectShowcaselogo"
+          alt="project-showcaseLogo"
+          style="
             width: 35px;
             height: 35px;
             margin-right: 10px;
             border-radius: 50%;
-          " />
-            <div class="site-info">
-                <h2>USJ Projects</h2>
-                <p style="font-size: 16px">University of Sri Jayawardenepura</p>
-            </div>
+          "
+        />
+        <div class="site-info">
+          <h2>USJ Projects</h2>
+          <p style="font-size: 16px">University of Sri Jayawardenepura</p>
         </div>
+      </div>
 
-        <!---centere: Navigation--->
-        <nav class="nav-bar">
-            <a href="index1.html">Home</a>
-            <a href="gallery.html">Projects</a>
-            <a href="upload.html">Upload</a>
-            <a href="about.html">About</a>
-        </nav>
+      <!---centere: Navigation--->
+      <nav class="nav-bar">
+        <a href="index1.html">Home</a>
+        <a href="gallery.html">Projects</a>
+        <a href="upload.html">Upload</a>
+        <a href="about.html">About</a>
+      </nav>
 
-        <!----Right search,upload button,profile---->
-        <div class="search">
-            <img src="Images/searchlogo" alt="searchIcon" />
-            <a href="upload.html" class="upload-btn">
-                <img src="Images/uploadLogo" alt="uploadIcon" />
-                <span>Upload</span>
-            </a>
+      <!----Right search,upload button,profile---->
+      <div class="search">
+        <img src="Images/searchlogo" alt="searchIcon" />
+        <a href="upload.html" class="upload-btn">
+          <img src="Images/uploadLogo" alt="uploadIcon" />
+          <span>Upload</span>
+        </a>
 
-            <div class="profile">
-                <a href="profile.html">
-                    <img src="Images/profile.PNG" class="profileIcon" alt="profileIcon"
-                        style="height: 40px; width: 40px" />
-                </a>
-            </div>
+        <div class="profile">
+          <img
+            src="Images/profile.PNG"
+            class="profileIcon"
+            alt="profileIcon"
+            id="profileDropdownBtn"
+            style="height: 40px; width: 40px; cursor: pointer"
+          />
+          <div
+            id="profileDropdown"
+            style="
+              display: none;
+              position: absolute;
+              right: 0;
+              top: 50px;
+              background: #fff;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+              min-width: 150px;
+              z-index: 1000;
+            "
+          >
+            <a
+              href="profile.html"
+              style="
+                display: block;
+                padding: 12px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #eee;
+              "
+              >Profile</a
+            >
+            <a
+              href="signin.html"
+              style="
+                display: block;
+                padding: 12px 20px;
+                color: #e53935;
+                text-decoration: none;
+              "
+              >Logout</a
+            >
+          </div>
         </div>
+      </div>
     </header>
 
-     <!-- Main Content -->
+    <script>
+      // Profile dropdown logic
+      document.addEventListener("DOMContentLoaded", function () {
+        var btn = document.getElementById("profileDropdownBtn");
+        var dropdown = document.getElementById("profileDropdown");
+        if (btn && dropdown) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            dropdown.style.display =
+              dropdown.style.display === "block" ? "none" : "block";
+          });
+          document.addEventListener("click", function (e) {
+            if (!dropdown.contains(e.target) && e.target !== btn) {
+              dropdown.style.display = "none";
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+      <div class="container">
+        <div class="content-card">
+          <h1 class="page-title">Project Submission Guidelines</h1>
+          <p class="page-subtitle">
+            Please read these guidelines carefully before submitting your
+            project to ensure quality and compliance.
+          </p>
 
-            <div class="content-card">
-                <h1 class="page-title">Project Submission Guidelines</h1>
-                <p class="page-subtitle">
-                    Please read these guidelines carefully before submitting your project to ensure quality and compliance.
-                </p>
-
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon upload-icon">
-                            <img src="Images/pic10.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Submission Process</h3>
-                        <p class="feature-description">
-                            Follow our structured submission process for project approval and publication.
-                        </p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon quality-icon">
-                            <img src="Images/pic09.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Quality Standards</h3>
-                        <p class="feature-description">
-                            Maintain academic integrity and technical excellence in all submissions.
-                        </p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon community-icon">
-                            <img src="Images/pic08.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Community Guidelines</h3>
-                        <p class="feature-description">
-                            Respect fellow students and contribute positively to our academic community.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="content-sections">
-                    <section class="content-section">
-                        <h2 class="section-title">Eligibility Requirements</h2>
-                        <ul class="content-list">
-                            <li>Must be a current student or recent graduate of the University of Sri Jayewardenepura</li>
-                            <li>Project must be academic in nature (coursework, research, thesis, or independent study)</li>
-                            <li>All team members must be identified and credited appropriately</li>
-                            <li>Projects must have been completed within the last 3 years</li>
-                            <li>Supervisor or faculty advisor approval required for all submissions</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Content Standards</h2>
-                        
-                        <h3 class="subsection-title">Required Information</h3>
-                        <ul class="content-list">
-                            <li>Clear project title and comprehensive description</li>
-                            <li>Complete list of contributors with their roles</li>
-                            <li>Department and academic year information</li>
-                            <li>Supervisor/advisor details and contact information</li>
-                            <li>Project timeline and completion date</li>
-                            <li>Technologies, methodologies, or tools used</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Technical Requirements</h3>
-                        <ul class="content-list">
-                            <li>High-quality images or screenshots (minimum 1200x800 pixels)</li>
-                            <li>Demo videos should be under 5 minutes and in MP4 format</li>
-                            <li>Documentation files in PDF format (maximum 10MB)</li>
-                            <li>Source code repositories must be publicly accessible</li>
-                            <li>All external links must be functional and relevant</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Prohibited Content</h3>
-                        <ul class="content-list">
-                            <li>Plagiarized or non-original work</li>
-                            <li>Content that violates intellectual property rights</li>
-                            <li>Inappropriate, offensive, or discriminatory material</li>
-                            <li>Commercial advertisements or promotional content</li>
-                            <li>Personal information of individuals without consent</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Review Process</h2>
-                        <div class="info-box">
-                            <p class="info-text">Review Timeline: 5-7 business days</p>
-                        </div>
-                        <ol class="numbered-list">
-                            <li><strong>Initial Screening:</strong> Automated checks for completeness and format compliance</li>
-                            <li><strong>Academic Review:</strong> Faculty evaluation of content quality and academic merit</li>
-                            <li><strong>Technical Review:</strong> Assessment of technical documentation and functionality</li>
-                            <li><strong>Final Approval:</strong> Administrative approval and publication scheduling</li>
-                        </ol>
-                        <p class="section-text">
-                            You will receive email notifications at each stage of the review process. If revisions are needed,
-                            detailed feedback will be provided to help you improve your submission.
-                        </p>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Post-Publication Guidelines</h2>
-                        <ul class="content-list">
-                            <li>Respond promptly to comments and questions from the community</li>
-                            <li>Update project information if significant changes occur</li>
-                            <li>Report any issues or concerns to the administration team</li>
-                            <li>Maintain professional communication in all interactions</li>
-                            <li>Credit collaborators and acknowledge support appropriately</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Contact Information</h2>
-                        <div class="contact-box">
-                            <p class="contact-item">
-                                <strong>For submission support:</strong> projects@sjp.ac.lk
-                            </p>
-                            <p class="contact-item">
-                                <strong>For technical issues:</strong> support@sjp.ac.lk
-                            </p>
-                            <p class="contact-item">
-                                <strong>For general inquiries:</strong> info@sjp.ac.lk
-                            </p>
-                        </div>
-                    </section>
-                </div>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon upload-icon">
+                <img src="Images/pic10.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Submission Process</h3>
+              <p class="feature-description">
+                Follow our structured submission process for project approval
+                and publication.
+              </p>
             </div>
+
+            <div class="feature-card">
+              <div class="feature-icon quality-icon">
+                <img src="Images/pic09.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Quality Standards</h3>
+              <p class="feature-description">
+                Maintain academic integrity and technical excellence in all
+                submissions.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon community-icon">
+                <img src="Images/pic08.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Community Guidelines</h3>
+              <p class="feature-description">
+                Respect fellow students and contribute positively to our
+                academic community.
+              </p>
+            </div>
+          </div>
+
+          <div class="content-sections">
+            <section class="content-section">
+              <h2 class="section-title">Eligibility Requirements</h2>
+              <ul class="content-list">
+                <li>
+                  Must be a current student or recent graduate of the University
+                  of Sri Jayewardenepura
+                </li>
+                <li>
+                  Project must be academic in nature (coursework, research,
+                  thesis, or independent study)
+                </li>
+                <li>
+                  All team members must be identified and credited appropriately
+                </li>
+                <li>
+                  Projects must have been completed within the last 3 years
+                </li>
+                <li>
+                  Supervisor or faculty advisor approval required for all
+                  submissions
+                </li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Content Standards</h2>
+
+              <h3 class="subsection-title">Required Information</h3>
+              <ul class="content-list">
+                <li>Clear project title and comprehensive description</li>
+                <li>Complete list of contributors with their roles</li>
+                <li>Department and academic year information</li>
+                <li>Supervisor/advisor details and contact information</li>
+                <li>Project timeline and completion date</li>
+                <li>Technologies, methodologies, or tools used</li>
+              </ul>
+
+              <h3 class="subsection-title">Technical Requirements</h3>
+              <ul class="content-list">
+                <li>
+                  High-quality images or screenshots (minimum 1200x800 pixels)
+                </li>
+                <li>Demo videos should be under 5 minutes and in MP4 format</li>
+                <li>Documentation files in PDF format (maximum 10MB)</li>
+                <li>Source code repositories must be publicly accessible</li>
+                <li>All external links must be functional and relevant</li>
+              </ul>
+
+              <h3 class="subsection-title">Prohibited Content</h3>
+              <ul class="content-list">
+                <li>Plagiarized or non-original work</li>
+                <li>Content that violates intellectual property rights</li>
+                <li>Inappropriate, offensive, or discriminatory material</li>
+                <li>Commercial advertisements or promotional content</li>
+                <li>Personal information of individuals without consent</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Review Process</h2>
+              <div class="info-box">
+                <p class="info-text">Review Timeline: 5-7 business days</p>
+              </div>
+              <ol class="numbered-list">
+                <li>
+                  <strong>Initial Screening:</strong> Automated checks for
+                  completeness and format compliance
+                </li>
+                <li>
+                  <strong>Academic Review:</strong> Faculty evaluation of
+                  content quality and academic merit
+                </li>
+                <li>
+                  <strong>Technical Review:</strong> Assessment of technical
+                  documentation and functionality
+                </li>
+                <li>
+                  <strong>Final Approval:</strong> Administrative approval and
+                  publication scheduling
+                </li>
+              </ol>
+              <p class="section-text">
+                You will receive email notifications at each stage of the review
+                process. If revisions are needed, detailed feedback will be
+                provided to help you improve your submission.
+              </p>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Post-Publication Guidelines</h2>
+              <ul class="content-list">
+                <li>
+                  Respond promptly to comments and questions from the community
+                </li>
+                <li>Update project information if significant changes occur</li>
+                <li>
+                  Report any issues or concerns to the administration team
+                </li>
+                <li>Maintain professional communication in all interactions</li>
+                <li>
+                  Credit collaborators and acknowledge support appropriately
+                </li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Contact Information</h2>
+              <div class="contact-box">
+                <p class="contact-item">
+                  <strong>For submission support:</strong> projects@sjp.ac.lk
+                </p>
+                <p class="contact-item">
+                  <strong>For technical issues:</strong> support@sjp.ac.lk
+                </p>
+                <p class="contact-item">
+                  <strong>For general inquiries:</strong> info@sjp.ac.lk
+                </p>
+              </div>
+            </section>
+          </div>
         </div>
+      </div>
     </main>
 
-
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="logo-section">
-                    <img src="Images/Unilogo.jpg" alt="University Logo" class="university-logo" />
-                    <div class="uni">
-                        <div class="uni-name">
-                            <h3>USJ Student Projects</h3>
-                            <p>University of Sri Jayewardenepura</p>
-                        </div>
-                        <div class="description">
-                            A platform for students to showcase their academic projects and
-                            connect with the university community.
-                        </div>
-                    </div>
-                </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo-section">
+            <img
+              src="Images/Unilogo.jpg"
+              alt="University Logo"
+              class="university-logo"
+            />
+            <div class="uni">
+              <div class="uni-name">
+                <h3>USJ Student Projects</h3>
+                <p>University of Sri Jayewardenepura</p>
+              </div>
+              <div class="description">
+                A platform for students to showcase their academic projects and
+                connect with the university community.
+              </div>
             </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="gallery.html">Browse Projects</a></li>
-                    <li><a href="upload.html">Upload Project</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="about.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="about.html">Help Center</a></li>
-                    <li><a href="guidelines.html">Guidelines</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                </ul>
-            </div>
+          </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="gallery.html">Browse Projects</a></li>
+            <li><a href="upload.html">Upload Project</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+          </ul>
         </div>
+
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="about.html">Help Center</a></li>
+            <li><a href="guidelines.html">Guidelines</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+      </div>
     </footer>
-    
-</body>
+  </body>
 </html>

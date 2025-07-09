@@ -99,9 +99,35 @@
             height: 30px;
             border-radius: 50%;
         }
-        .profile{
-            margin: 10px;
-        }
+.profile {
+  margin: 10px;
+  position: relative;
+}
+.profile-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  min-width: 140px;
+  z-index: 100;
+  padding: 8px 0;
+}
+.profile-dropdown .dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.profile-dropdown .dropdown-menu a:hover {
+  background: #e3f2fd;
+  color: #0d47a1;
+}
         .profileIcon {
              width: 40px;              
             height: 40px;

@@ -1,315 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="PGT.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="PGT.css" />
     <title>Terms of services</title>
-</head>
-<body>
-    
-     <header>
-        <!----left-logo and titile----->
-        <div class="head">
-            <img src="Images/projectShowcaselogo" alt="project-showcaseLogo" style="
+  </head>
+  <body>
+    <header>
+      <!----left-logo and titile----->
+      <div class="head">
+        <img
+          src="Images/projectShowcaselogo"
+          alt="project-showcaseLogo"
+          style="
             width: 35px;
             height: 35px;
             margin-right: 10px;
             border-radius: 50%;
-          " />
-            <div class="site-info">
-                <h2>USJ Projects</h2>
-                <p style="font-size: 16px">University of Sri Jayawardenepura</p>
-            </div>
+          "
+        />
+        <div class="site-info">
+          <h2>USJ Projects</h2>
+          <p style="font-size: 16px">University of Sri Jayawardenepura</p>
         </div>
+      </div>
 
-        <!---centere: Navigation--->
-        <nav class="nav-bar">
-            <a href="index1.html">Home</a>
-            <a href="gallery.html">Projects</a>
-            <a href="upload.html">Upload</a>
-            <a href="about.html">About</a>
-        </nav>
+      <!---centere: Navigation--->
+      <nav class="nav-bar">
+        <a href="index1.html">Home</a>
+        <a href="gallery.html">Projects</a>
+        <a href="upload.html">Upload</a>
+        <a href="about.html">About</a>
+      </nav>
 
-        <!----Right search,upload button,profile---->
-        <div class="search">
-            <img src="Images/searchlogo" alt="searchIcon" />
-            <a href="upload.html" class="upload-btn">
-                <img src="Images/uploadLogo" alt="uploadIcon" />
-                <span>Upload</span>
-            </a>
+      <!----Right search,upload button,profile---->
+      <div class="search">
+        <img src="Images/searchlogo" alt="searchIcon" />
+        <a href="upload.html" class="upload-btn">
+          <img src="Images/uploadLogo" alt="uploadIcon" />
+          <span>Upload</span>
+        </a>
 
-            <div class="profile">
-                <a href="profile.html">
-                    <img src="Images/profile.PNG" class="profileIcon" alt="profileIcon"
-                        style="height: 40px; width: 40px" />
-                </a>
-            </div>
+        <div class="profile">
+          <img
+            src="Images/profile.PNG"
+            class="profileIcon"
+            alt="profileIcon"
+            id="profileDropdownBtn"
+            style="height: 40px; width: 40px; cursor: pointer"
+          />
+          <div
+            id="profileDropdown"
+            style="
+              display: none;
+              position: absolute;
+              right: 0;
+              top: 50px;
+              background: #fff;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+              min-width: 150px;
+              z-index: 1000;
+            "
+          >
+            <a
+              href="profile.html"
+              style="
+                display: block;
+                padding: 12px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #eee;
+              "
+              >Profile</a
+            >
+            <a
+              href="signin.html"
+              style="
+                display: block;
+                padding: 12px 20px;
+                color: #e53935;
+                text-decoration: none;
+              "
+              >Logout</a
+            >
+          </div>
         </div>
+      </div>
     </header>
 
-      <!-- Main Content -->
+    <script>
+      // Profile dropdown logic
+      document.addEventListener("DOMContentLoaded", function () {
+        var btn = document.getElementById("profileDropdownBtn");
+        var dropdown = document.getElementById("profileDropdown");
+        if (btn && dropdown) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            dropdown.style.display =
+              dropdown.style.display === "block" ? "none" : "block";
+          });
+          document.addEventListener("click", function (e) {
+            if (!dropdown.contains(e.target) && e.target !== btn) {
+              dropdown.style.display = "none";
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+      <div class="container">
+        <div class="content-card">
+          <h1 class="page-title">Terms of Service</h1>
+          <p class="page-date">Last updated: January 2, 2025</p>
+          <p class="page-subtitle">
+            These Terms of Service govern your use of the University of Sri
+            Jayewardenepura Student Project Showcase platform.
+          </p>
 
-            <div class="content-card">
-                <h1 class="page-title">Terms of Service</h1>
-                <p class="page-date">Last updated: January 2, 2025</p>
-                <p class="page-subtitle">
-                    These Terms of Service govern your use of the University of Sri Jayewardenepura Student Project Showcase
-                    platform.
-                </p>
-
-                <div class="feature-grid four-columns">
-                    <div class="feature-card">
-                        <div class="feature-icon legal-icon">
-                            <img src="Images/pic04.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Legal Agreement</h3>
-                        <p class="feature-description">Binding terms between you and the university.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon responsibility-icon">
-                            <img src="Images/pic05.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">User Responsibilities</h3>
-                        <p class="feature-description">Your obligations as a platform user.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon rights-icon">
-                            <img src="Images/pic06.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Content Rights</h3>
-                        <p class="feature-description">Intellectual property and content ownership.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon warning-icon">
-                            <img src="Images/pic07.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Limitations</h3>
-                        <p class="feature-description">Platform limitations and liability terms.</p>
-                    </div>
-                </div>
-
-                <div class="content-sections">
-                    <section class="content-section">
-                        <h2 class="section-title">Acceptance of Terms</h2>
-                        <p class="section-text">
-                            By accessing or using the USJ Student Project Showcase platform, you agree to be bound by these Terms
-                            of Service and all applicable laws and regulations. If you do not agree with any of these terms, you
-                            are prohibited from using or accessing this platform.
-                        </p>
-                        <div class="warning-box">
-                            <p class="warning-text">
-                                These terms may be updated periodically. Continued use of the platform constitutes acceptance of any
-                                changes.
-                            </p>
-                        </div>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Eligibility and Account Registration</h2>
-                        
-                        <h3 class="subsection-title">Eligibility Requirements</h3>
-                        <ul class="content-list">
-                            <li>Must be a current student, faculty member, or authorized personnel of USJ</li>
-                            <li>Must be at least 18 years old or have parental consent</li>
-                            <li>Must provide accurate and complete registration information</li>
-                            <li>Must maintain the security of your account credentials</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Account Responsibilities</h3>
-                        <ul class="content-list">
-                            <li>You are responsible for all activities under your account</li>
-                            <li>You must notify us immediately of any unauthorized access</li>
-                            <li>You may not share your account with others</li>
-                            <li>You must keep your contact information current</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Acceptable Use Policy</h2>
-                        
-                        <h3 class="subsection-title">Permitted Uses</h3>
-                        <ul class="content-list">
-                            <li>Showcase academic projects and research work</li>
-                            <li>Collaborate with fellow students and faculty</li>
-                            <li>Access and view published projects for educational purposes</li>
-                            <li>Provide constructive feedback and comments</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Prohibited Activities</h3>
-                        <ul class="content-list">
-                            <li>Uploading false, misleading, or plagiarized content</li>
-                            <li>Violating intellectual property rights of others</li>
-                            <li>Harassment, discrimination, or inappropriate behavior</li>
-                            <li>Attempting to gain unauthorized access to the system</li>
-                            <li>Distributing malware or harmful code</li>
-                            <li>Commercial use without explicit permission</li>
-                            <li>Spamming or excessive promotional content</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Content and Intellectual Property</h2>
-                        
-                        <h3 class="subsection-title">Your Content</h3>
-                        <ul class="content-list">
-                            <li>You retain ownership of your original content and projects</li>
-                            <li>You grant USJ a license to display and distribute your content on the platform</li>
-                            <li>You represent that you have the right to share all submitted content</li>
-                            <li>You are responsible for ensuring content does not infringe on others' rights</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Platform Content</h3>
-                        <ul class="content-list">
-                            <li>The platform design, features, and functionality are owned by USJ</li>
-                            <li>You may not copy, modify, or distribute platform code or design</li>
-                            <li>Trademarks and logos remain the property of their respective owners</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Academic Use</h3>
-                        <ul class="content-list">
-                            <li>Content may be used for educational and research purposes</li>
-                            <li>Proper attribution must be given when referencing projects</li>
-                            <li>Commercial use requires explicit permission from content owners</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Privacy and Data Protection</h2>
-                        <p class="section-text">
-                            Your privacy is important to us. Our collection and use of personal information is governed by our
-                            Privacy Policy, which is incorporated into these Terms of Service by reference.
-                        </p>
-                        <div class="info-box">
-                            <p class="info-text">
-                                <a href="privacy.html" class="info-link">Read our complete Privacy Policy →</a>
-                            </p>
-                        </div>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Platform Availability and Modifications</h2>
-                        <ul class="content-list">
-                            <li>We strive to maintain platform availability but cannot guarantee 100% uptime</li>
-                            <li>We may modify, suspend, or discontinue features with or without notice</li>
-                            <li>Scheduled maintenance will be announced in advance when possible</li>
-                            <li>We reserve the right to impose usage limits or restrictions</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Limitation of Liability</h2>
-                        <div class="warning-box">
-                            <p class="warning-text">
-                                Important: Please read this section carefully as it limits our liability.
-                            </p>
-                        </div>
-                        <ul class="content-list">
-                            <li>The platform is provided "as is" without warranties of any kind</li>
-                            <li>We are not liable for any indirect, incidental, or consequential damages</li>
-                            <li>Our total liability is limited to the amount paid for platform access (if any)</li>
-                            <li>We are not responsible for user-generated content or third-party links</li>
-                            <li>Users are responsible for backing up their own data</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Termination</h2>
-                        
-                        <h3 class="subsection-title">By You</h3>
-                        <ul class="content-list">
-                            <li>You may terminate your account at any time by contacting us</li>
-                            <li>Termination does not automatically remove published content</li>
-                            <li>You may request content removal upon account termination</li>
-                        </ul>
-
-                        <h3 class="subsection-title">By Us</h3>
-                        <ul class="content-list">
-                            <li>We may terminate accounts for violation of these terms</li>
-                            <li>We may suspend access during investigation of potential violations</li>
-                            <li>Termination may result in loss of access to content and data</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Governing Law and Disputes</h2>
-                        <ul class="content-list">
-                            <li>These terms are governed by the laws of Sri Lanka</li>
-                            <li>Disputes will be resolved in the courts of Sri Lanka</li>
-                            <li>We encourage informal resolution of disputes before legal action</li>
-                            <li>If any provision is found invalid, the remainder remains in effect</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Contact Information</h2>
-                        <div class="contact-box">
-                            <p class="section-text">For questions about these Terms of Service, please contact us:</p>
-                            <p class="contact-item">
-                                <strong>Email:</strong> legal@sjp.ac.lk
-                            </p>
-                            <p class="contact-item">
-                                <strong>Phone:</strong> +94 11 2758000
-                            </p>
-                            <p class="contact-item">
-                                <strong>Address:</strong> University of Sri Jayewardenepura, Gangodawila, Nugegoda, Sri Lanka
-                            </p>
-                        </div>
-                    </section>
-                </div>
+          <div class="feature-grid four-columns">
+            <div class="feature-card">
+              <div class="feature-icon legal-icon">
+                <img src="Images/pic04.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Legal Agreement</h3>
+              <p class="feature-description">
+                Binding terms between you and the university.
+              </p>
             </div>
+
+            <div class="feature-card">
+              <div class="feature-icon responsibility-icon">
+                <img src="Images/pic05.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">User Responsibilities</h3>
+              <p class="feature-description">
+                Your obligations as a platform user.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon rights-icon">
+                <img src="Images/pic06.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Content Rights</h3>
+              <p class="feature-description">
+                Intellectual property and content ownership.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon warning-icon">
+                <img src="Images/pic07.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Limitations</h3>
+              <p class="feature-description">
+                Platform limitations and liability terms.
+              </p>
+            </div>
+          </div>
+
+          <div class="content-sections">
+            <section class="content-section">
+              <h2 class="section-title">Acceptance of Terms</h2>
+              <p class="section-text">
+                By accessing or using the USJ Student Project Showcase platform,
+                you agree to be bound by these Terms of Service and all
+                applicable laws and regulations. If you do not agree with any of
+                these terms, you are prohibited from using or accessing this
+                platform.
+              </p>
+              <div class="warning-box">
+                <p class="warning-text">
+                  These terms may be updated periodically. Continued use of the
+                  platform constitutes acceptance of any changes.
+                </p>
+              </div>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">
+                Eligibility and Account Registration
+              </h2>
+
+              <h3 class="subsection-title">Eligibility Requirements</h3>
+              <ul class="content-list">
+                <li>
+                  Must be a current student, faculty member, or authorized
+                  personnel of USJ
+                </li>
+                <li>Must be at least 18 years old or have parental consent</li>
+                <li>
+                  Must provide accurate and complete registration information
+                </li>
+                <li>Must maintain the security of your account credentials</li>
+              </ul>
+
+              <h3 class="subsection-title">Account Responsibilities</h3>
+              <ul class="content-list">
+                <li>
+                  You are responsible for all activities under your account
+                </li>
+                <li>
+                  You must notify us immediately of any unauthorized access
+                </li>
+                <li>You may not share your account with others</li>
+                <li>You must keep your contact information current</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Acceptable Use Policy</h2>
+
+              <h3 class="subsection-title">Permitted Uses</h3>
+              <ul class="content-list">
+                <li>Showcase academic projects and research work</li>
+                <li>Collaborate with fellow students and faculty</li>
+                <li>
+                  Access and view published projects for educational purposes
+                </li>
+                <li>Provide constructive feedback and comments</li>
+              </ul>
+
+              <h3 class="subsection-title">Prohibited Activities</h3>
+              <ul class="content-list">
+                <li>Uploading false, misleading, or plagiarized content</li>
+                <li>Violating intellectual property rights of others</li>
+                <li>Harassment, discrimination, or inappropriate behavior</li>
+                <li>Attempting to gain unauthorized access to the system</li>
+                <li>Distributing malware or harmful code</li>
+                <li>Commercial use without explicit permission</li>
+                <li>Spamming or excessive promotional content</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Content and Intellectual Property</h2>
+
+              <h3 class="subsection-title">Your Content</h3>
+              <ul class="content-list">
+                <li>
+                  You retain ownership of your original content and projects
+                </li>
+                <li>
+                  You grant USJ a license to display and distribute your content
+                  on the platform
+                </li>
+                <li>
+                  You represent that you have the right to share all submitted
+                  content
+                </li>
+                <li>
+                  You are responsible for ensuring content does not infringe on
+                  others' rights
+                </li>
+              </ul>
+
+              <h3 class="subsection-title">Platform Content</h3>
+              <ul class="content-list">
+                <li>
+                  The platform design, features, and functionality are owned by
+                  USJ
+                </li>
+                <li>
+                  You may not copy, modify, or distribute platform code or
+                  design
+                </li>
+                <li>
+                  Trademarks and logos remain the property of their respective
+                  owners
+                </li>
+              </ul>
+
+              <h3 class="subsection-title">Academic Use</h3>
+              <ul class="content-list">
+                <li>
+                  Content may be used for educational and research purposes
+                </li>
+                <li>
+                  Proper attribution must be given when referencing projects
+                </li>
+                <li>
+                  Commercial use requires explicit permission from content
+                  owners
+                </li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Privacy and Data Protection</h2>
+              <p class="section-text">
+                Your privacy is important to us. Our collection and use of
+                personal information is governed by our Privacy Policy, which is
+                incorporated into these Terms of Service by reference.
+              </p>
+              <div class="info-box">
+                <p class="info-text">
+                  <a href="privacy.html" class="info-link"
+                    >Read our complete Privacy Policy →</a
+                  >
+                </p>
+              </div>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">
+                Platform Availability and Modifications
+              </h2>
+              <ul class="content-list">
+                <li>
+                  We strive to maintain platform availability but cannot
+                  guarantee 100% uptime
+                </li>
+                <li>
+                  We may modify, suspend, or discontinue features with or
+                  without notice
+                </li>
+                <li>
+                  Scheduled maintenance will be announced in advance when
+                  possible
+                </li>
+                <li>
+                  We reserve the right to impose usage limits or restrictions
+                </li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Limitation of Liability</h2>
+              <div class="warning-box">
+                <p class="warning-text">
+                  Important: Please read this section carefully as it limits our
+                  liability.
+                </p>
+              </div>
+              <ul class="content-list">
+                <li>
+                  The platform is provided "as is" without warranties of any
+                  kind
+                </li>
+                <li>
+                  We are not liable for any indirect, incidental, or
+                  consequential damages
+                </li>
+                <li>
+                  Our total liability is limited to the amount paid for platform
+                  access (if any)
+                </li>
+                <li>
+                  We are not responsible for user-generated content or
+                  third-party links
+                </li>
+                <li>Users are responsible for backing up their own data</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Termination</h2>
+
+              <h3 class="subsection-title">By You</h3>
+              <ul class="content-list">
+                <li>
+                  You may terminate your account at any time by contacting us
+                </li>
+                <li>
+                  Termination does not automatically remove published content
+                </li>
+                <li>
+                  You may request content removal upon account termination
+                </li>
+              </ul>
+
+              <h3 class="subsection-title">By Us</h3>
+              <ul class="content-list">
+                <li>We may terminate accounts for violation of these terms</li>
+                <li>
+                  We may suspend access during investigation of potential
+                  violations
+                </li>
+                <li>
+                  Termination may result in loss of access to content and data
+                </li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Governing Law and Disputes</h2>
+              <ul class="content-list">
+                <li>These terms are governed by the laws of Sri Lanka</li>
+                <li>Disputes will be resolved in the courts of Sri Lanka</li>
+                <li>
+                  We encourage informal resolution of disputes before legal
+                  action
+                </li>
+                <li>
+                  If any provision is found invalid, the remainder remains in
+                  effect
+                </li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Contact Information</h2>
+              <div class="contact-box">
+                <p class="section-text">
+                  For questions about these Terms of Service, please contact us:
+                </p>
+                <p class="contact-item">
+                  <strong>Email:</strong> legal@sjp.ac.lk
+                </p>
+                <p class="contact-item">
+                  <strong>Phone:</strong> +94 11 2758000
+                </p>
+                <p class="contact-item">
+                  <strong>Address:</strong> University of Sri Jayewardenepura,
+                  Gangodawila, Nugegoda, Sri Lanka
+                </p>
+              </div>
+            </section>
+          </div>
         </div>
+      </div>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="logo-section">
-                    <img src="Images/Unilogo.jpg" alt="University Logo" class="university-logo" />
-                    <div class="uni">
-                        <div class="uni-name">
-                            <h3>USJ Student Projects</h3>
-                            <p>University of Sri Jayewardenepura</p>
-                        </div>
-                        <div class="description">
-                            A platform for students to showcase their academic projects and
-                            connect with the university community.
-                        </div>
-                    </div>
-                </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo-section">
+            <img
+              src="Images/Unilogo.jpg"
+              alt="University Logo"
+              class="university-logo"
+            />
+            <div class="uni">
+              <div class="uni-name">
+                <h3>USJ Student Projects</h3>
+                <p>University of Sri Jayewardenepura</p>
+              </div>
+              <div class="description">
+                A platform for students to showcase their academic projects and
+                connect with the university community.
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="gallery.html">Browse Projects</a></li>
-                    <li><a href="upload.html">Upload Project</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="about.html">Contact</a></li>
-                </ul>
-            </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="gallery.html">Browse Projects</a></li>
+            <li><a href="upload.html">Upload Project</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+          </ul>
+        </div>
 
-            <div class="footer-section">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="about.html">Help Center</a></li>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="about.html">Help Center</a></li>
             <li><a href="guidelines.html">Guidelines</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
-                </ul>
-            </div>
+          </ul>
         </div>
+      </div>
 
-        <div class="footer-bottom">
-            <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
-        </div>
+      <div class="footer-bottom">
+        <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+      </div>
     </footer>
-    
-    
-</body>
+  </body>
 </html>

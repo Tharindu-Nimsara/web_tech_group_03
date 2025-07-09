@@ -1,278 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy</title>
-    <link rel="stylesheet" href="PGT.css">
-</head>
-<body>
-
-     <header>
-        <!----left-logo and titile----->
-        <div class="head">
-            <img src="Images/projectShowcaselogo" alt="project-showcaseLogo" style="
+    <link rel="stylesheet" href="PGT.css" />
+  </head>
+  <body>
+    <header>
+      <!----left-logo and titile----->
+      <div class="head">
+        <img
+          src="Images/projectShowcaselogo"
+          alt="project-showcaseLogo"
+          style="
             width: 35px;
             height: 35px;
             margin-right: 10px;
             border-radius: 50%;
-          " />
-            <div class="site-info">
-                <h2>USJ Projects</h2>
-                <p style="font-size: 16px">University of Sri Jayawardenepura</p>
-            </div>
+          "
+        />
+        <div class="site-info">
+          <h2>USJ Projects</h2>
+          <p style="font-size: 16px">University of Sri Jayawardenepura</p>
         </div>
+      </div>
 
-        <!---centere: Navigation--->
-        <nav class="nav-bar">
-            <a href="index1.html">Home</a>
-            <a href="gallery.html">Projects</a>
-            <a href="upload.html">Upload</a>
-            <a href="about.html">About</a>
-        </nav>
+      <!---centere: Navigation--->
+      <nav class="nav-bar">
+        <a href="index1.html">Home</a>
+        <a href="gallery.html">Projects</a>
+        <a href="upload.html">Upload</a>
+        <a href="about.html">About</a>
+      </nav>
 
-        <!----Right search,upload button,profile---->
-        <div class="search">
-            <img src="Images/searchlogo" alt="searchIcon" />
-            <a href="upload.html" class="upload-btn">
-                <img src="Images/uploadLogo" alt="uploadIcon" />
-                <span>Upload</span>
-            </a>
+      <!----Right search,upload button,profile---->
+      <div class="search">
+        <img src="Images/searchlogo" alt="searchIcon" />
+        <a href="upload.html" class="upload-btn">
+          <img src="Images/uploadLogo" alt="uploadIcon" />
+          <span>Upload</span>
+        </a>
 
-            <div class="profile">
-                <a href="profile.html">
-                    <img src="Images/profile.PNG" class="profileIcon" alt="profileIcon"
-                        style="height: 40px; width: 40px" />
-                </a>
-            </div>
+        <div class="profile">
+          <img
+            src="Images/profile.PNG"
+            class="profileIcon"
+            alt="profileIcon"
+            id="profileDropdownBtn"
+            style="height: 40px; width: 40px; cursor: pointer"
+          />
+          <div
+            id="profileDropdown"
+            style="
+              display: none;
+              position: absolute;
+              right: 0;
+              top: 50px;
+              background: #fff;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+              min-width: 150px;
+              z-index: 1000;
+            "
+          >
+            <a
+              href="profile.html"
+              style="
+                display: block;
+                padding: 12px 20px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #eee;
+              "
+              >Profile</a
+            >
+            <a
+              href="signin.html"
+              style="
+                display: block;
+                padding: 12px 20px;
+                color: #e53935;
+                text-decoration: none;
+              "
+              >Logout</a
+            >
+          </div>
         </div>
+      </div>
     </header>
+
+    <script>
+      // Profile dropdown logic
+      document.addEventListener("DOMContentLoaded", function () {
+        var btn = document.getElementById("profileDropdownBtn");
+        var dropdown = document.getElementById("profileDropdown");
+        if (btn && dropdown) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            dropdown.style.display =
+              dropdown.style.display === "block" ? "none" : "block";
+          });
+          document.addEventListener("click", function (e) {
+            if (!dropdown.contains(e.target) && e.target !== btn) {
+              dropdown.style.display = "none";
+            }
+          });
+        }
+      });
+    </script>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
-            <div class="content-card">
-                <h1 class="page-title">Privacy Policy</h1>
-                <p class="page-date">Last updated: January 2, 2025</p>
-                <p class="page-subtitle">
-                    This Privacy Policy describes how the University of Sri Jayewardenepura Student Project Showcase collects,
-                    uses, and protects your information.
-                </p>
+      <div class="container">
+        <div class="content-card">
+          <h1 class="page-title">Privacy Policy</h1>
+          <p class="page-date">Last updated: January 2, 2025</p>
+          <p class="page-subtitle">
+            This Privacy Policy describes how the University of Sri
+            Jayewardenepura Student Project Showcase collects, uses, and
+            protects your information.
+          </p>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon transparency-icon">
-                            <img src="Images/pic01.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Transparency</h3>
-                        <p class="feature-description">We are transparent about what data we collect and how we use it.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon security-icon">
-                            <img src="Images/pic02.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Security</h3>
-                        <p class="feature-description">Your data is protected with industry-standard security measures.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon control-icon">
-                            <img src="Images/pic03.png" width="40px" height="40px">
-                        </div>
-                        <h3 class="feature-title">Data Control</h3>
-                        <p class="feature-description">You have control over your personal information and project data.</p>
-                    </div>
-                </div>
-
-                <div class="content-sections">
-                    <section class="content-section">
-                        <h2 class="section-title">Information We Collect</h2>
-                        
-                        <h3 class="subsection-title">Personal Information</h3>
-                        <ul class="content-list">
-                            <li>Name, student ID, and university email address</li>
-                            <li>Department, academic year, and program information</li>
-                            <li>Contact information for project collaboration</li>
-                            <li>Profile information and academic credentials</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Project Information</h3>
-                        <ul class="content-list">
-                            <li>Project titles, descriptions, and documentation</li>
-                            <li>Images, videos, and other media files</li>
-                            <li>Source code and technical specifications</li>
-                            <li>Collaboration and team member information</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Usage Information</h3>
-                        <ul class="content-list">
-                            <li>Website interaction data and navigation patterns</li>
-                            <li>Search queries and project viewing history</li>
-                            <li>Device information and browser specifications</li>
-                            <li>IP addresses and geographic location data</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">How We Use Your Information</h2>
-                        
-                        <h3 class="subsection-title">Platform Operations</h3>
-                        <ul class="content-list">
-                            <li>Facilitate project submissions and reviews</li>
-                            <li>Enable user authentication and account management</li>
-                            <li>Provide search and discovery functionality</li>
-                            <li>Generate analytics and usage statistics</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Academic Purposes</h3>
-                        <ul class="content-list">
-                            <li>Showcase student achievements and innovations</li>
-                            <li>Support academic research and collaboration</li>
-                            <li>Facilitate knowledge sharing within the university</li>
-                            <li>Maintain academic records and portfolios</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Communication</h3>
-                        <ul class="content-list">
-                            <li>Send project status updates and notifications</li>
-                            <li>Provide technical support and assistance</li>
-                            <li>Share platform updates and new features</li>
-                            <li>Facilitate communication between users</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Information Sharing</h2>
-                        <div class="info-box">
-                            <p class="info-text">
-                                We do not sell, rent, or trade your personal information to third parties.
-                            </p>
-                        </div>
-
-                        <h3 class="subsection-title">Within the University</h3>
-                        <ul class="content-list">
-                            <li>Faculty and staff for academic evaluation purposes</li>
-                            <li>IT department for technical support and maintenance</li>
-                            <li>Administration for compliance and record-keeping</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Public Information</h3>
-                        <ul class="content-list">
-                            <li>Published projects are publicly viewable on the platform</li>
-                            <li>Student names and project details in published works</li>
-                            <li>Aggregated statistics and anonymized data</li>
-                        </ul>
-
-                        <h3 class="subsection-title">Legal Requirements</h3>
-                        <ul class="content-list">
-                            <li>When required by law or legal process</li>
-                            <li>To protect the rights and safety of users</li>
-                            <li>To prevent fraud or security breaches</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Data Security</h2>
-                        <ul class="content-list">
-                            <li>Encryption of data in transit and at rest</li>
-                            <li>Regular security audits and vulnerability assessments</li>
-                            <li>Access controls and authentication mechanisms</li>
-                            <li>Backup and disaster recovery procedures</li>
-                            <li>Staff training on data protection practices</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Your Rights</h2>
-                        <ul class="content-list">
-                            <li><strong>Access:</strong> Request a copy of your personal information</li>
-                            <li><strong>Correction:</strong> Update or correct inaccurate information</li>
-                            <li><strong>Deletion:</strong> Request deletion of your account and data</li>
-                            <li><strong>Portability:</strong> Export your project data in a standard format</li>
-                            <li><strong>Objection:</strong> Object to certain uses of your information</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Data Retention</h2>
-                        <p class="section-text">
-                            We retain your information for as long as necessary to provide our services and comply with legal
-                            obligations. Specifically:
-                        </p>
-                        <ul class="content-list">
-                            <li>Account information: Until account deletion or graduation + 2 years</li>
-                            <li>Project data: Permanently, unless specifically requested for deletion</li>
-                            <li>Usage logs: 12 months for analytics and security purposes</li>
-                            <li>Communication records: 3 years for support and legal compliance</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2 class="section-title">Contact Us</h2>
-                        <div class="contact-box">
-                            <p class="section-text">
-                                If you have questions about this Privacy Policy or your personal information, please contact us:
-                            </p>
-                            <p class="contact-item">
-                                <strong>Email:</strong> privacy@sjp.ac.lk
-                            </p>
-                            <p class="contact-item">
-                                <strong>Phone:</strong> +94 11 2758000
-                            </p>
-                            <p class="contact-item">
-                                <strong>Address:</strong> University of Sri Jayewardenepura, Gangodawila, Nugegoda, Sri Lanka
-                            </p>
-                        </div>
-                    </section>
-                </div>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon transparency-icon">
+                <img src="Images/pic01.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Transparency</h3>
+              <p class="feature-description">
+                We are transparent about what data we collect and how we use it.
+              </p>
             </div>
+
+            <div class="feature-card">
+              <div class="feature-icon security-icon">
+                <img src="Images/pic02.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Security</h3>
+              <p class="feature-description">
+                Your data is protected with industry-standard security measures.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon control-icon">
+                <img src="Images/pic03.png" width="40px" height="40px" />
+              </div>
+              <h3 class="feature-title">Data Control</h3>
+              <p class="feature-description">
+                You have control over your personal information and project
+                data.
+              </p>
+            </div>
+          </div>
+
+          <div class="content-sections">
+            <section class="content-section">
+              <h2 class="section-title">Information We Collect</h2>
+
+              <h3 class="subsection-title">Personal Information</h3>
+              <ul class="content-list">
+                <li>Name, student ID, and university email address</li>
+                <li>Department, academic year, and program information</li>
+                <li>Contact information for project collaboration</li>
+                <li>Profile information and academic credentials</li>
+              </ul>
+
+              <h3 class="subsection-title">Project Information</h3>
+              <ul class="content-list">
+                <li>Project titles, descriptions, and documentation</li>
+                <li>Images, videos, and other media files</li>
+                <li>Source code and technical specifications</li>
+                <li>Collaboration and team member information</li>
+              </ul>
+
+              <h3 class="subsection-title">Usage Information</h3>
+              <ul class="content-list">
+                <li>Website interaction data and navigation patterns</li>
+                <li>Search queries and project viewing history</li>
+                <li>Device information and browser specifications</li>
+                <li>IP addresses and geographic location data</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">How We Use Your Information</h2>
+
+              <h3 class="subsection-title">Platform Operations</h3>
+              <ul class="content-list">
+                <li>Facilitate project submissions and reviews</li>
+                <li>Enable user authentication and account management</li>
+                <li>Provide search and discovery functionality</li>
+                <li>Generate analytics and usage statistics</li>
+              </ul>
+
+              <h3 class="subsection-title">Academic Purposes</h3>
+              <ul class="content-list">
+                <li>Showcase student achievements and innovations</li>
+                <li>Support academic research and collaboration</li>
+                <li>Facilitate knowledge sharing within the university</li>
+                <li>Maintain academic records and portfolios</li>
+              </ul>
+
+              <h3 class="subsection-title">Communication</h3>
+              <ul class="content-list">
+                <li>Send project status updates and notifications</li>
+                <li>Provide technical support and assistance</li>
+                <li>Share platform updates and new features</li>
+                <li>Facilitate communication between users</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Information Sharing</h2>
+              <div class="info-box">
+                <p class="info-text">
+                  We do not sell, rent, or trade your personal information to
+                  third parties.
+                </p>
+              </div>
+
+              <h3 class="subsection-title">Within the University</h3>
+              <ul class="content-list">
+                <li>Faculty and staff for academic evaluation purposes</li>
+                <li>IT department for technical support and maintenance</li>
+                <li>Administration for compliance and record-keeping</li>
+              </ul>
+
+              <h3 class="subsection-title">Public Information</h3>
+              <ul class="content-list">
+                <li>
+                  Published projects are publicly viewable on the platform
+                </li>
+                <li>Student names and project details in published works</li>
+                <li>Aggregated statistics and anonymized data</li>
+              </ul>
+
+              <h3 class="subsection-title">Legal Requirements</h3>
+              <ul class="content-list">
+                <li>When required by law or legal process</li>
+                <li>To protect the rights and safety of users</li>
+                <li>To prevent fraud or security breaches</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Data Security</h2>
+              <ul class="content-list">
+                <li>Encryption of data in transit and at rest</li>
+                <li>Regular security audits and vulnerability assessments</li>
+                <li>Access controls and authentication mechanisms</li>
+                <li>Backup and disaster recovery procedures</li>
+                <li>Staff training on data protection practices</li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Your Rights</h2>
+              <ul class="content-list">
+                <li>
+                  <strong>Access:</strong> Request a copy of your personal
+                  information
+                </li>
+                <li>
+                  <strong>Correction:</strong> Update or correct inaccurate
+                  information
+                </li>
+                <li>
+                  <strong>Deletion:</strong> Request deletion of your account
+                  and data
+                </li>
+                <li>
+                  <strong>Portability:</strong> Export your project data in a
+                  standard format
+                </li>
+                <li>
+                  <strong>Objection:</strong> Object to certain uses of your
+                  information
+                </li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Data Retention</h2>
+              <p class="section-text">
+                We retain your information for as long as necessary to provide
+                our services and comply with legal obligations. Specifically:
+              </p>
+              <ul class="content-list">
+                <li>
+                  Account information: Until account deletion or graduation + 2
+                  years
+                </li>
+                <li>
+                  Project data: Permanently, unless specifically requested for
+                  deletion
+                </li>
+                <li>
+                  Usage logs: 12 months for analytics and security purposes
+                </li>
+                <li>
+                  Communication records: 3 years for support and legal
+                  compliance
+                </li>
+              </ul>
+            </section>
+
+            <section class="content-section">
+              <h2 class="section-title">Contact Us</h2>
+              <div class="contact-box">
+                <p class="section-text">
+                  If you have questions about this Privacy Policy or your
+                  personal information, please contact us:
+                </p>
+                <p class="contact-item">
+                  <strong>Email:</strong> privacy@sjp.ac.lk
+                </p>
+                <p class="contact-item">
+                  <strong>Phone:</strong> +94 11 2758000
+                </p>
+                <p class="contact-item">
+                  <strong>Address:</strong> University of Sri Jayewardenepura,
+                  Gangodawila, Nugegoda, Sri Lanka
+                </p>
+              </div>
+            </section>
+          </div>
         </div>
+      </div>
     </main>
 
-       <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="logo-section">
-                    <img src="Images/Unilogo.jpg" alt="University Logo" class="university-logo" />
-                    <div class="uni">
-                        <div class="uni-name">
-                            <h3>USJ Student Projects</h3>
-                            <p>University of Sri Jayewardenepura</p>
-                        </div>
-                        <div class="description">
-                            A platform for students to showcase their academic projects and
-                            connect with the university community.
-                        </div>
-                    </div>
-                </div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo-section">
+            <img
+              src="Images/Unilogo.jpg"
+              alt="University Logo"
+              class="university-logo"
+            />
+            <div class="uni">
+              <div class="uni-name">
+                <h3>USJ Student Projects</h3>
+                <p>University of Sri Jayewardenepura</p>
+              </div>
+              <div class="description">
+                A platform for students to showcase their academic projects and
+                connect with the university community.
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="gallery.html">Browse Projects</a></li>
-                    <li><a href="upload.html">Upload Project</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="about.html">Contact</a></li>
-                </ul>
-            </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="gallery.html">Browse Projects</a></li>
+            <li><a href="upload.html">Upload Project</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+          </ul>
+        </div>
 
-            <div class="footer-section">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="about.html">Help Center</a></li>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="about.html">Help Center</a></li>
             <li><a href="guidelines.html">Guidelines</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
-                </ul>
-            </div>
+          </ul>
         </div>
+      </div>
 
-        <div class="footer-bottom">
-            <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
-        </div>
+      <div class="footer-bottom">
+        <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+      </div>
     </footer>
-    
-</body>
+  </body>
 </html>

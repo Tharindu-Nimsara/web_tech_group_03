@@ -36,16 +36,38 @@
           <span>Upload</span>
         </a>
 
-        <div class="profile">
-          <a href="profile.html">
-            <img
-              src="Images/profile.PNG"
-              class="profileIcon"
-              alt="profileIcon"
-              style="height: 40px; width: 40px"
-            />
-          </a>
+        <div class="profile profile-dropdown">
+          <img
+            src="Images/profile.PNG"
+            class="profileIcon"
+            alt="profileIcon"
+            style="height: 40px; width: 40px; cursor:pointer;"
+            onclick="toggleProfileDropdown()"
+          />
+          <div class="dropdown-menu" id="profileDropdownMenu">
+            <a href="profile.html">Profile</a>
+            <a href="signin.html" >Logout</a>
+          </div>
         </div>
+    <script>
+      function toggleProfileDropdown() {
+        var menu = document.getElementById('profileDropdownMenu');
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+      }
+      // Hide dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('profileDropdownMenu');
+        var profileIcon = document.querySelector('.profileIcon');
+        if (!dropdown || !profileIcon) return;
+        if (!dropdown.contains(event.target) && event.target !== profileIcon) {
+          dropdown.style.display = 'none';
+        }
+      });
+      function logoutUser(e) {
+        e.preventDefault();
+        alert('Logged out! (Implement your logout logic here)');
+      }
+    </script>
       </div>
     </header>
 

@@ -43,13 +43,33 @@
             </a>
 
             <div class="profile">
-                <a href="profile.html">
-                    <img src="Images/profile.PNG" class="profileIcon" alt="profileIcon"
-                        style="height: 40px; width: 40px" />
-                </a>
+                <img src="Images/profile.PNG" class="profileIcon" alt="profileIcon" id="profileDropdownBtn" style="height: 40px; width: 40px; cursor: pointer;" />
+                <div id="profileDropdown" style="display: none; position: absolute; right: 0; top: 50px; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); min-width: 150px; z-index: 1000;">
+                  <a href="profile.html" style="display: block; padding: 12px 20px; color: #333; text-decoration: none; border-bottom: 1px solid #eee;">Profile</a>
+                  <a href="signin.html" style="display: block; padding: 12px 20px; color: #e53935; text-decoration: none;">Logout</a>
+                </div>
             </div>
         </div>
     </header>
+
+    <script>
+      // Profile dropdown logic
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('profileDropdownBtn');
+        var dropdown = document.getElementById('profileDropdown');
+        if (btn && dropdown) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+          });
+          document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target) && e.target !== btn) {
+              dropdown.style.display = 'none';
+            }
+          });
+        }
+      });
+    </script>
 
     <section class="section">
         <div class="performance">
