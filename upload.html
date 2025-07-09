@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Project</title>
+
+    <!--Roboto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+
+    <header>
+      <!----left-logo and titile----->
+      <div class="head">
+        <img
+          src="Images/projectShowcaselogo"
+          alt="project-showcaseLogo"
+          style="
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+            border-radius: 50%;
+          "
+        />
+        <div class="site-info">
+          <h2>USJ Projects</h2>
+          <p style="font-size: 16px">University of Sri Jayawardenepura</p>
+        </div>
+      </div>
+
+      <!---centere: Navigation--->
+      <nav class="nav-bar">
+        <a href="index1.html">Home</a>
+        <a href="gallery.html">Projects</a>
+        <a href="upload.html">Upload</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <!----Right search,upload button,profile---->
+      <div class="search">
+        <img src="Images/searchlogo" alt="searchIcon" />
+        <a href="upload.html" class="upload-btn">
+          <img src="Images/uploadLogo" alt="uploadIcon" />
+          <span>Upload</span>
+        </a>
+
+        <div class="profile">
+          <a href="profile.html">
+            <img src="Images/profile.PNG"class="profileIcon"alt="profileIcon" style="height: 40px; width: 40px"/>
+          </a>
+        </div>
+    </div>
+    </header>
+
+    <div class="content-wrapper">
+      <div class="gallery-headings">
+      <h1>Upload Your Project</h1>
+      <p>Share your academic work with the university community</p>
+      </div>
+      
+      <hr>
+
+        <div class="partitions">
+          <h2>Project Information</h2>
+          <p>Provide basic details about your project</p>
+          <form action="#">
+              <table class="form-table">
+                  <tr>
+                      <td>
+                          <label for="project-title">Project Title*</label> <br>
+                          <input type="text" name="project-title" class="project-title" id="project-title" placeholder="Enter your project title" required="required">   
+                      </td>
+                      <td>
+                          <label for="author-name">Author Name*</label> <br>
+                          <input type="text" name="author-name" id="author-name" class="author-name" placeholder="Your full name" required="required">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">
+                          <label for="project-desc">Project Description*</label> <br>
+                          <textarea name="project-desc" id="project-desc" placeholder="Describe your project,its objectives,methodology and key findings..." ></textarea>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label for="department">Department*</label> <br>
+                          <select name="department" id="department">
+                              <option value="Select-your-department" selected="selected">Select your department</option>
+                              <option value="computer-science">Computer Science</option>
+                              <option value="software-engineering">Software Engineering</option>
+                              <option value="information-systems">Information Systems</option>
+                          </select>
+                      </td>
+                      <td>
+                          <label for="academic-year">Academic Year*</label> <br>
+                          <select name="academic-year" id="academic-year">
+                                  <option value="Select-year" selected="selected">Select year</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2025">2025</option>
+                          </select>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label for="supervisor">Project Supervisor</label> <br>
+                          <input type="text" name="supervisor" id="supervisor" class="supervisor" placeholder="Supervisor's name(optional) ">
+                      </td>
+                      <td>
+                          <label for="course-module">Course/Module</label> <br>
+                          <input type="text" name="course-module" id="course-module" class="course-module" placeholder="Related course or module ">
+                      </td>
+                  </tr>
+              </table>
+          </form>
+        </div>
+      <div class="partitions">
+          <h2>Tags</h2>
+          <p>Add relevent tags to help others discover your project</p>
+
+          <h4>Available tags</h4>
+          <div class="tags-choosen">
+              <a href=""><span>AI</span></a>
+              <a href=""><span>Machine Learning</span></a>
+              <a href=""><span>IoT</span></a>
+              <a href=""><span>Web Development</span></a>
+              <a href=""><span>Mobile App</span></a>
+              <a href=""><span>Data Science</span></a>
+              <a href=""><span>Blockchain</span></a>
+              <a href=""><span>VR/AR</span></a>
+              <a href=""><span>Sustainability</span></a>
+              <a href=""><span>Healthcare</span></a>
+              <a href=""><span>Education</span></a>
+              <a href=""><span>Research</span></a>
+              <a href=""><span>Innovation</span></a>
+              <a href=""><span>Technology</span></a>
+              <a href=""><span>Design</span></a>
+          </div>
+      </div>
+
+      <div class="partitions">
+          <h2>Project Files</h2>
+          <p>Upload your project documentation,source code,presentations etc...</p>
+
+          <div class="upload-partition">
+              <img src="Images/uploadLogo" alt="upload-logo">
+              <h3>Upload your files</h3>
+              <p>Drag and drop files here,or click or browse</p>
+              <p>Supported formats: PDF,DOC,DOCX,PPT,PPTX,ZIP,RAR,JPG,PMG,MP4(Max 50MB per file)</p>
+              <a href="">Choose Files</a>
+          </div>
+        </div>
+
+
+        <div class="partitions">
+          <h2>Additional Information</h2>
+          <p>Optionanl details about your project</p>
+          <form action="#">
+              <table class="form-table">
+                  <tr>
+                      <td colspan="2">
+                          <label for="project-abstract">Project Abstract</label> <br>
+                          <textarea name="project-abstract" id="project-abstract" placeholder="Brief summary of your project (optional)" ></textarea>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label for="git-repo-name">GitHub Repository</label> <br>
+                          <input type="text" name="git-repo-name" id="git-repo-name" class="git-repo-name" placeholder="https://github.com/username/repo">
+                      </td>
+                      <td>
+                          <label for="demo-url">Live Demo URL</label> <br>
+                          <input type="text" name="demo-url" id="demo-url" class="demo-url" placeholder="https://your-project-demo.com">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">
+                          <label for="keywords">Keywords</label> <br>
+                          <input type="text" name="keywords" id="keywords" class="keywords" placeholder="Seperate keywords with commas">
+                      </td>
+                  </tr>
+              </table>
+          </form>
+        </div>
+
+      <div class="buttons">
+          <a class="upload-project-button" href="upload.html">Upload Project</a>
+          <a class="save-as-draft-button" href="">Save as Draft</a>
+      </div>    
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo-section">
+            <img
+              src="Images/Unilogo.jpg"
+              alt="University Logo"
+              class="university-logo"
+            />
+            <div class="uni">
+              <div class="uni-name">
+                <h3>USJ Student Projects</h3>
+                <p>University of Sri Jayewardenepura</p>
+              </div>
+              <div class="description">
+                A platform for students to showcase their academic projects and
+                connect with the university community.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="gallery.html">Browse Projects</a></li>
+            <li><a href="upload.html">Upload Project</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="about.html">Help Center</a></li>
+            <li><a href="about.html">Guidelines</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+      </div>
+    </footer> 
+</body>
+</html>
