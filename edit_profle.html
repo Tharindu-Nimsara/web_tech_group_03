@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - USJ Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header start */
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 40px;
+            height: 85px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }.head{
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        
+        .site-info h2 {
+            font-size: 28px;
+            margin-bottom: 2px;
+            color: #1976d2;
+            font-weight: 700;
+        }
+        .site-info p {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        .nav-bar{
+            display: flex;
+            gap: 30px;
+            padding: 8px;
+        }
+        .nav-bar a{
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-bar a:hover {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+        }
+        .search{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-right: 50px;
+        }
+        .search img{
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: 50%;
+            padding: 4px;
+            transition: all 0.3s ease;
+        }
+        .search img:hover {
+            background-color: #755fee;
+            transform: scale(1.1);
+        }
+        .upload-btn{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            height: 40px;
+            width: 150px;
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+            transition: all 0.3s ease;
+        }
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+        }
+        .upload-btn img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .profile {
+  margin: 10px;
+  position: relative;
+}
+.profile-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  min-width: 140px;
+  z-index: 100;
+  padding: 8px 0;
+}
+.profile-dropdown .dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.profile-dropdown .dropdown-menu a:hover {
+  background: #e3f2fd;
+  color: #0d47a1;
+}
+        .profileIcon {
+             width: 40px;              
+            height: 40px;
+            border-radius: 50%;         
+            object-fit: cover;         
+            transition: transform 0.3s;
+            border: 2px solid #1976d2;
+        }
+        /* Header End */
+        
+        
+        /* Footer Start*/
+
+footer {
+    background-color: #1a1a2e;
+    padding: 60px 40px 40px;
+    border-top: 3px solid #4285f4;
+    color: white;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+.logo-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.university-logo{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.uni-name h3 {
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.uni-name p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+.description {
+    font-size: 0.9rem;
+     line-height: 1.6;
+     color: rgba(255, 255, 255, 0.8);
+    max-width: 400px;
+}
+ .footer-section h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.footer-section ul {
+    list-style: none;
+    
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+ .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+            .home-content h1 {
+                font-size: 2.5em;
+            }
+            
+            .home-content h2 {
+                font-size: 2em;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-container {
+                gap: 30px;
+            }
+            
+            .parts {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+/* Footer End*/
+    </style>
+</head>
+<body>
+    <header>
+      <!----left-logo and titile----->
+      <div class="head">
+        <img
+          src="Images/projectShowcaselogo"
+          alt="project-showcaseLogo"
+          style="
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+            border-radius: 50%;
+          "
+        />
+        <div class="site-info">
+          <h2>USJ Projects</h2>
+          <p style="font-size: 16px">University of Sri Jayawardenepura</p>
+        </div>
+      </div>
+
+      <!---centere: Navigation--->
+      <nav class="nav-bar">
+        <a href="index1.html">Home</a>
+        <a href="gallery.html">Projects</a>
+        <a href="upload.html">Upload</a>
+        <a href="about.html">About</a>
+      </nav>
+
+       <!----Right search,upload button,profile---->
+      <div class="search">
+        <img src="Images/searchlogo" alt="searchIcon" />
+        <a href="upload.html" class="upload-btn">
+          <img src="Images/uploadLogo" alt="uploadIcon" />
+          <span>Upload</span>
+        </a>
+
+        <div class="profile profile-dropdown">
+          <img
+            src="Images/profile.PNG"
+            class="profileIcon"
+            alt="profileIcon"
+            style="height: 40px; width: 40px; cursor:pointer;"
+            onclick="toggleProfileDropdown()"
+          />
+          <div class="dropdown-menu" id="profileDropdownMenu">
+            <a href="profile.html">Profile</a>
+            <a href="signin.html" >Logout</a>
+          </div>
+        </div>
+    <script>
+      function toggleProfileDropdown() {
+        var menu = document.getElementById('profileDropdownMenu');
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+      }
+      // Hide dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('profileDropdownMenu');
+        var profileIcon = document.querySelector('.profileIcon');
+        if (!dropdown || !profileIcon) return;
+        if (!dropdown.contains(event.target) && event.target !== profileIcon) {
+          dropdown.style.display = 'none';
+        }
+      });
+      function logoutUser(e) {
+        e.preventDefault();
+        alert('Logged out! (Implement your logout logic here)');
+      }
+    </script>
+      </div>
+    </header>
+
+
+    <main class="container">
+        <h2 class="edit-profile-title">Edit Profile</h2>
+        <form id="editProfileForm" enctype="multipart/form-data" method="POST" action="backend/api/update_profile.php" class="edit-profile-form">
+          <div class="form-group">
+            <label for="profile_pic">Profile Picture:</label>
+            <input type="file" id="profile_pic" name="profile_pic" accept="image/*" />
+          </div>
+          <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="skills">Skills (comma separated):</label>
+            <input type="text" id="skills" name="skills" />
+          </div>
+          <div class="form-group">
+            <label for="github">GitHub:</label>
+            <input type="text" id="github" name="github" />
+          </div>
+          <div class="form-group">
+            <label for="website">Website:</label>
+            <input type="text" id="website" name="website" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" />
+          </div>
+          <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+    </main>
+    <style>
+    .edit-profile-title {
+        margin: 30px 0 20px 0;
+        font-size: 2rem;
+        color: var(--secondary-color);
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .edit-profile-form {
+        max-width: 500px;
+        margin: 0 auto 40px auto;
+        background: #fff;
+        padding: 32px 28px 24px 28px;
+        border-radius: 12px;
+        box-shadow: 0 2px 16px rgba(44,62,80,0.10);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+    .edit-profile-form label {
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 2px;
+    }
+    .edit-profile-form input[type="text"],
+    .edit-profile-form textarea {
+        padding: 10px 12px;
+        border: 1px solid #bfc9d1;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: #f8fafc;
+        transition: border 0.2s;
+        resize: none;
+    }
+    .edit-profile-form input[type="text"]:focus,
+    .edit-profile-form textarea:focus {
+        border-color: var(--secondary-color);
+        outline: none;
+        background: #fff;
+    }
+    .edit-profile-form input[type="file"] {
+        border: none;
+        background: none;
+        font-size: 1rem;
+        padding: 0;
+    }
+    .save-btn {
+        margin-top: 10px;
+        padding: 12px 0;
+        background: linear-gradient(135deg, #1976d2, #42a5f5);
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+        transition: background 0.2s, transform 0.2s;
+    }
+    .save-btn:hover {
+        background: linear-gradient(135deg, #42a5f5, #1976d2);
+        transform: translateY(-2px) scale(1.03);
+    }
+    @media (max-width: 600px) {
+        .edit-profile-form {
+            padding: 18px 8px;
+            max-width: 98vw;
+        }
+        .edit-profile-title {
+            font-size: 1.3rem;
+        }
+    }
+    </style>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo-section">
+            <img
+              src="Images/Unilogo.jpg"
+              alt="University Logo"
+              class="university-logo"
+            />
+            <div class="uni">
+              <div class="uni-name">
+                <h3>USJ Student Projects</h3>
+                <p>University of Sri Jayewardenepura</p>
+              </div>
+              <div class="description">
+                A platform for students to showcase their academic projects and
+                connect with the university community.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="gallery.html">Browse Projects</a></li>
+            <li><a href="upload.html">Upload Project</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="about.html">Help Center</a></li>
+            <li><a href="guidelines.html">Guidelines</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+    <script>
+        // Simple tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Here you would typically load different content based on the tab
+                // For this example, we're just changing the active tab style
+            });
+        });
+    </script>
+</body>
+</html>
