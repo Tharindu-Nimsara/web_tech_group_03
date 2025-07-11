@@ -123,9 +123,35 @@
             height: 30px;
             border-radius: 50%;
         }
-        .profile{
-            margin: 10px;
-        }
+        .profile {
+  margin: 10px;
+  position: relative;
+}
+.profile-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  min-width: 140px;
+  z-index: 100;
+  padding: 8px 0;
+}
+.profile-dropdown .dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.profile-dropdown .dropdown-menu a:hover {
+  background: #e3f2fd;
+  color: #0d47a1;
+}
         .profileIcon {
              width: 40px;              
             height: 40px;
@@ -536,16 +562,38 @@ footer {
           <span>Upload</span>
         </a>
 
-        <div class="profile">
-          <a href="profile.html">
-            <img
-              src="Images/profile.PNG"
-              class="profileIcon"
-              alt="profileIcon"
-              style="height: 40px; width: 40px"
-            />
-          </a>
+        <div class="profile profile-dropdown">
+          <img
+            src="Images/profile.PNG"
+            class="profileIcon"
+            alt="profileIcon"
+            style="height: 40px; width: 40px; cursor:pointer;"
+            onclick="toggleProfileDropdown()"
+          />
+          <div class="dropdown-menu" id="profileDropdownMenu">
+            <a href="profile.html">Profile</a>
+            <a href="signin.html" >Logout</a>
+          </div>
         </div>
+    <script>
+      function toggleProfileDropdown() {
+        var menu = document.getElementById('profileDropdownMenu');
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+      }
+      // Hide dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('profileDropdownMenu');
+        var profileIcon = document.querySelector('.profileIcon');
+        if (!dropdown || !profileIcon) return;
+        if (!dropdown.contains(event.target) && event.target !== profileIcon) {
+          dropdown.style.display = 'none';
+        }
+      });
+      function logoutUser(e) {
+        e.preventDefault();
+        alert('Logged out! (Implement your logout logic here)');
+      }
+    </script>
       </div>
     </header>
 
@@ -584,16 +632,10 @@ footer {
                         </div>
                         <div class="info-item">
                             <i class="fas fa-calendar-alt"></i>
-                            <span>3rd Year</span>
+                            <span>2nd Year</span>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-university"></i>
-                            <span>Computing & Information Systems</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-star"></i>
-                            <span>GPA: 3.75/4.0</span>
-                        </div>
+                       
+            
                     </div>
                 </div>
 
@@ -623,170 +665,120 @@ footer {
                             <span>Colombo, Sri Lanka</span>
                             <span>• Joined March 2022</span>
                         </div>
+                        
                     </div>
                 </div>
+<a href="edit_profle.html" class="upload-btn" style="margin-bottom:20px;display:inline-flex; font-size: large; align-items: center; justify-content: center; width: 150px; text-align: center;">Edit Profile</a>
 
-                <div class="bio">
-                    <p>Passionate computer science student focused on AI, machine learning, and sustainable technology solutions. Always eager to collaborate on innovative projects that can make a positive impact on society.</p>
-                </div>
+<div class="bio">
+    <p>Passionate computer science student focused on AI, machine learning, and sustainable technology solutions. Always eager to collaborate on innovative projects that can make a positive impact on society.</p>
+</div>
 
-                <div class="tags">
-                    <span class="tag">Artificial Intelligence</span>
-                    <span class="tag">Web Development</span>
-                    <span class="tag">Mobile Apps</span>
-                    <span class="tag">IoT</span>
-                </div>
+<!-- <div class="tags">
+    <span class="tag">Artificial Intelligence</span>
+    <span class="tag">Web Development</span>
+    <span class="tag">Mobile Apps</span>
+    <span class="tag">IoT</span>
+</div> -->
 
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">105</div>
-                        <div class="stat-label">Total Likes</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">579</div>
-                        <div class="stat-label">Profile Views</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24</div>
-                        <div class="stat-label">Followers</div>
-                    </div>
-                </div>
+<div class="stats">
+    <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">105</div>
+        <div class="stat-label">Total Likes</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">579</div>
+        <div class="stat-label">Profile Views</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">24</div>
+        <div class="stat-label">Followers</div>
+    </div>
+</div>
 
-                <div class="profile-tabs">
-                    <div class="tab active">Projects</div>
-                    <div class="tab">Activity</div>
-                    <div class="tab">Achievements</div>
-                </div>
+<div class="profile-tabs">
+    <div class="tab active">Projects</div>
+    <!-- <div class="tab">Activity</div>
+    <div class="tab">Achievements</div> -->
+</div>
 
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Smart Campus Navigation System</h3>
-                            <p class="project-description">An AI-powered mobile application that helps students navigate the university campus efficiently using AR technology.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">React Native</span>
-                                <span class="project-tag">TensorFlow</span>
-                                <span class="project-tag">ARCore</span>
-                            </div>
-                            <div class="project-stats">
-                                <div class="project-stat">
-                                    <i class="fas fa-heart"></i> 45
-                                </div>
-                                <div class="project-stat">
-                                    <i class="fas fa-eye"></i> 234 views
-                                </div>
-                                <div class="project-stat">
-                                    2024
-                                </div>
-                                <a href="#" class="view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Sustainable Energy Management</h3>
-                            <p class="project-description">IoT-based system for monitoring and optimizing energy consumption in university buildings.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Arduino</span>
-                                <span class="project-tag">Python</span>
-                                <span class="project-tag">MongoDB</span>
-                            </div>
-                            <div class="project-stats">
-                                <div class="project-stat">
-                                    <i class="fas fa-heart"></i> 32
-                                </div>
-                                <div class="project-stat">
-                                    <i class="fas fa-eye"></i> 189 views
-                                </div>
-                                <div class="project-stat">
-                                    2024
-                                </div>
-                                <a href="#" class="view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Digital Library Assistant</h3>
-                            <p class="project-description">A chatbot system to help students find academic resources and manage library services.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Node.js</span>
-                                <span class="project-tag">NLP</span>
-                                <span class="project-tag">MySQL</span>
-                            </div>
-                            <div class="project-stats">
-                                <div class="project-stat">
-                                    <i class="fas fa-heart"></i> 28
-                                </div>
-                                <div class="project-stat">
-                                    <i class="fas fa-eye"></i> 156 views
-                                </div>
-                                <div class="project-stat">
-                                    2023
-                                </div>
-                                <a href="#" class="view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="projects-grid">
+    <div class="project-card">
+        <div class="project-content">
+            <h3 class="project-title">Smart Campus Navigation System</h3>
+            <p class="project-description">An AI-powered mobile application that helps students navigate the university campus efficiently using AR technology.</p>
+            <div class="project-tags">
+                <span class="project-tag">React Native</span>
+                <span class="project-tag">TensorFlow</span>
+                <span class="project-tag">ARCore</span>
             </div>
-        </section>
+            <div class="project-stats">
+                <div class="project-stat">
+                    <i class="fas fa-heart"></i> 45
+                </div>
+                <div class="project-stat">
+                    <i class="fas fa-eye"></i> 234 views
+                </div>
+                <div class="project-stat">
+                    2024
+                </div>
+                <a href="#" class="view-project">View Project</a>
+            </div>
+        </div>
     </div>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="logo-section">
-            <img
-              src="Images/Unilogo.jpg"
-              alt="University Logo"
-              class="university-logo"
-            />
-            <div class="uni">
-              <div class="uni-name">
-                <h3>USJ Student Projects</h3>
-                <p>University of Sri Jayewardenepura</p>
-              </div>
-              <div class="description">
-                A platform for students to showcase their academic projects and
-                connect with the university community.
-              </div>
+    <div class="project-card">
+        <div class="project-content">
+            <h3 class="project-title">Sustainable Energy Management</h3>
+            <p class="project-description">IoT-based system for monitoring and optimizing energy consumption in university buildings.</p>
+            <div class="project-tags">
+                <span class="project-tag">Arduino</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">MongoDB</span>
             </div>
-          </div>
+            <div class="project-stats">
+                <div class="project-stat">
+                    <i class="fas fa-heart"></i> 32
+                </div>
+                <div class="project-stat">
+                    <i class="fas fa-eye"></i> 189 views
+                </div>
+                <div class="project-stat">
+                    2024
+                </div>
+                <a href="#" class="view-project">View Project</a>
+            </div>
         </div>
+    </div>
 
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="gallery.html">Browse Projects</a></li>
-            <li><a href="upload.html">Upload Project</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="about.html">Contact</a></li>
-          </ul>
+    <div class="project-card">
+        <div class="project-content">
+            <h3 class="project-title">Digital Library Assistant</h3>
+            <p class="project-description">A chatbot system to help students find academic resources and manage library services.</p>
+            <div class="project-tags">
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">NLP</span>
+                <span class="project-tag">MySQL</span>
+            </div>
+            <div class="project-stats">
+                <div class="project-stat">
+                    <i class="fas fa-heart"></i> 28
+                </div>
+                <div class="project-stat">
+                    <i class="fas fa-eye"></i> 156 views
+                </div>
+                <div class="project-stat">
+                    2023
+                </div>
+                <a href="#" class="view-project">View Project</a>
+            </div>
         </div>
-
-        <div class="footer-section">
-          <h4>Support</h4>
-          <ul>
-            <li><a href="about.html">Help Center</a></li>
-            <li><a href="guidelines.html">Guidelines</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
-      </div>
-    </footer>
-  </body>
+    </div>
+</div>
 </html>
 
     <script>
