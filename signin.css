@@ -373,18 +373,21 @@ footer {
     padding: 60px 40px 40px;
     border-top: 3px solid #4285f4;
     color: white;
+    text-align: center; /* Add this for text centering */
 }
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content horizontally */
+    /* grid-template-columns: 2fr 1fr 1fr; */
+    /* gap: 60px; */
     margin-bottom: 40px;
 }
 .footer-section {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 .logo-section {
     display: flex;
