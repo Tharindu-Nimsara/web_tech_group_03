@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - USJ Projects</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
@@ -572,7 +572,7 @@ footer {
           />
           <div class="dropdown-menu" id="profileDropdownMenu">
             <a href="profile.html">Profile</a>
-            <a href="signin.html" >Logout</a>
+            <a href="signin.html" onclick="logoutUser(event)"  >Logout</a>
           </div>
         </div>
     <script>
@@ -603,7 +603,7 @@ footer {
             <div class="profile-left">
                 <div class="info-section">
                     <h3 class="info-title">Contact Information</h3>
-                    <div class="info-content">
+                    <div class="info-content1">
                         <div class="info-item">
                             <i class="fas fa-envelope"></i>
                             <span>john.doe@sip.ac.lk</span>
@@ -662,7 +662,7 @@ footer {
                         <div class="location">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Colombo, Sri Lanka</span>
-                            <span>• Joined March 2022</span>
+                            <!-- <span>• Joined March 2022</span> -->
                         </div>
                         
                     </div>
@@ -781,16 +781,147 @@ footer {
 </html>
 
     <script>
-        // Simple tab functionality
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Here you would typically load different content based on the tab
-                // For this example, we're just changing the active tab style
+    // Load and display user profile data
+    async function loadAndDisplayProfile() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
             });
+            const result = await response.json();
+
+            if (result.status === "success") {
+                const user = result.user;
+                
+                // Update profile information
+                document.querySelector('.profile-info h1').textContent = user.name || 'Student Name';
+
+                const locationElement = document.querySelector('.location span');
+                    if (locationElement) {
+                        locationElement.textContent = user.location || 'Colombo, Sri Lanka';
+                    }
+                
+                // Update contact information
+                const emailElement = document.querySelector('.info-content1 .info-item:nth-child(1) span');
+                if (emailElement) emailElement.textContent = user.email || 'email@sjp.ac.lk';
+                
+                const phoneElement = document.querySelector('.info-content1 .info-item:nth-child(2) span');
+                if (phoneElement) phoneElement.textContent = user.phone_number || '+94 77 123 4567';
+                
+                const githubElement = document.querySelector('.info-content1 .info-item:nth-child(3) span');
+                if (githubElement) githubElement.textContent = user.github_link || 'github.com/username';
+                
+                const websiteElement = document.querySelector('.info-content1 .info-item:nth-child(4) span');
+                if (websiteElement) websiteElement.textContent = user.website_link || 'website.com';
+                
+                // Update academic information
+                const departmentElement = document.querySelector('.info-content .info-item:nth-child(1) span');
+                if (departmentElement && user.department) {
+                    departmentElement.textContent = `BSc (Hons) ${user.department}`;
+                }
+                
+                const yearElement = document.querySelector('.info-content .info-item:nth-child(2) span');
+                if (yearElement) yearElement.textContent = user.study_year || '2nd Year';
+                
+                // Update bio
+                const bioElement = document.querySelector('.bio p');
+                if (bioElement) {
+                    bioElement.textContent = user.bio || 'Passionate student focused on academic excellence and innovative projects.';
+                }
+                
+                // Update skills
+                if (user.skills) {
+                    const skillsContainer = document.querySelector('.skills');
+                    skillsContainer.innerHTML = '';
+                    
+                    const skillsArray = user.skills.split(',');
+                    skillsArray.forEach(skill => {
+                        const skillSpan = document.createElement('span');
+                        skillSpan.className = 'skill';
+                        skillSpan.textContent = skill.trim();
+                        skillsContainer.appendChild(skillSpan);
+                    });
+                }
+                
+                // Update profile picture if available
+                if (user.photo) {
+                    const profilePic = document.querySelector('.profile-pic');
+                    if (profilePic) {
+                        profilePic.src = `http://127.0.0.1/backend/${user.photo}`;
+                    }
+                }
+                
+                console.log("Profile data displayed successfully");
+            } else {
+                console.error("Failed to load profile:", result.message);
+            }
+        } catch (error) {
+            console.error("Error loading profile:", error);
+        }
+    }
+
+    // Authentication check
+    async function checkLogin() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/is_logged_in.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success") {
+                console.log("User is logged in:", result.name);
+                // Load and display profile data
+                loadAndDisplayProfile();
+            } else {
+                alert("You must be logged in to view this page.");
+                window.location.href = "signin.html";
+            }
+        } catch (error) {
+            console.error("Login check failed", error);
+            alert("Something went wrong. Please login again.");
+            window.location.href = "signin.html";
+        }
+    }
+
+    // Logout function
+    function logoutUser(e) {
+        e.preventDefault();
+        fetch("http://127.0.0.1/backend/api/logout.php", {
+            credentials: 'include'
+        }).then(() => {
+            alert("You have been logged out.");
+            window.location.href = "signin.html";
+        }).catch((err) => {
+            console.error("Logout failed", err);
+            alert("Logout failed.");
         });
-    </script>
+    }
+
+    // Profile dropdown functionality
+    function toggleProfileDropdown() {
+        var menu = document.getElementById('profileDropdownMenu');
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('profileDropdownMenu');
+        var profileIcon = document.querySelector('.profileIcon');
+        if (!dropdown || !profileIcon) return;
+        if (!dropdown.contains(event.target) && event.target !== profileIcon) {
+            dropdown.style.display = 'none';
+        }
+    });
+
+    // Tab functionality
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+        });
+    });
+
+    // Run when page loads
+    window.onload = checkLogin;
+</script>
 </body>
 </html>

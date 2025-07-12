@@ -447,6 +447,7 @@
                 color: #e53935;
                 text-decoration: none;
               "
+              onclick="logoutUser(event)"
               >Logout</a
             >
           </div>
@@ -507,203 +508,21 @@
       </div>
 
       <div class="sum-of-projects">
-        <p>Showing 6 of 6 projects</p>
-        <a href="">Upload Project</a>
+        <p id="projects-count">Loading projects...</p>
+        <a href="upload.html">Upload Project</a>
       </div>
       <hr />
       <!-- Gallery start -->
-      <div class="gallery-grid">
-        <!-- Card 1 -->
-        <div class="card">
-          <div class="card-header AI">
-            <img src="Images/home.jpg" alt="AI Icon" class="card-header-img" />
-            <h2>AI Navigation</h2>
-            <span>Computer Vision</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2025</span>
-              <span class="tag">Computer Science</span>
-            </div>
-            <div class="card-title">Smart Campus Navigation System</div>
-            <div class="card-desc">
-              An AI-powered indoor navigation system using computer vision and
-              machine learning to help students and visitors navigate their
-              projects.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Python</span>
-              <span class="stack">TensorFlow</span>
-              <span class="stack">OpenCV</span>
-            </div>
-            <div class="card-footer">
-              <span>Amal Perera<br /><small>Final Year, CSE</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="card">
-          <div class="card-header Iot">
-            <img src="Images/home.jpg" alt="IoT Icon" class="card-header-img" />
-            <h2>IoT System</h2>
-            <span>Smart Monitoring</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2025</span>
-              <span class="tag">Engineering</span>
-            </div>
-            <div class="card-title">Smart Water Management System</div>
-            <div class="card-desc">
-              IoT-based water quality monitoring and distribution system for
-              urban areas with real-time analytics, automated alerts, and more.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Arduino</span>
-              <span class="stack">React Native</span>
-              <span class="stack">Firebase</span>
-            </div>
-            <div class="card-footer">
-              <span>Nimal Silva<br /><small>3rd Year, EEE</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="card">
-          <div class="card-header e-comm">
-            <img
-              src="Images/home.jpg"
-              alt="E-Commerce Icon"
-              class="card-header-img"
-            />
-            <h2>E-Commerce</h2>
-            <span>Digital Platform</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2023</span>
-              <span class="tag">Business Studies</span>
-            </div>
-            <div class="card-title">Local Artisan Marketplace</div>
-            <div class="card-desc">
-              Digital platform connecting local artisans with customers,
-              featuring secure payments, inventory management, and integrated
-              tools.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Next.js</span>
-              <span class="stack">Stripe</span>
-              <span class="stack">MongoDB</span>
-            </div>
-            <div class="card-footer">
-              <span>Saman Fernando<br /><small>4th Year, BBA</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card">
-          <div class="card-header AI">
-            <img src="Images/home.jpg" alt="AI Icon" class="card-header-img" />
-            <h2>AI Navigation</h2>
-            <span>Computer Vision</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2025</span>
-              <span class="tag">Computer Science</span>
-            </div>
-            <div class="card-title">Smart Campus Navigation System</div>
-            <div class="card-desc">
-              An AI-powered indoor navigation system using computer vision and
-              machine learning to help students and visitors navigate their
-              projects.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Python</span>
-              <span class="stack">TensorFlow</span>
-              <span class="stack">OpenCV</span>
-            </div>
-            <div class="card-footer">
-              <span>Amal Perera<br /><small>Final Year, CSE</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="card">
-          <div class="card-header Iot">
-            <img src="Images/home.jpg" alt="IoT Icon" class="card-header-img" />
-            <h2>IoT System</h2>
-            <span>Smart Monitoring</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2025</span>
-              <span class="tag">Engineering</span>
-            </div>
-            <div class="card-title">Smart Water Management System</div>
-            <div class="card-desc">
-              IoT-based water quality monitoring and distribution system for
-              urban areas with real-time analytics, automated alerts, and more.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Arduino</span>
-              <span class="stack">React Native</span>
-              <span class="stack">Firebase</span>
-            </div>
-            <div class="card-footer">
-              <span>Nimal Silva<br /><small>3rd Year, EEE</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 6 -->
-        <div class="card">
-          <div class="card-header e-comm">
-            <img
-              src="Images/home.jpg"
-              alt="E-Commerce Icon"
-              class="card-header-img"
-            />
-            <h2>E-Commerce</h2>
-            <span>Digital Platform</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2023</span>
-              <span class="tag">Business Studies</span>
-            </div>
-            <div class="card-title">Local Artisan Marketplace</div>
-            <div class="card-desc">
-              Digital platform connecting local artisans with customers,
-              featuring secure payments, inventory management, and integrated
-              tools.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Next.js</span>
-              <span class="stack">Stripe</span>
-              <span class="stack">MongoDB</span>
-            </div>
-            <div class="card-footer">
-              <span>Saman Fernando<br /><small>4th Year, BBA</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="loading">
+          <h3>📚 Loading Projects...</h3>
+          <p>Please wait while we fetch projects from the database.</p>
         </div>
       </div>
       <!-- Gallery end -->
-      <div class="pagination">
-        <a href="#" class="page active">1</a>
-        <a href="#" class="page">2</a>
-        <a href="#" class="page">3</a>
-        <span class="dots">...</span>
-        <a href="#" class="page">Next &raquo;</a>
+      <div class="pagination" id="pagination">
+        <!-- Pagination will be generated dynamically -->
       </div>
-    </div>
 
     <footer>
       <div class="footer-content">
@@ -752,5 +571,46 @@
         <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
       </div>
     </footer>
+
+    <script src="gallery.js"></script>
+
+    <script>
+      function logoutUser(e) {
+        e.preventDefault();
+        fetch("http://127.0.0.1/backend/api/logout.php", {
+    credentials: 'include'  
+}).then(() => {
+            alert("You have been logged out.");
+            window.location.href = "signin.html";
+          })
+          .catch((err) => {
+            console.error("Logout failed", err);
+            alert("Logout failed.");
+          });
+      }
+
+      async function checkLogin() {
+        try {
+          const response = await fetch("http://127.0.0.1/backend/api/is_logged_in.php", {
+              credentials: 'include' 
+          });
+          const result = await response.json();
+
+          if (result.status === "success") {
+            // Optional: customize profile area or greet user
+            console.log("User is logged in:", result.name);
+          } else {
+            alert("You must be logged in to view this page.");
+            window.location.href = "signin.html";
+          }
+        } catch (error) {
+          console.error("Login check failed", error);
+          alert("Something went wrong. Please Login again.");
+          window.location.href = "signin.html";
+        }
+      }
+
+      window.onload = checkLogin;
+    </script>
   </body>
 </html>

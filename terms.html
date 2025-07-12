@@ -84,6 +84,7 @@
                 color: #e53935;
                 text-decoration: none;
               "
+              onclick="logoutUser(event)"
               >Logout</a
             >
           </div>
@@ -474,5 +475,44 @@
         <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
       </div>
     </footer>
+
+    <script>
+      function logoutUser(e) {
+        e.preventDefault();
+        fetch("http://127.0.0.1/backend/api/logout.php", {
+    credentials: 'include'  
+}).then(() => {
+            alert("You have been logged out.");
+            window.location.href = "signin.html";
+          })
+          .catch((err) => {
+            console.error("Logout failed", err);
+            alert("Logout failed.");
+          });
+      }
+
+      async function checkLogin() {
+        try {
+          const response = await fetch("http://127.0.0.1/backend/api/is_logged_in.php", {
+              credentials: 'include' 
+          });
+          const result = await response.json();
+
+          if (result.status === "success") {
+            // Optional: customize profile area or greet user
+            console.log("User is logged in:", result.name);
+          } else {
+            alert("You must be logged in to view this page.");
+            window.location.href = "signin.html";
+          }
+        } catch (error) {
+          console.error("Login check failed", error);
+          alert("Something went wrong. Please Login again.");
+          window.location.href = "signin.html";
+        }
+      }
+
+      window.onload = checkLogin;
+    </script>
   </body>
 </html>

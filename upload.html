@@ -92,6 +92,7 @@
                 color: #e53935;
                 text-decoration: none;
               "
+              onclick="logoutUser(event)"
               >Logout</a
             >
           </div>
@@ -145,13 +146,13 @@
                 />
               </td>
               <td>
-                <label for="author-name">Author Name*</label> <br />
+                <label for="author-name">Project Category*</label> <br />
                 <input
                   type="text"
                   name="author-name"
-                  id="author-name"
+                  id="project-category"
                   class="author-name"
-                  placeholder="Your full name"
+                  placeholder="Category of your project"
                   required="required"
                 />
               </td>
@@ -183,18 +184,18 @@
                 </select>
               </td>
               <td>
-                <label for="academic-year">Academic Year*</label> <br />
-                <select name="academic-year" id="academic-year">
-                  <option value="Select-year" selected="selected">
-                    Select year
-                  </option>
-                  <option value="2023">2023</option>
-                  <option value="2024">2024</option>
-                  <option value="2025">2025</option>
-                </select>
+                <label for="academic-year">Year*</label> <br />
+                <input
+                  type="text"
+                  name="year"
+                  class="project-title"
+                  id="year"
+                  placeholder="Year of your project"
+                  required="required"
+                />
               </td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>
                 <label for="supervisor">Project Supervisor</label> <br />
                 <input
@@ -215,35 +216,64 @@
                   placeholder="Related course or module "
                 />
               </td>
-            </tr>
+            </tr> -->
           </table>
         </form>
       </div>
-      <div class="partitions">
-        <h2>Tags</h2>
-        <p>Add relevent tags to help others discover your project</p>
 
-        <h4>Available tags</h4>
-        <div class="tags-choosen">
-          <a href=""><span>AI</span></a>
-          <a href=""><span>Machine Learning</span></a>
-          <a href=""><span>IoT</span></a>
-          <a href=""><span>Web Development</span></a>
-          <a href=""><span>Mobile App</span></a>
-          <a href=""><span>Data Science</span></a>
-          <a href=""><span>Blockchain</span></a>
-          <a href=""><span>VR/AR</span></a>
-          <a href=""><span>Sustainability</span></a>
-          <a href=""><span>Healthcare</span></a>
-          <a href=""><span>Education</span></a>
-          <a href=""><span>Research</span></a>
-          <a href=""><span>Innovation</span></a>
-          <a href=""><span>Technology</span></a>
-          <a href=""><span>Design</span></a>
+      <div class="partitions">
+  <h2>Project Image</h2>
+  <p>Upload a representative image for your project (optional)</p>
+  
+  <div class="photo-upload-container">
+    <div class="photo-upload-area" id="photo-upload-area">
+      <div class="upload-placeholder" id="upload-placeholder">
+        <img src="Images/uploadLogo" alt="Upload" style="width: 48px; height: 48px; opacity: 0.5;">
+        <h4>Click to upload project image</h4>
+        <p>Drag and drop an image here, or click to browse</p>
+        <p style="font-size: 0.9rem; color: #666;">Supported formats: JPG, JPEG, PNG (Max 10MB)</p>
+      </div>
+      
+      <div class="image-preview" id="image-preview" style="display: none;">
+        <img id="preview-img" src="" alt="Project Preview">
+        <div class="image-actions">
+          <button type="button" class="change-image-btn" onclick="changeImage()">Change Image</button>
+          <button type="button" class="remove-image-btn" onclick="removeImage()">Remove</button>
         </div>
       </div>
+    </div>
+    <input type="file" id="project-image-input" accept="image/jpeg,image/jpg,image/png" style="display: none;">
+  </div>
+</div>
+
 
       <div class="partitions">
+        <h2>Tags</h2>
+        <p>Add relevant tags to help others discover your project</p>
+
+        <h4>Enter tags (comma separated):</h4>
+        <input
+          type="text"
+          id="tags-input"
+          name="tags"
+          class="tags-input"
+          placeholder="e.g. AI, Machine Learning, IoT"
+          style="
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1.5px solid #e3f2fd;
+            margin-bottom: 12px;
+          "
+        />
+
+        <div
+          id="tags-preview"
+          style="margin-bottom: 10px; display: flex; flex-wrap: wrap; gap: 8px"
+        ></div>
+      </div>
+
+      <!-- <div class="partitions">
         <h2>Project Files</h2>
         <p>
           Upload your project documentation,source code,presentations etc...
@@ -259,7 +289,7 @@
           </p>
           <a href="">Choose Files</a>
         </div>
-      </div>
+      </div> -->
 
       <div class="partitions">
         <h2>Additional Information</h2>
@@ -298,7 +328,7 @@
                 />
               </td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td colspan="2">
                 <label for="keywords">Keywords</label> <br />
                 <input
@@ -309,14 +339,14 @@
                   placeholder="Seperate keywords with commas"
                 />
               </td>
-            </tr>
+            </tr> -->
           </table>
         </form>
       </div>
 
       <div class="buttons">
-        <a class="upload-project-button" href="upload.html">Upload Project</a>
-        <a class="save-as-draft-button" href="">Save as Draft</a>
+        <button class="upload-project-button" type="button">Upload Project</button>
+        <!-- <a class="save-as-draft-button" href="">Save as Draft</a> -->
       </div>
     </div>
 
@@ -367,5 +397,50 @@
         <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
       </div>
     </footer>
+
+    <script src="upload.js"></script>
+
+    <script>
+      function logoutUser(e) {
+        e.preventDefault();
+        fetch("http://127.0.0.1/backend/api/logout.php", {
+          credentials: "include",
+        })
+          .then(() => {
+            alert("You have been logged out.");
+            window.location.href = "signin.html";
+          })
+          .catch((err) => {
+            console.error("Logout failed", err);
+            alert("Logout failed.");
+          });
+      }
+
+      async function checkLogin() {
+        try {
+          const response = await fetch(
+            "http://127.0.0.1/backend/api/is_logged_in.php",
+            {
+              credentials: "include",
+            }
+          );
+          const result = await response.json();
+
+          if (result.status === "success") {
+            // Optional: customize profile area or greet user
+            console.log("User is logged in:", result.name);
+          } else {
+            alert("You must be logged in to view this page.");
+            window.location.href = "signin.html";
+          }
+        } catch (error) {
+          console.error("Login check failed", error);
+          alert("Something went wrong. Please Login again.");
+          window.location.href = "signin.html";
+        }
+      }
+
+      window.onload = checkLogin;
+    </script>
   </body>
 </html>
