@@ -46,7 +46,7 @@
                 <img src="Images/profile.PNG" class="profileIcon" alt="profileIcon" id="profileDropdownBtn" style="height: 40px; width: 40px; cursor: pointer;" />
                 <div id="profileDropdown" style="display: none; position: absolute; right: 0; top: 50px; background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); min-width: 150px; z-index: 1000;">
                   <a href="profile.html" style="display: block; padding: 12px 20px; color: #333; text-decoration: none; border-bottom: 1px solid #eee;">Profile</a>
-                  <a href="signin.html" style="display: block; padding: 12px 20px; color: #e53935; text-decoration: none;">Logout</a>
+                  <a href="signin.html" onclick="logoutUser(event)"  style="display: block; padding: 12px 20px; color: #e53935; text-decoration: none;">Logout</a>
                 </div>
             </div>
         </div>
@@ -74,50 +74,30 @@
     <section class="section">
         <div class="performance">
             <div class="analytics">
-                <p>Projects/ AI-Powered Student Performance Analytics</p>
-                <h2>AI-Powered student Performance Analytics</h2>
-                <p>A comprehensive machine learning system designed to predict and improve student academic outcomes
-                    using historical data and behavioral patterns. This project implements various ML algorithms to
-                    analyze student performance trends and provide actionable insights for educators.</p>
+                <h2 id="project-title">Loading project...</h2>
+                <p id="project-description">Please wait while we load the project details.</p>
             </div>
 
-            <button class="bttn">AI</button>
-            <button class="bttn">Machine Learning</button>
-            <button class="bttn">Education</button>
-            <button class="bttn">Python</button>
-            <button class="bttn">Data Science</button>
-            <br>
-            <br>
-
-            <div class="detail-about-publicity">
-                <div><img src="Images\heart-icon.png" alt=""></div>
-                <div>45 Likes</div>
-                <div><img src="Images\eye-icon.png" alt=""> </div>
-                <div>234 Views</div>
-                <div><img src="Images\download-icon.png" alt=""> </div>
-                <div>12 Downloads</div>
+            <div id="project-tags">
+                <!-- Tags will be loaded dynamically -->
             </div>
+            
             <br>
 
-            <div class="project-actions">
-                <a href="#" class="btn btn-like"><img src="Images\heart-icon.png" alt="">Like Project</a>
-                <a href="#" class="btn btn-share"><img src="Images\share-icon_861234-1151.avif" alt=""
-                        height="25px">Share</a>
-                <a href="#" class="btn btn-github"> <img src="Images\github-01.png" alt="" height="35px">GitHub</a>
-                <a href="#" class="btn btn-demo">Live Demo</a>
+            <div class="project-actions" id="project-actions">
+                <a href="#" class="btn btn-share" id="share-btn"><img src="Images/share-icon_861234-1151.avif" alt="" height="25px">Share</a>
+                <a href="#" class="btn btn-github" id="github-btn" style="display: none;"><img src="Images/github-01.png" alt="" height="35px">GitHub</a>
+                <a href="#" class="btn btn-demo" id="demo-btn" style="display: none;">Live Demo</a>
             </div>
-            <br>
+            
 
-            <div class="abstract">
+            <div class="abstract" id="abstract-section" style="display: none;">
                 <h2>Abstract</h2>
-                <p>This project aims to leverage AI and machine learning techniques to analyze student performance data
-                    and provide personalized recommendations for improvement. By utilizing historical data and real-time
-                    analytics, the system seeks to identify at-risk students and offer targeted interventions to enhance
-                    their learning outcomes.</p>
+                <p id="project-abstract"></p>
             </div>
-            <br>
+            
 
-            <div class="project-files">
+            <!-- <div class="project-files">
                 <h2>Project Files</h2>
                 <p>Download project documents and resources</p>
 
@@ -132,18 +112,18 @@
                     <div class="label-style"><label for="report">Project Report.pdf <button><img
                                     src="Images/download-icon.png" alt="" height="25px"> Download</button></label></div>
                     <div class="label-style"><label for="report">Project Report.pdf <button><img
-                                    src="Images/download-icon.png" alt="" height="25px"> Download</button></label></div>
+                                    src="Images/download-icon.png" alt="" height="25px"> Download</button></label></div> -->
 
-                </form>
-            </div>
+                <!-- </form>
+            </div>  -->
 
-            <div class="key-words">
+            <!-- <div class="key-words">
                 <h2>Keywords</h2>
                 <button class="bttn">Education Technology</button>
                 <button class="bttn">Machine Learning</button>
                 <button class="bttn">Student performance</button>
                 <button class="bttn">Predictive Analytics</button>
-            </div>
+            </div> -->
         </div>
 
 
@@ -154,28 +134,26 @@
             <div class="author">
                 <h2>Author Information</h2>
                 <div class="author-info">
-                    <div><img src="Images/profile.PNG" alt="Author Image" class="author-image" /></div>
+                    <div><img src="Images/profile.PNG" alt="Author Image" class="author-image" id="author-image" /></div>
                     <div>
-                        <p>Kasun Perera</p>
-                        <p><a href="mailto:kasun@example.com">kasun@example.com</a></p>
+                        <p id="author-name">Loading...</p>
+                        <p><a href="mailto:" id="author-email">Loading...</a></p>
                     </div>
                 </div>
                 <hr>
                 <div class="author-details">
-                    <p class="degree">Computer Science</p>
-                    <p class="year">2024</p>
-                    <p class="Supervisor">Supervisor: Dr. Smith</p>
-                    <p>Final year project - CS4989</p>
+                    <p class="degree" id="author-department">Loading...</p>
+                    <p class="year" id="author-year">Loading...</p>
                 </div>
             </div>
 
-            <div class="Project-Statistics">
+            <!-- <div class="Project-Statistics">
                 <h2>Project Statistics</h2>
                 <p><strong>Upload Date:</strong> <span id="upload-date">-</span></p>
                 <p><strong>Total Views:</strong> <span id="total-views">0</span></p>
                 <p><strong>Downloads:</strong> <span id="downloads">0</span></p>
                 <p><strong>Likes:</strong> <span id="likes">0</span></p>
-            </div>
+            </div> -->
             <script>
                 function uploadProject() {
                     // Show the card
@@ -193,7 +171,7 @@
                 }
             </script>
 
-            <div class="related-projects">
+            <!-- <div class="related-projects">
                 <h2>Related Projects</h2>
                 <div class="related-projects-list">
                     <div class="related-project">
@@ -226,7 +204,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
         </div>
         </div>
     </section>
@@ -275,6 +253,69 @@
             <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+      function logoutUser(e) {
+        e.preventDefault();
+        fetch("http://127.0.0.1/backend/api/logout.php", {
+    credentials: 'include'  
+}).then(() => {
+            alert("You have been logged out.");
+            window.location.href = "signin.html";
+          })
+          .catch((err) => {
+            console.error("Logout failed", err);
+            alert("Logout failed.");
+          });
+      }
+
+      async function checkLogin() {
+        try {
+          const response = await fetch("http://127.0.0.1/backend/api/is_logged_in.php", {
+              credentials: 'include' 
+          });
+          const result = await response.json();
+
+          if (result.status === "success") {
+            // Optional: customize profile area or greet user
+            console.log("User is logged in:", result.name);
+          } else {
+            alert("You must be logged in to view this page.");
+            window.location.href = "signin.html";
+          }
+        } catch (error) {
+          console.error("Login check failed", error);
+          alert("Something went wrong. Please Login again.");
+          window.location.href = "signin.html";
+        }
+      }
+
+      window.onload = checkLogin;
+    </script>
+    <script>
+      // Function to update profile image
+    async function updateProfileImage() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success" && result.user.photo) {
+                const profileIcon = document.querySelector('.profileIcon');
+                if (profileIcon) {
+                    profileIcon.src = `http://127.0.0.1/backend/${result.user.photo}`;
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile image:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProfileImage();
+    });
+    </script>
 
 </body>
 

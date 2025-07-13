@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SignUP</title>
+    <title>SignUp</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
@@ -313,13 +313,13 @@
   <body>
     <header>
       <!----left-logo and titile----->
-      <div class="head">
+      <div class="head" style="margin-left: 40px;">
         <img
-          src="Images/projectShowcaselogo"
+          src="Images/Unilogo.jpg"
           alt="project-showcaseLogo"
           style="
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             margin-right: 10px;
             border-radius: 50%;
           "
@@ -368,47 +368,48 @@
         <p style="text-align: center">Student Registration</p>
         <form onsubmit="return handleSubmit(event)">
            Name<br />
-          <input type="text" placeholder="Enter your name" required />
-          <!-- Uni ID<br />
-          <input type="text" placeholder="e.g., AS/2023/001" required /> -->
+          <input type="text" id="name" placeholder="Enter your name" required />
+          
           Email Address<br />
-          <input type="email" placeholder="your.email@sjp.ac.lk" required />
+          <input type="email" id="email" placeholder="your.email@sjp.ac.lk" required />
+
           Department<br />
-          <select required>
-            <option value="">Computer Science</option>
-            <option>Software Engineering</option>
-            <option>Information Systems</option>
-            
+          <select id="department" required>
+            <option value="">Select your department</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="Information Systems">Information Systems</option>
           </select>
+
           Year of Study<br />
-          <select required>
+          <select id="study_year" required>
             <option value="">Select your year</option>
-            <option>1st Year</option>
-            <option>2nd Year</option>
-            <option>3rd Year</option>
-            <option>4th Year</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
           </select>
-          <!-- Phone Number<br />
-          <input type="tel" placeholder="+94 77 123 4567" required /> -->
+          
+
           Password<br />
           <input
             type="password"
+            id="password"
             placeholder="Create a strong password"
             required
           />
           Confirm Password<br />
-          <input type="password" placeholder="Confirm your password" required />
+          <input type="password" id="confirm_password"  placeholder="Confirm your password" required />
+
           <label
-            ><input type="checkbox" required /> I agree to the&nbsp;
+            ><input type="checkbox" id="terms" required /> I agree to the&nbsp;
             <a href="#"> Terms of Service</a>&nbsp; and 
-            <a href="#">Privacy Policy</a></label
-          >
-          <!-- <label
-            ><input type="checkbox" /> Subscribe to our newsletter for project
-            updates and announcements</label> -->
+            <a href="#">Privacy Policy</a></label>
+         
           <br />
           <button type="submit">Create Account</button>
         </form>
+
         <p style="text-align: center; margin-top: 1rem">
           Already have an account? <a href="signin.html">sign in</a>
         </p>
@@ -474,12 +475,56 @@
     </footer>
 
     <script>
-      function handleSubmit(event) {
+      async function handleSubmit(event) {
         event.preventDefault();
-        alert("Your Account is Created Successfully!");
-        window.location.href = "signin.html";
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const department = document.getElementById("department").value;
+        const study_year = document.getElementById("study_year").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm_password").value;
+        const termsChecked = document.getElementById("terms").checked;
+
+        if (!termsChecked) {
+          alert("You must agree to the Terms and Privacy Policy.");
+          return false;
+        }
+
+        if (password !== confirmPassword) {
+          alert("Passwords do not match.");
+          return false;
+        }
+
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("department", department);
+        formData.append("study_year", study_year);
+        formData.append("password", password);
+
+        try {
+          const response = await fetch("http://127.0.0.1/backend/api/signup.php", {
+            method: "POST",
+            body: formData,
+          });
+
+          const result = await response.json();
+
+          if (result.status === "success") {
+            alert("Account created successfully!");
+            window.location.href = "signin.html";
+          } else {
+            alert("Signup failed: " + result.message);
+          }
+        } catch (error) {
+          console.error(error);
+          alert("Something went wrong. Please try again.");
+        }
+
         return false;
       }
     </script>
+
   </body>
 </html>

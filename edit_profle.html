@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - USJ Projects</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
@@ -279,13 +279,13 @@ footer {
 <body>
     <header>
       <!----left-logo and titile----->
-      <div class="head">
+      <div class="head" style="margin-left: 40px;">
         <img
-          src="Images/projectShowcaselogo"
+          src="Images/Unilogo.jpg"
           alt="project-showcaseLogo"
           style="
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             margin-right: 10px;
             border-radius: 50%;
           "
@@ -322,7 +322,7 @@ footer {
           />
           <div class="dropdown-menu" id="profileDropdownMenu">
             <a href="profile.html">Profile</a>
-            <a href="signin.html" >Logout</a>
+            <a href="signin.html" onclick="logoutUser(event)" >Logout</a>
           </div>
         </div>
     <script>
@@ -375,6 +375,20 @@ footer {
             <label for="phone">Phone:</label>
             <input type="text" id="phone" name="phone" />
           </div>
+          <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" placeholder="e.g., Colombo, Sri Lanka" />
+        </div>
+        <div class="form-group">
+          <label for="study_year">Year of Study:</label>
+          <select id="study_year" name="study_year">
+            <option value="">Select your year</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+          </select>
+        </div>
           <button type="submit" class="save-btn">Save Changes</button>
         </form>
     </main>
@@ -519,5 +533,155 @@ footer {
             });
         });
     </script>
+
+    <script>
+    // Load current user data when page loads
+    async function loadUserProfile() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success") {
+                const user = result.user;
+                
+                // Populate form fields with current data
+                document.getElementById('bio').value = user.bio || '';
+                document.getElementById('skills').value = user.skills || '';
+                document.getElementById('github').value = user.github_link || '';
+                document.getElementById('website').value = user.website_link || '';
+                document.getElementById('phone').value = user.phone_number || '';
+              
+                document.getElementById('location').value = user.location || '';
+                document.getElementById('study_year').value = user.study_year || '';
+                
+                console.log("Profile data loaded successfully");
+            } else {
+                console.error("Failed to load profile:", result.message);
+            }
+        } catch (error) {
+            console.error("Error loading profile:", error);
+        }
+    }
+
+    // Handle form submission
+    document.getElementById('editProfileForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const submitBtn = document.querySelector('.save-btn');
+        
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Saving...';
+
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/update_profile.php", {
+                method: "POST",
+                body: formData,
+                credentials: 'include'
+            });
+
+            const result = await response.json();
+
+            if (result.status === "success") {
+                alert("Profile updated successfully!");
+                window.location.href = "profile.html";
+            } else {
+                alert("Failed to update profile: " + result.message);
+            }
+        } catch (error) {
+            console.error("Error updating profile:", error);
+            alert("An error occurred. Please try again.");
+        } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Save Changes';
+        }
+    });
+
+    // Authentication check
+    async function checkLogin() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/is_logged_in.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success") {
+                console.log("User is logged in:", result.name);
+                // Load profile data after confirming user is logged in
+                loadUserProfile();
+            } else {
+                alert("You must be logged in to edit your profile.");
+                window.location.href = "signin.html";
+            }
+        } catch (error) {
+            console.error("Login check failed", error);
+            alert("Something went wrong. Please login again.");
+            window.location.href = "signin.html";
+        }
+    }
+
+    // Logout function
+    function logoutUser(e) {
+        e.preventDefault();
+        fetch("http://127.0.0.1/backend/api/logout.php", {
+            credentials: 'include'
+        }).then(() => {
+            alert("You have been logged out.");
+            window.location.href = "signin.html";
+        }).catch((err) => {
+            console.error("Logout failed", err);
+            alert("Logout failed.");
+        });
+    }
+
+    // Profile dropdown functionality
+    function toggleProfileDropdown() {
+        var menu = document.getElementById('profileDropdownMenu');
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('profileDropdownMenu');
+        var profileIcon = document.querySelector('.profileIcon');
+        if (!dropdown || !profileIcon) return;
+        if (!dropdown.contains(event.target) && event.target !== profileIcon) {
+            dropdown.style.display = 'none';
+        }
+    });
+
+    // Run when page loads
+    window.onload = checkLogin;
+</script>
+<script>
+      // Function to update profile image
+    async function updateProfileImage() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success" && result.user.photo) {
+                const profileIcon = document.querySelector('.profileIcon');
+                if (profileIcon) {
+                    profileIcon.src = `http://127.0.0.1/backend/${result.user.photo}`;
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile image:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProfileImage();
+    });
+    </script>
+
+    
 </body>
 </html>

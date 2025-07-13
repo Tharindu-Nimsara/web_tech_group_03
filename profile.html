@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - USJ Projects</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
@@ -412,7 +412,22 @@
             font-size: 14px;
             color: var(--dark-color);
         }
-        
+        .loading-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .no-projects-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
         /* Footer Start*/
 
 footer {
@@ -529,13 +544,13 @@ footer {
 <body>
     <header>
       <!----left-logo and titile----->
-      <div class="head">
+      <div class="head" style="margin-left: 40px;">
         <img
-          src="Images/projectShowcaselogo"
+          src="Images/Unilogo.jpg"
           alt="project-showcaseLogo"
           style="
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             margin-right: 10px;
             border-radius: 50%;
           "
@@ -572,7 +587,7 @@ footer {
           />
           <div class="dropdown-menu" id="profileDropdownMenu">
             <a href="profile.html">Profile</a>
-            <a href="signin.html" >Logout</a>
+            <a href="signin.html" onclick="logoutUser(event)"  >Logout</a>
           </div>
         </div>
     <script>
@@ -603,7 +618,7 @@ footer {
             <div class="profile-left">
                 <div class="info-section">
                     <h3 class="info-title">Contact Information</h3>
-                    <div class="info-content">
+                    <div class="info-content1">
                         <div class="info-item">
                             <i class="fas fa-envelope"></i>
                             <span>john.doe@sip.ac.lk</span>
@@ -662,7 +677,7 @@ footer {
                         <div class="location">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Colombo, Sri Lanka</span>
-                            <span>• Joined March 2022</span>
+                            <!-- <span>• Joined March 2022</span> -->
                         </div>
                         
                     </div>
@@ -682,10 +697,10 @@ footer {
 
 <div class="stats">
     <div class="stat-item">
-        <div class="stat-number">3</div>
+        <div class="stat-number" id="user-project-count">Loading...</div>
         <div class="stat-label">Projects</div>
     </div>
-    <div class="stat-item">
+    <!-- <div class="stat-item">
         <div class="stat-number">105</div>
         <div class="stat-label">Total Likes</div>
     </div>
@@ -696,7 +711,7 @@ footer {
     <div class="stat-item">
         <div class="stat-number">24</div>
         <div class="stat-label">Followers</div>
-    </div>
+    </div> -->
 </div>
 
 <div class="profile-tabs">
@@ -705,92 +720,299 @@ footer {
     <div class="tab">Achievements</div> -->
 </div>
 
-<div class="projects-grid">
-    <div class="project-card">
-        <div class="project-content">
-            <h3 class="project-title">Smart Campus Navigation System</h3>
-            <p class="project-description">An AI-powered mobile application that helps students navigate the university campus efficiently using AR technology.</p>
-            <div class="project-tags">
-                <span class="project-tag">React Native</span>
-                <span class="project-tag">TensorFlow</span>
-                <span class="project-tag">ARCore</span>
-            </div>
-            <div class="project-stats">
-                <div class="project-stat">
-                    <i class="fas fa-heart"></i> 45
-                </div>
-                <div class="project-stat">
-                    <i class="fas fa-eye"></i> 234 views
-                </div>
-                <div class="project-stat">
-                    2024
-                </div>
-                <a href="#" class="view-project">View Project</a>
-            </div>
-        </div>
+<div class="projects-grid" id="user-projects-grid">
+    <div class="loading-message" style="
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    ">
+        <p>Loading your projects...</p>
     </div>
-
-    <div class="project-card">
-        <div class="project-content">
-            <h3 class="project-title">Sustainable Energy Management</h3>
-            <p class="project-description">IoT-based system for monitoring and optimizing energy consumption in university buildings.</p>
-            <div class="project-tags">
-                <span class="project-tag">Arduino</span>
-                <span class="project-tag">Python</span>
-                <span class="project-tag">MongoDB</span>
-            </div>
-            <div class="project-stats">
-                <div class="project-stat">
-                    <i class="fas fa-heart"></i> 32
-                </div>
-                <div class="project-stat">
-                    <i class="fas fa-eye"></i> 189 views
-                </div>
-                <div class="project-stat">
-                    2024
-                </div>
-                <a href="#" class="view-project">View Project</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <div class="project-content">
-            <h3 class="project-title">Digital Library Assistant</h3>
-            <p class="project-description">A chatbot system to help students find academic resources and manage library services.</p>
-            <div class="project-tags">
-                <span class="project-tag">Node.js</span>
-                <span class="project-tag">NLP</span>
-                <span class="project-tag">MySQL</span>
-            </div>
-            <div class="project-stats">
-                <div class="project-stat">
-                    <i class="fas fa-heart"></i> 28
-                </div>
-                <div class="project-stat">
-                    <i class="fas fa-eye"></i> 156 views
-                </div>
-                <div class="project-stat">
-                    2023
-                </div>
-                <a href="#" class="view-project">View Project</a>
-            </div>
-        </div>
-    </div>
+</div>
 </div>
 </html>
 
     <script>
-        // Simple tab functionality
+    // Updated JavaScript for profile.html
+
+        // Load and display user profile data
+        async function loadAndDisplayProfile() {
+            try {
+                const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                    credentials: 'include'
+                });
+                const result = await response.json();
+
+                if (result.status === "success") {
+                    const user = result.user;
+                    
+                    // Update profile information
+                    document.querySelector('.profile-info h1').textContent = user.name || 'Student Name';
+
+                    const locationElement = document.querySelector('.location span');
+                        if (locationElement) {
+                            locationElement.textContent = user.location || 'Colombo, Sri Lanka';
+                        }
+                    
+                    // Update contact information
+                    const emailElement = document.querySelector('.info-content1 .info-item:nth-child(1) span');
+                    if (emailElement) emailElement.textContent = user.email || 'email@sjp.ac.lk';
+                    
+                    const phoneElement = document.querySelector('.info-content1 .info-item:nth-child(2) span');
+                    if (phoneElement) phoneElement.textContent = user.phone_number || '+94 77 123 4567';
+                    
+                    const githubElement = document.querySelector('.info-content1 .info-item:nth-child(3) span');
+                    if (githubElement) githubElement.textContent = user.github_link || 'github.com/username';
+                    
+                    const websiteElement = document.querySelector('.info-content1 .info-item:nth-child(4) span');
+                    if (websiteElement) websiteElement.textContent = user.website_link || 'website.com';
+                    
+                    // Update academic information
+                    const departmentElement = document.querySelector('.info-content .info-item:nth-child(1) span');
+                    if (departmentElement && user.department) {
+                        departmentElement.textContent = `BSc (Hons) ${user.department}`;
+                    }
+                    
+                    const yearElement = document.querySelector('.info-content .info-item:nth-child(2) span');
+                    if (yearElement) yearElement.textContent = user.study_year || '2nd Year';
+                    
+                    // Update bio
+                    const bioElement = document.querySelector('.bio p');
+                    if (bioElement) {
+                        bioElement.textContent = user.bio || 'Passionate student focused on academic excellence and innovative projects.';
+                    }
+                    
+                    // Update skills
+                    if (user.skills) {
+                        const skillsContainer = document.querySelector('.skills');
+                        skillsContainer.innerHTML = '';
+                        
+                        const skillsArray = user.skills.split(',');
+                        skillsArray.forEach(skill => {
+                            const skillSpan = document.createElement('span');
+                            skillSpan.className = 'skill';
+                            skillSpan.textContent = skill.trim();
+                            skillsContainer.appendChild(skillSpan);
+                        });
+                    }
+                    
+                    // Update profile picture if available
+                    if (user.photo) {
+                        const profilePic = document.querySelector('.profile-pic');
+                        if (profilePic) {
+                            profilePic.src = `http://127.0.0.1/backend/${user.photo}`;
+                        }
+                    }
+                    
+                    console.log("Profile data displayed successfully");
+                } else {
+                    console.error("Failed to load profile:", result.message);
+                }
+            } catch (error) {
+                console.error("Error loading profile:", error);
+            }
+        }
+
+        // Load user's projects and statistics
+        async function loadUserProjects() {
+            try {
+                const response = await fetch("http://127.0.0.1/backend/api/get_user_projects.php", {
+                    credentials: 'include'
+                });
+                const result = await response.json();
+
+                if (result.status === "success") {
+                    // Update stats
+                    updateUserStats(result.stats);
+                    
+                    // Update projects
+                    displayUserProjects(result.projects);
+                    
+                    console.log("User projects loaded successfully");
+                } else {
+                    console.error("Failed to load user projects:", result.message);
+                    showNoProjectsMessage();
+                }
+            } catch (error) {
+                console.error("Error loading user projects:", error);
+                showNoProjectsMessage();
+            }
+        }
+
+        function updateUserStats(stats) {
+            const projectCountElement = document.getElementById('user-project-count');
+            if (projectCountElement) {
+                projectCountElement.textContent = stats.project_count || 0;
+            }
+        }
+
+        function displayUserProjects(projects) {
+            const projectsGrid = document.getElementById('user-projects-grid');
+            if (!projectsGrid) return;
+
+            projectsGrid.innerHTML = '';
+
+            if (projects.length === 0) {
+                showNoProjectsMessage();
+                return;
+            }
+
+            projects.forEach(project => {
+                const projectCard = createProjectCard(project);
+                projectsGrid.appendChild(projectCard);
+            });
+        }
+
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+
+            // Get first 3 tags for display
+            const displayTags = project.tags_array.slice(0, 3);
+            const tagsHTML = displayTags.map(tag => 
+                `<span class="project-tag">${tag}</span>`
+            ).join('');
+
+            // Truncate description if too long
+            const shortDescription = project.description.length > 100 
+                ? project.description.substring(0, 100) + '...'
+                : project.description;
+
+            card.innerHTML = `
+                <div class="project-content">
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-description">${shortDescription}</p>
+                    <div class="project-tags">
+                        ${tagsHTML}
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            ${project.year}
+                        </div>
+                        <a href="detail_page.html?id=${project.project_id}" class="view-project">View Project</a>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function showNoProjectsMessage() {
+            const projectsGrid = document.getElementById('user-projects-grid');
+            if (!projectsGrid) return;
+
+            projectsGrid.innerHTML = `
+                <div class="no-projects-message" style="
+                    grid-column: 1 / -1;
+                    text-align: center;
+                    padding: 40px;
+                    color: #666;
+                    background: white;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                ">
+                    <i class="fas fa-folder-open" style="font-size: 48px; margin-bottom: 16px; color: #ddd;"></i>
+                    <h3 style="margin-bottom: 8px; color: #333;">No Projects Yet</h3>
+                    <p style="margin-bottom: 20px;">You haven't uploaded any projects yet.</p>
+                    <a href="upload.html" class="upload-btn" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <span>Upload Your First Project</span>
+                    </a>
+                </div>
+            `;
+        }
+
+        // Authentication check
+        async function checkLogin() {
+            try {
+                const response = await fetch("http://127.0.0.1/backend/api/is_logged_in.php", {
+                    credentials: 'include'
+                });
+                const result = await response.json();
+
+                if (result.status === "success") {
+                    console.log("User is logged in:", result.name);
+                    // Load profile data and user projects
+                    loadAndDisplayProfile();
+                    loadUserProjects();
+                } else {
+                    alert("You must be logged in to view this page.");
+                    window.location.href = "signin.html";
+                }
+            } catch (error) {
+                console.error("Login check failed", error);
+                alert("Something went wrong. Please login again.");
+                window.location.href = "signin.html";
+            }
+        }
+
+        // Logout function
+        function logoutUser(e) {
+            e.preventDefault();
+            fetch("http://127.0.0.1/backend/api/logout.php", {
+                credentials: 'include'
+            }).then(() => {
+                alert("You have been logged out.");
+                window.location.href = "signin.html";
+            }).catch((err) => {
+                console.error("Logout failed", err);
+                alert("Logout failed.");
+            });
+        }
+
+        // Profile dropdown functionality
+        function toggleProfileDropdown() {
+            var menu = document.getElementById('profileDropdownMenu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            var dropdown = document.getElementById('profileDropdownMenu');
+            var profileIcon = document.querySelector('.profileIcon');
+            if (!dropdown || !profileIcon) return;
+            if (!dropdown.contains(event.target) && event.target !== profileIcon) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Tab functionality
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-                
-                // Here you would typically load different content based on the tab
-                // For this example, we're just changing the active tab style
             });
         });
+
+        // Run when page loads
+        window.onload = checkLogin;
+</script>
+<script>
+      // Function to update profile image
+    async function updateProfileImage() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success" && result.user.photo) {
+                const profileIcon = document.querySelector('.profileIcon');
+                if (profileIcon) {
+                    profileIcon.src = `http://127.0.0.1/backend/${result.user.photo}`;
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile image:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProfileImage();
+    });
     </script>
 </body>
 </html>

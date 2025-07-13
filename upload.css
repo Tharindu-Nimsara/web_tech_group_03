@@ -213,6 +213,100 @@ footer {
     font-size: 0.9rem;
 }
 
+/* --- Improved Upload Form Styles (reference: index1 page) --- */
+.form-table {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(25, 118, 210, 0.08);
+    padding: 32px 28px 24px 28px;
+    margin-bottom: 32px;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    transition: box-shadow 0.3s;
+}
+
+.form-table label {
+    font-weight: 600;
+    color: #1976d2;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+.form-table td {
+    padding: 10px 18px 10px 0;
+    vertical-align: top;
+    border: none;
+}
+
+.form-table input,
+.form-table textarea,
+.form-table select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1.5px solid #e3f2fd;
+    border-radius: 8px;
+    background: #f9fbff;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    transition: border 0.2s, box-shadow 0.2s;
+    color: #222;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.form-table input:focus,
+.form-table textarea:focus,
+.form-table select:focus {
+    border: 1.5px solid #1976d2;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px #e3f2fd;
+}
+
+.form-table textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.form-table select {
+    color: #1976d2;
+    background: #f9fbff;
+}
+
+.form-table option {
+    color: #222;
+}
+
+@media (max-width: 1024px) {
+    .form-table {
+        padding: 18px 8px;
+    }
+    .form-table td {
+        padding: 8px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-table {
+        padding: 10px 2px;
+    }
+    .form-table td {
+        display: block;
+        width: 100%;
+        padding: 8px 0;
+    }
+    .form-table input,
+    .form-table textarea,
+    .form-table select {
+        width: 100% !important;
+    }
+}
+
 .form-table {
 width: 100%;
 font-family: 'Segoe UI', sans-serif;
@@ -271,7 +365,126 @@ font-family: 'Segoe UI', sans-serif;
     font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 5px;
+
 }
+
+.photo-upload-container {
+    margin: 20px 0;
+}
+
+.photo-upload-area {
+    border: 2px dashed #e3f2fd;
+    border-radius: 12px;
+    background: #fafbff;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.photo-upload-area:hover {
+    border-color: #1976d2;
+    background: #f0f7ff;
+}
+
+.photo-upload-area.dragover {
+    border-color: #1976d2;
+    background: #e3f2fd;
+    transform: scale(1.02);
+}
+
+.upload-placeholder {
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-placeholder:hover {
+    background: rgba(25, 118, 210, 0.05);
+}
+
+.upload-placeholder h4 {
+    margin: 16px 0 8px 0;
+    color: #1976d2;
+    font-weight: 600;
+}
+
+.upload-placeholder p {
+    margin: 4px 0;
+    color: #666;
+}
+
+.image-preview {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.change-image-btn, .remove-image-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.change-image-btn {
+    background: #1976d2;
+    color: white;
+}
+
+.change-image-btn:hover {
+    background: #1565c0;
+    transform: translateY(-1px);
+}
+
+.remove-image-btn {
+    background: #f5f5f5;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.remove-image-btn:hover {
+    background: #e53935;
+    color: white;
+    border-color: #e53935;
+}
+
+/* Loading state for image upload */
+.image-uploading {
+    position: relative;
+}
+
+.image-uploading::after {
+    content: 'Processing...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 .partitions h4 {
     margin: 20px 0 10px 0;
 }
@@ -355,6 +568,60 @@ font-family: 'Segoe UI', sans-serif;
 .upload-partition img:hover {
     border-style: dashed;
 }
+
+.upload-project-button {
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+}
+
+.upload-project-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+}
+
+.upload-project-button:active {
+    transform: translateY(0);
+}
+
+/* Validation styling */
+input:invalid, textarea:invalid, select:invalid {
+    border-color: #e53935 !important;
+}
+
+input:valid, textarea:valid, select:valid {
+    border-color: #4caf50;
+}
+
+/* Tags preview styling */
+.tag-preview {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    color: #1976d2;
+    border-radius: 12px;
+    padding: 4px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+    margin: 2px;
+}
+
+/* Loading state */
+.upload-project-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
 /* Tablet devices (<= 1024px) */
 @media (max-width: 1024px) {
   header, footer {

@@ -426,20 +426,20 @@
   <body>
     <header>
       <!----left-logo and titile----->
-      <div class="head">
+      <div class="head" style="margin-left: 40px;">
         <img
-          src="Images/projectShowcaselogo"
+          src="Images/Unilogo.jpg"
           alt="project-showcaseLogo"
           style="
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             margin-right: 10px;
             border-radius: 50%;
           "
         />
         <div class="site-info">
           <h2>USJ Projects</h2>
-          <p style="font-size: 16px">University of Sri Jayawardenepura</p>
+          <p style="font-size: 16px; margin-bottom: 10px;" >University of Sri Jayawardenepura</p>
         </div>
       </div>
 
@@ -501,6 +501,7 @@
                 color: #e53935;
                 text-decoration: none;
               "
+              onclick="logoutUser(event)" 
               >Logout</a
             >
           </div>
@@ -536,19 +537,19 @@
       </p>
       <div class="stats">
         <div>
-          <h3>1,247</h3>
+          <h3 id="about-total-projects">Loading...</h3>
           <p>Total Projects</p>
         </div>
         <div>
-          <h3>892</h3>
+          <h3 id="about-active-students">Loading...</h3>
           <p>Active Students</p>
         </div>
         <div>
-          <h3>3</h3>
+          <h3 id="about-departments">Loading...</h3>
           <p>Departments</p>
         </div>
         <div>
-          <h3>67</h3>
+          <h3 id="about-this-month">Loading...</h3>
           <p>This Month</p>
         </div>
       </div>
@@ -623,7 +624,7 @@
       <p>
         Our Student Project Showcase is a comprehensive platform that highlights
         the exceptional work of<br />
-        our students across all faculties, demonstrating their ability to tackle
+        our students across all departments, demonstrating their ability to tackle
         real-world challenges through<br />
         research, technology and innovative thinking.
       </p>
@@ -732,5 +733,115 @@
         <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
       </div>
     </footer>
+    <script>
+      function logoutUser(e) {
+        e.preventDefault();
+        fetch("http://127.0.0.1/backend/api/logout.php", {
+              credentials: 'include'  
+          }).then(() => {
+            alert("You have been logged out.");
+            window.location.href = "signin.html";
+          })
+          .catch((err) => {
+            console.error("Logout failed", err);
+            alert("Logout failed.");
+          });
+      }
+
+      async function checkLogin() {
+        try {
+          const response = await fetch("http://127.0.0.1/backend/api/is_logged_in.php", {
+              credentials: 'include' 
+          });
+          const result = await response.json();
+
+          if (result.status === "success") {
+            // Optional: customize profile area or greet user
+            console.log("User is logged in:", result.name);
+          } else {
+            alert("You must be logged in to view this page.");
+            window.location.href = "signin.html";
+          }
+        } catch (error) {
+          console.error("Login check failed", error);
+          alert("Something went wrong. Please Login again.");
+          window.location.href = "signin.html";
+        }
+      }
+
+      // Statistics loading functions
+      async function loadAboutStatistics() {
+          try {
+              const response = await fetch('http://127.0.0.1/backend/api/get_statistics.php', {
+                  credentials: 'include'
+              });
+              
+              const result = await response.json();
+              
+              if (result.status === 'success') {
+                  updateAboutStatistics(result.statistics);
+              } else {
+                  console.error('Failed to load statistics:', result.message);
+                  showFallbackAboutStatistics();
+              }
+          } catch (error) {
+              console.error('Error loading statistics:', error);
+              showFallbackAboutStatistics();
+          }
+      }
+
+      function updateAboutStatistics(stats) {
+          // Add number formatting for better display
+          document.getElementById('about-total-projects').textContent = formatNumber(stats.total_projects);
+          document.getElementById('about-active-students').textContent = formatNumber(stats.active_students);
+          document.getElementById('about-departments').textContent = stats.departments;
+          document.getElementById('about-this-month').textContent = stats.this_month;
+      }
+
+      function formatNumber(num) {
+          // Format numbers with commas (e.g., 1,247)
+          return new Intl.NumberFormat().format(num);
+      }
+
+      function showFallbackAboutStatistics() {
+          // Show default numbers if API fails
+          document.getElementById('about-total-projects').textContent = '1,247';
+          document.getElementById('about-active-students').textContent = '892';
+          document.getElementById('about-departments').textContent = '3';
+          document.getElementById('about-this-month').textContent = '67';
+      }
+
+      // Initialize page with both login check and statistics loading
+      async function initializePage() {
+          await checkLogin();
+          loadAboutStatistics();
+      }
+
+      window.onload = initializePage;
+    </script>
+    <script>
+      // Function to update profile image
+    async function updateProfileImage() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success" && result.user.photo) {
+                const profileIcon = document.querySelector('.profileIcon');
+                if (profileIcon) {
+                    profileIcon.src = `http://127.0.0.1/backend/${result.user.photo}`;
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile image:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProfileImage();
+    });
+    </script>
   </body>
 </html>

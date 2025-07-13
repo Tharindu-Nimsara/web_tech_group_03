@@ -46,7 +46,7 @@
           />
           <div class="dropdown-menu" id="profileDropdownMenu">
             <a href="profile.html">Profile</a>
-            <a href="signin.html" >Logout</a>
+            <a href="signin.html" onclick="logoutUser(event)" >Logout</a>
           </div>
         </div>
     <script>
@@ -63,10 +63,7 @@
           dropdown.style.display = 'none';
         }
       });
-      function logoutUser(e) {
-        e.preventDefault();
-        alert('Logged out! (Implement your logout logic here)');
-      }
+      
     </script>
       </div>
     </header>
@@ -115,22 +112,22 @@
       <div class="stat-container">
         <div class="stat">
           <img src="Images/openbook.PNG" alt="openbookIcon" class="icon" />
-          <h2>1,247</h2>
+          <h2 id="total-projects">Loading...</h2>
           <p>Total Projects</p>
         </div>
         <div class="stat">
           <img src="Images/user.PNG" alt="userIcon" class="icon" />
-          <h2>892</h2>
+          <h2 id="active-students">Loading...</h2>
           <p>Active Students</p>
         </div>
         <div class="stat">
           <img src="Images/department.PNG" alt="buildingIcon" class="icon" />
-          <h2>3</h2>
+          <h2 id="departments">Loading...</h2>
           <p>Departments</p>
         </div>
         <div class="stat">
           <img src="Images/chartline.PNG" alt="chartlineIcon" class="icon" />
-          <h2>67</h2>
+          <h2 id="this-month">Loading...</h2>
           <p>This Month</p>
         </div>
       </div>
@@ -144,104 +141,13 @@
       </div>
 
       <div class="card-container">
-        <!-- Card 1 -->
-        <div class="card">
-          <div class="card-header AI">
-            <img
-              src="Images/home.jpg"
-              alt="AI Icon"
-              class="card-header-img"
-            />
-            <h2>AI Navigation</h2>
-            <span>Computer Vision</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2025</span>
-              <span class="tag">Computer Science</span>
-            </div>
-            <div class="card-title">Smart Campus Navigation System</div>
-            <div class="card-desc">
-              An AI-powered indoor navigation system using computer vision and
-              machine learning to help students and visitors navigate their
-              projects.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Python</span>
-              <span class="stack">TensorFlow</span>
-              <span class="stack">OpenCV</span>
-            </div>
-            <div class="card-footer">
-              <span>Amal Perera<br /><small>Final Year, CSE</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
+        <!-- Card  -->
+        <div class="card-container">
+        <div class="loading-projects">
+          <h3>📚 Loading Featured Projects...</h3>
+          <p>Fetching the latest projects from our database.</p>
         </div>
-        <!-- Card 2 -->
-        <div class="card">
-          <div class="card-header Iot">
-            <img
-              src="Images/home.jpg"
-              alt="IoT Icon"
-              class="card-header-img"
-            />
-            <h2>IoT System</h2>
-            <span>Smart Monitoring</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2025</span>
-              <span class="tag">Engineering</span>
-            </div>
-            <div class="card-title">Smart Water Management System</div>
-            <div class="card-desc">
-              IoT-based water quality monitoring and distribution system for
-              urban areas with real-time analytics, automated alerts, and more.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Arduino</span>
-              <span class="stack">React Native</span>
-              <span class="stack">Firebase</span>
-            </div>
-            <div class="card-footer">
-              <span>Nimal Silva<br /><small>3rd Year, EEE</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="card">
-          <div class="card-header e-comm">
-            <img
-              src="Images/home.jpg"
-              alt="E-Commerce Icon"
-              class="card-header-img"
-            />
-            <h2>E-Commerce</h2>
-            <span>Digital Platform</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <span class="year">2023</span>
-              <span class="tag">Business Studies</span>
-            </div>
-            <div class="card-title">Local Artisan Marketplace</div>
-            <div class="card-desc">
-              Digital platform connecting local artisans with customers,
-              featuring secure payments, inventory management, and integrated
-              tools.
-            </div>
-            <div class="card-stack">
-              <span class="stack">Next.js</span>
-              <span class="stack">Stripe</span>
-              <span class="stack">MongoDB</span>
-            </div>
-            <div class="card-footer">
-              <span>Saman Fernando<br /><small>4th Year, BBA</small></span>
-              <span class="view-details">&#128065; View Details</span>
-            </div>
-          </div>
-        </div>
+      </div>
       </div>
 
       <div class="button-wrapper">
@@ -367,5 +273,213 @@
         <p>© 2024 University of Sri Jayewardenepura. All rights reserved.</p>
       </div>
     </footer>
+    
+    <script>
+      async function loadFeaturedProjects() {
+          try {
+              const response = await fetch('http://127.0.0.1/backend/api/get_featured_projects.php', {
+                  credentials: 'include'
+              });
+              
+              const result = await response.json();
+              
+              if (result.status === 'success' && result.projects.length > 0) {
+                  populateFeaturedProjects(result.projects);
+              } else {
+                  console.log('No featured projects found, keeping static content');
+              }
+          } catch (error) {
+              console.error('Error loading featured projects:', error);
+              // Keep static content if API fails
+          }
+      }
+
+      function populateFeaturedProjects(projects) {
+          const cardContainer = document.querySelector('.card-container');
+          cardContainer.innerHTML = ''; // Clear existing static cards
+          
+          projects.forEach((project, index) => {
+              const cardHTML = createProjectCard(project, index);
+              cardContainer.appendChild(cardHTML);
+          });
+      }
+
+      function createProjectCard(project, index) {
+          const card = document.createElement('div');
+          card.className = 'card';
+          
+          // Get project image or use default
+          const projectImage = project.project_image 
+              ? `http://127.0.0.1/backend/${project.project_image}` 
+              : 'Images/home.jpg';
+          
+          // Get first few tags for display (max 3)
+          const displayTags = project.tags_array.slice(0, 3);
+          
+          // Create tags HTML
+          const tagsHTML = displayTags.map(tag => 
+              `<span class="stack">${tag}</span>`
+          ).join('');
+          
+          // Truncate description if too long
+          const shortDescription = project.description.length > 120 
+              ? project.description.substring(0, 120) + '...'
+              : project.description;
+          
+          card.innerHTML = `
+              <div class="card-header ${getCardHeaderClass(index)}">
+                  <img src="${projectImage}" alt="Project Image" class="card-header-img" />
+                  <h2>${project.category || 'Academic Project'}</h2>
+                  <span>${project.department}</span>
+              </div>
+              <div class="card-content">
+                  <div class="card-meta">
+                      <span class="year">${project.year}</span>
+                      <span class="tag">${project.author_department}</span>
+                  </div>
+                  <div class="card-title">${project.title}</div>
+                  <div class="card-desc">${shortDescription}</div>
+                  <div class="card-stack">
+                      ${tagsHTML}
+                  </div>
+                  <div class="card-footer">
+                      <span>${project.author_name}<br /><small>${project.author_year}, ${project.author_department}</small></span>
+                      <span class="view-details" onclick="viewProjectDetails(${project.project_id})">&#128065; View Details</span>
+                  </div>
+              </div>
+          `;
+          
+          return card;
+      }
+
+      function getCardHeaderClass(index) {
+          const classes = ['AI', 'Iot', 'e-comm'];
+          return classes[index % 3]; // Cycle through the classes
+      }
+
+      function viewProjectDetails(projectId) {
+          window.location.href = `detail_page.html?id=${projectId}`;
+      }
+
+      // Load featured projects when page loads
+      document.addEventListener('DOMContentLoaded', function() {
+          loadFeaturedProjects();
+      });
+
+
+      async function loadStatistics() {
+          try {
+              const response = await fetch('http://127.0.0.1/backend/api/get_statistics.php', {
+                  credentials: 'include'
+              });
+              
+              const result = await response.json();
+              
+              if (result.status === 'success') {
+                  updateStatistics(result.statistics);
+              } else {
+                  console.error('Failed to load statistics:', result.message);
+                  showFallbackStatistics();
+              }
+          } catch (error) {
+              console.error('Error loading statistics:', error);
+              showFallbackStatistics();
+          }
+      }
+
+      function updateStatistics(stats) {
+          // Add number formatting for better display
+          document.getElementById('total-projects').textContent = formatNumber(stats.total_projects);
+          document.getElementById('active-students').textContent = formatNumber(stats.active_students);
+          document.getElementById('departments').textContent = stats.departments;
+          document.getElementById('this-month').textContent = stats.this_month;
+      }
+
+      function formatNumber(num) {
+          // Format numbers with commas (e.g., 1,247)
+          return new Intl.NumberFormat().format(num);
+      }
+
+      function showFallbackStatistics() {
+          // Show default numbers if API fails
+          document.getElementById('total-projects').textContent = '1,247';
+          document.getElementById('active-students').textContent = '892';
+          document.getElementById('departments').textContent = '3';
+          document.getElementById('this-month').textContent = '67';
+      }
+
+      // Update the existing DOMContentLoaded event listener
+      document.addEventListener('DOMContentLoaded', function() {
+          loadFeaturedProjects();
+          loadStatistics(); // Add this line
+      });
+    </script>
+
+
+    <script>
+      function logoutUser(e) {
+        e.preventDefault();
+        fetch("http://127.0.0.1/backend/api/logout.php", {
+              credentials: 'include'  
+          }).then(() => {
+            alert("You have been logged out.");
+            window.location.href = "signin.html";
+          })
+          .catch((err) => {
+            console.error("Logout failed", err);
+            alert("Logout failed.");
+          });
+      }
+
+      async function checkLogin() {
+        try {
+          const response = await fetch("http://127.0.0.1/backend/api/is_logged_in.php", {
+              credentials: 'include' 
+          });
+          const result = await response.json();
+
+          if (result.status === "success") {
+            // Optional: customize profile area or greet user
+            console.log("User is logged in:", result.name);
+          } else {
+            alert("You must be logged in to view this page.");
+            window.location.href = "signin.html";
+          }
+        } catch (error) {
+          console.error("Login check failed", error);
+          alert("Something went wrong. Please Login again.");
+          window.location.href = "signin.html";
+        }
+      }
+
+      window.onload = checkLogin;
+    </script>
+
+    
+    <script>
+      // Function to update profile image
+    async function updateProfileImage() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success" && result.user.photo) {
+                const profileIcon = document.querySelector('.profileIcon');
+                if (profileIcon) {
+                    profileIcon.src = `http://127.0.0.1/backend/${result.user.photo}`;
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile image:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProfileImage();
+    });
+    </script>
+
   </body>
 </html>
