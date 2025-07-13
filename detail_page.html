@@ -292,7 +292,30 @@
 
       window.onload = checkLogin;
     </script>
+    <script>
+      // Function to update profile image
+    async function updateProfileImage() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
 
+            if (result.status === "success" && result.user.photo) {
+                const profileIcon = document.querySelector('.profileIcon');
+                if (profileIcon) {
+                    profileIcon.src = `http://127.0.0.1/backend/${result.user.photo}`;
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile image:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProfileImage();
+    });
+    </script>
 
 </body>
 

@@ -112,22 +112,22 @@
       <div class="stat-container">
         <div class="stat">
           <img src="Images/openbook.PNG" alt="openbookIcon" class="icon" />
-          <h2>1,247</h2>
+          <h2 id="total-projects">Loading...</h2>
           <p>Total Projects</p>
         </div>
         <div class="stat">
           <img src="Images/user.PNG" alt="userIcon" class="icon" />
-          <h2>892</h2>
+          <h2 id="active-students">Loading...</h2>
           <p>Active Students</p>
         </div>
         <div class="stat">
           <img src="Images/department.PNG" alt="buildingIcon" class="icon" />
-          <h2>3</h2>
+          <h2 id="departments">Loading...</h2>
           <p>Departments</p>
         </div>
         <div class="stat">
           <img src="Images/chartline.PNG" alt="chartlineIcon" class="icon" />
-          <h2>67</h2>
+          <h2 id="this-month">Loading...</h2>
           <p>This Month</p>
         </div>
       </div>
@@ -365,6 +365,54 @@
       document.addEventListener('DOMContentLoaded', function() {
           loadFeaturedProjects();
       });
+
+
+      async function loadStatistics() {
+          try {
+              const response = await fetch('http://127.0.0.1/backend/api/get_statistics.php', {
+                  credentials: 'include'
+              });
+              
+              const result = await response.json();
+              
+              if (result.status === 'success') {
+                  updateStatistics(result.statistics);
+              } else {
+                  console.error('Failed to load statistics:', result.message);
+                  showFallbackStatistics();
+              }
+          } catch (error) {
+              console.error('Error loading statistics:', error);
+              showFallbackStatistics();
+          }
+      }
+
+      function updateStatistics(stats) {
+          // Add number formatting for better display
+          document.getElementById('total-projects').textContent = formatNumber(stats.total_projects);
+          document.getElementById('active-students').textContent = formatNumber(stats.active_students);
+          document.getElementById('departments').textContent = stats.departments;
+          document.getElementById('this-month').textContent = stats.this_month;
+      }
+
+      function formatNumber(num) {
+          // Format numbers with commas (e.g., 1,247)
+          return new Intl.NumberFormat().format(num);
+      }
+
+      function showFallbackStatistics() {
+          // Show default numbers if API fails
+          document.getElementById('total-projects').textContent = '1,247';
+          document.getElementById('active-students').textContent = '892';
+          document.getElementById('departments').textContent = '3';
+          document.getElementById('this-month').textContent = '67';
+      }
+
+      // Update the existing DOMContentLoaded event listener
+      document.addEventListener('DOMContentLoaded', function() {
+          loadFeaturedProjects();
+          loadStatistics(); // Add this line
+      });
     </script>
 
 
@@ -405,6 +453,32 @@
       }
 
       window.onload = checkLogin;
+    </script>
+
+    
+    <script>
+      // Function to update profile image
+    async function updateProfileImage() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success" && result.user.photo) {
+                const profileIcon = document.querySelector('.profileIcon');
+                if (profileIcon) {
+                    profileIcon.src = `http://127.0.0.1/backend/${result.user.photo}`;
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile image:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProfileImage();
+    });
     </script>
 
   </body>

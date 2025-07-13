@@ -9,14 +9,15 @@
   <body>
     <header>
       <!----left-logo and titile----->
-      <div class="head">
-        a<img
-          src="Imges/projectShowcaselogo"
+      <div class="head" style="margin-left: 40px;">
+        <img
+          src="Images/Unilogo.jpg"
           alt="project-showcaseLogo"
           style="
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             margin-right: 10px;
+            margin-top: 10px;
             border-radius: 50%;
           "
         />
@@ -366,6 +367,30 @@
       }
 
       window.onload = checkLogin;
+    </script>
+    <script>
+      // Function to update profile image
+    async function updateProfileImage() {
+        try {
+            const response = await fetch("http://127.0.0.1/backend/api/get_profile.php", {
+                credentials: 'include'
+            });
+            const result = await response.json();
+
+            if (result.status === "success" && result.user.photo) {
+                const profileIcon = document.querySelector('.profileIcon');
+                if (profileIcon) {
+                    profileIcon.src = `http://127.0.0.1/backend/${result.user.photo}`;
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile image:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProfileImage();
+    });
     </script>
   </body>
 </html>
